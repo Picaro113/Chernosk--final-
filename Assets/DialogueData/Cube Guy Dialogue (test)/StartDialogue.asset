@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a1366721e9b57d46838119b2abf2c22, type: 3}
+  m_Name: StartDialogue
+  m_EditorClassIdentifier: Assembly-CSharp::DIalogueObject
+  dialogue:
+  - 'I am Cube Guy... I can now respond to various options that the developer has
+    put in!
+
+    He has also: coded a way for me to pause at certain punctuations...
+    Lmao!!!  '
+  - Do you think they used a tutorial for this?
+  responses:
+  - responseText: No
+    dialogueObject: {fileID: 11400000, guid: 38d026b3efc47024dac4ff1243b96588, type: 2}
+  - responseText: Yes
+    dialogueObject: {fileID: 11400000, guid: 44b30c7201b7a0b48b056cb47fd513df, type: 2}

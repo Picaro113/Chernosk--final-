@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a1366721e9b57d46838119b2abf2c22, type: 3}
+  m_Name: Yes
+  m_EditorClassIdentifier: Assembly-CSharp::DialogueObject
+  dialogue:
+  - 'How dare you accuse the developer not being smart enough to figure this out
+    on his own. '
+  - Not cool dude.
+  responses:
+  - responseText: I'm sorry
+    dialogueObject: {fileID: 11400000, guid: ae7a4f6c86f330448bf202ed16c07e22, type: 2}
+  - responseText: :(
+    dialogueObject: {fileID: 11400000, guid: b92fe8c4e60737f4d9d0feae34a0ecdf, type: 2}
