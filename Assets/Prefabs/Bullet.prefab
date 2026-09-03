@@ -14,10 +14,10 @@ GameObject:
   - component: {fileID: 3923150791408025620}
   - component: {fileID: 9054750223678784021}
   - component: {fileID: 913262373483386219}
-  - component: {fileID: 6125501891140465862}
+  - component: {fileID: -6202771452098355474}
   m_Layer: 0
   m_Name: Bullet
-  m_TagString: Untagged
+  m_TagString: Bullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -156,7 +156,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c6b81babfb1ec0a4cb41d6b4893b9dcf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Bullet
---- !u!96 &6125501891140465862
+--- !u!96 &-6202771452098355474
 TrailRenderer:
   serializedVersion: 4
   m_ObjectHideFlags: 0
@@ -214,8 +214,8 @@ TrailRenderer:
       serializedVersion: 2
       m_Curve:
       - serializedVersion: 3
-        time: 0
-        value: 0.10227203
+        time: 0.0000014500692
+        value: 0.06868669
         inSlope: 0
         outSlope: 0
         tangentMode: 0
@@ -223,7 +223,7 @@ TrailRenderer:
         inWeight: 0.33333334
         outWeight: 0.33333334
       - serializedVersion: 3
-        time: 0.105990365
+        time: 0.040856235
         value: 0
         inSlope: 0
         outSlope: 0
@@ -236,7 +236,7 @@ TrailRenderer:
       m_RotationOrder: 4
     colorGradient:
       serializedVersion: 2
-      key0: {r: 1, g: 0, b: 0, a: 1}
+      key0: {r: 0.9528302, g: 0, b: 0, a: 1}
       key1: {r: 1, g: 1, b: 1, a: 1}
       key2: {r: 0, g: 0, b: 0, a: 0}
       key3: {r: 0, g: 0, b: 0, a: 0}
@@ -244,7 +244,7 @@ TrailRenderer:
       key5: {r: 0, g: 0, b: 0, a: 0}
       key6: {r: 0, g: 0, b: 0, a: 0}
       key7: {r: 0, g: 0, b: 0, a: 0}
-      ctime0: 28142
+      ctime0: 30262
       ctime1: 65535
       ctime2: 0
       ctime3: 0
