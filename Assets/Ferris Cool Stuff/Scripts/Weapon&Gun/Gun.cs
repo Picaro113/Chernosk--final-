@@ -24,6 +24,7 @@ public class Gun : MonoBehaviour
     public float bulletVelocity = 30f;
     public float bulletPrefabLifeTime = 3f;
 
+    public GameObject muzzleEffect;
     public enum ShootingMode
     {
         Single,
@@ -62,6 +63,8 @@ public class Gun : MonoBehaviour
 
     private void FireWeapon()
     {
+        muzzleEffect.GetComponent<ParticleSystem>().Play();
+
         readyToShoot = false;
 
         Vector3 shootingDirection = CalculateDirectionAndSpread().normalized;
