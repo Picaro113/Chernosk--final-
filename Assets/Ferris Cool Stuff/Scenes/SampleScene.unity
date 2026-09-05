@@ -2286,7 +2286,7 @@ GameObject:
   - component: {fileID: 2067495422}
   - component: {fileID: 2067495423}
   - component: {fileID: 2067495424}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Cube Guy (testing purposes only)
   m_TagString: Wall
   m_Icon: {fileID: 0}
