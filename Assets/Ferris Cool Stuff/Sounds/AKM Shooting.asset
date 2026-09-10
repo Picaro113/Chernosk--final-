@@ -1,0 +1,93 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1233149941 &-4463391025131520631
+AudioContainerElement:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: AKM Shot 1_{-4463391025131520631}
+  m_AudioClip: {fileID: 8300000, guid: 63edd5aeddc7c4a45a01c2f012dce462, type: 3}
+  m_Volume: 0
+  m_Enabled: 1
+--- !u!1233149941 &678600290441469403
+AudioContainerElement:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: AKM Shot 2_{678600290441469403}
+  m_AudioClip: {fileID: 8300000, guid: 5431b093de2449e4b83ca57646162d11, type: 3}
+  m_Volume: 0
+  m_Enabled: 1
+--- !u!1233149941 &2341827956768479381
+AudioContainerElement:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: AKM Shot 5_{2341827956768479381}
+  m_AudioClip: {fileID: 8300000, guid: 1ae22caf04365fc41a470e738ed34c99, type: 3}
+  m_Volume: 0
+  m_Enabled: 1
+--- !u!1233149941 &2583641764032610463
+AudioContainerElement:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: AKM Shot 6_{2583641764032610463}
+  m_AudioClip: {fileID: 8300000, guid: b7d4f46044b39ad42960a5ccdd322d34, type: 3}
+  m_Volume: 0
+  m_Enabled: 1
+--- !u!1233149941 &5516043833112412422
+AudioContainerElement:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: AKM Shot 3_{5516043833112412422}
+  m_AudioClip: {fileID: 8300000, guid: 2d716dce80a92fa4baa4a588340321bd, type: 3}
+  m_Volume: 0
+  m_Enabled: 1
+--- !u!1307931743 &6418180475301049370
+AudioRandomContainer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: AKM Shooting
+  m_Volume: 0
+  m_Pitch: 0
+  m_AutomaticTriggerTime: 0
+  m_LoopCount: 1
+  m_VolumeRandomizationRange: {x: 0, y: 0}
+  m_PitchRandomizationRange: {x: 0, y: 0}
+  m_AutomaticTriggerTimeRandomizationRange: {x: 0, y: 0}
+  m_LoopCountRandomizationRange: {x: 0, y: 0}
+  m_Elements:
+  - {fileID: -4463391025131520631}
+  - {fileID: 678600290441469403}
+  - {fileID: 5516043833112412422}
+  - {fileID: 8391335934559231967}
+  - {fileID: 2341827956768479381}
+  - {fileID: 2583641764032610463}
+  m_AvoidRepeatingLast: 0
+  m_PlaybackMode: 1
+  m_TriggerMode: 0
+  m_AutomaticTriggerMode: 1
+  m_LoopMode: 2
+  m_VolumeRandomizationEnabled: 0
+  m_PitchRandomizationEnabled: 0
+  m_AutomaticTriggerTimeRandomizationEnabled: 0
+  m_LoopCountRandomizationEnabled: 0
+--- !u!1233149941 &8391335934559231967
+AudioContainerElement:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: AKM Shot 4_{8391335934559231967}
+  m_AudioClip: {fileID: 8300000, guid: cb1ed143d82e9614eada2eecca587d58, type: 3}
+  m_Volume: 0
+  m_Enabled: 1

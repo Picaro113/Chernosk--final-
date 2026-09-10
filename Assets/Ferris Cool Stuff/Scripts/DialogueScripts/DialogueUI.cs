@@ -11,16 +11,20 @@ public class DialogueUI : MonoBehaviour
     private ResponseHandler responseHandler;
 
     [SerializeField] private PlayerMovement playerMovement;
+
+    public Gun gun;
     private TypeWriterEffect typeWriterEffect;
     private void Start()
     {       
        responseHandler = GetComponent<ResponseHandler>();
        typeWriterEffect = GetComponent<TypeWriterEffect>();
        CloseDialogueBox();
+       
     }
 
     public void ShowDialogue (DialogueObject dialogueObject)
     {
+        gun.canShoot = false;
         IsOpen = true;
         Debug.Log("Showing Dialogue Box");
         Cursor.lockState = CursorLockMode.None;
@@ -80,6 +84,7 @@ public class DialogueUI : MonoBehaviour
 
     public void CloseDialogueBox()
     {
+        gun.canShoot = true;
         Debug.Log("Disabling Dialogue Box");
         dialogueBox.SetActive(false);
         IsOpen = false;
