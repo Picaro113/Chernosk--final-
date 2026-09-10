@@ -4,8 +4,17 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
+    [SerializeField] private float damage = 10;
+
     private void OnCollisionEnter(Collision objectHit)
     {
+
+        if (objectHit.gameObject.CompareTag("Enemy"))
+        {
+            Health enemy = objectHit.gameObject.GetComponent<Health>();
+            enemy.TakeDamage(damage);
+        }
+
         if (objectHit.gameObject.CompareTag("Player"))
         {
             Destroy(gameObject);
