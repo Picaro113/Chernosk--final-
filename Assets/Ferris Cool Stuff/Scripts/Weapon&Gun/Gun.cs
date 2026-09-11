@@ -65,7 +65,7 @@ public class Gun : MonoBehaviour
     {
         if (bulletsLeft == 0 && isShooting)
         {
-            SoundManager.Instance.emptyMag1911.Play();
+            SoundManager.Instance.PlayEmptyMagSound(thisWeaponModel);
         }
 
         if (currentShootingMode == ShootingMode.Auto && canShoot == true)
@@ -79,12 +79,15 @@ public class Gun : MonoBehaviour
             isShooting = Input.GetKeyDown(KeyCode.Mouse0);
         }
 
-        if(Input.GetKeyDown(KeyCode.R) && bulletsLeft < magazineSize && !isReloading)
+        if (isShooting == false)
         {
-            Reload();
+            if (Input.GetKeyDown(KeyCode.R) && bulletsLeft < magazineSize && !isReloading)
+            {
+                Reload();
+            }
         }
 
-        if (readyToShoot && isShooting && bulletsLeft > 0)
+        if (readyToShoot && isShooting && bulletsLeft > 0 && !isReloading)
         {
             burstBulletsLeft = bulletsPerBurst;
             FireWeapon();
@@ -94,6 +97,7 @@ public class Gun : MonoBehaviour
         {
             AmmoManager.Instance.ammoCount.text =$"{bulletsLeft/bulletsPerBurst}/{magazineSize/bulletsPerBurst}";
         }
+
     }
 
     private void FireWeapon()
@@ -140,7 +144,6 @@ public class Gun : MonoBehaviour
     private void Reload()
     {
         SoundManager.Instance.PlayReloadingSound(thisWeaponModel);
-
         isReloading = true;
         Invoke("ReloadCompleted", reloadTime);
     }
@@ -149,6 +152,7 @@ public class Gun : MonoBehaviour
     {
         bulletsLeft = magazineSize;
         isReloading = false;
+        canShoot = true;
     }
 
     private void ResetShot()
@@ -160,34 +164,40 @@ public class Gun : MonoBehaviour
     private Vector3 CalculateDirectionAndSpread()
     {
        Ray ray = Camera.main.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0));
+       
         RaycastHit hit;
 
         Vector3 targetPoint;
+        
+
         // Hitting something 
-        if(Physics.Raycast(ray, out hit))
+        if (Physics.Raycast(ray, out hit))
         {
-            Debug.DrawRay(ray.origin, hit.point, Color.red, 5f);
-            targetPoint = hit.point;
+           //Debug.DrawRay(ray.origin, hit.point, Color.red, 5f);
+           targetPoint = hit.point;
         }
         else
         {
             // shooting air 
             targetPoint = ray.GetPoint(100);
         }
+        
 
         Vector3 direction = targetPoint - bulletSpawn.position;
 
         // Spread calculation 
         float x = UnityEngine.Random.Range(-spreadIntensity, spreadIntensity);
         float y = UnityEngine.Random.Range(-spreadIntensity, spreadIntensity);
-        
+
         // Returning spread and direction 
+        
+        Vector3 adjustedDIR = direction + new Vector3(x, y, 0);
+        Debug.DrawRay(ray.origin, adjustedDIR, Color.red, 5f);
         return direction + new Vector3(x, y, 0);
     }
 
     private IEnumerator DestroyBulletAfterTime(GameObject bullet, float delay)
     {
-
         yield return new WaitForSeconds(delay);
         Destroy(bullet);
     }
