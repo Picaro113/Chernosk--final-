@@ -7,6 +7,8 @@ using UnityEngine;
 public class Gun : MonoBehaviour
 {
 
+    public bool isActiveWeapon; 
+
     // Shooting
     public bool isShooting, readyToShoot;
     bool allowReset = true;
@@ -29,6 +31,9 @@ public class Gun : MonoBehaviour
     public float reloadTime;
     public int magazineSize, bulletsLeft;
     public bool isReloading;
+
+    public Vector3 spawnPosition;
+    public Vector3 spawnRotation;
 
 
     public bool canShoot;
@@ -63,41 +68,43 @@ public class Gun : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (bulletsLeft == 0 && isShooting)
+        if (isActiveAndEnabled)
         {
-            SoundManager.Instance.PlayEmptyMagSound(thisWeaponModel);
-        }
-
-        if (currentShootingMode == ShootingMode.Auto && canShoot == true)
-        {
-            // Holding Left Mouse Down
-            isShooting = Input.GetKey(KeyCode.Mouse0);
-        }
-        else if (currentShootingMode == ShootingMode.Single && canShoot == true || currentShootingMode == ShootingMode.Burst && canShoot == true)
-        {
-            // Clicking Left Mouse Once
-            isShooting = Input.GetKeyDown(KeyCode.Mouse0);
-        }
-
-        if (isShooting == false)
-        {
-            if (Input.GetKeyDown(KeyCode.R) && bulletsLeft < magazineSize && !isReloading)
+            if (bulletsLeft == 0 && isShooting)
             {
-                Reload();
+                SoundManager.Instance.PlayEmptyMagSound(thisWeaponModel);
             }
-        }
 
-        if (readyToShoot && isShooting && bulletsLeft > 0 && !isReloading)
-        {
-            burstBulletsLeft = bulletsPerBurst;
-            FireWeapon();
-        }
+            if (currentShootingMode == ShootingMode.Auto && canShoot == true)
+            {
+                // Holding Left Mouse Down
+                isShooting = Input.GetKey(KeyCode.Mouse0);
+            }
+            else if (currentShootingMode == ShootingMode.Single && canShoot == true || currentShootingMode == ShootingMode.Burst && canShoot == true)
+            {
+                // Clicking Left Mouse Once
+                isShooting = Input.GetKeyDown(KeyCode.Mouse0);
+            }
 
-        if(AmmoManager.Instance.ammoCount != null)
-        {
-            AmmoManager.Instance.ammoCount.text =$"{bulletsLeft/bulletsPerBurst}/{magazineSize/bulletsPerBurst}";
-        }
+            if (isShooting == false)
+            {
+                if (Input.GetKeyDown(KeyCode.R) && bulletsLeft < magazineSize && !isReloading)
+                {
+                    Reload();
+                }
+            }
 
+            if (readyToShoot && isShooting && bulletsLeft > 0 && !isReloading)
+            {
+                burstBulletsLeft = bulletsPerBurst;
+                FireWeapon();
+            }
+
+            if (AmmoManager.Instance.ammoCount != null)
+            {
+                AmmoManager.Instance.ammoCount.text = $"{bulletsLeft / bulletsPerBurst}/{magazineSize / bulletsPerBurst}";
+            }
+        } 
     }
 
     private void FireWeapon()

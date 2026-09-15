@@ -54,7 +54,7 @@ public class PlayerMovement : MonoBehaviour
 
         PlayerMovementThing();
 
-        if (Input.GetKeyDown(KeyCode.E))
+        if (Input.GetKeyDown(KeyCode.F))
         {
             interactable?.Interact(this);
         }
