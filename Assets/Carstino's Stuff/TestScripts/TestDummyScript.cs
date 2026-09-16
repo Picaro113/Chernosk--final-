@@ -1,5 +1,7 @@
 using System.Collections.Generic;
+using System.Linq;
 using NUnit.Framework;
+using Unity.VisualScripting;
 using UnityEditor.SceneManagement;
 using UnityEngine;
 using UnityEngine.AI;
@@ -13,6 +15,7 @@ public class TestDummyScript : MonoBehaviour
     public float hunger = 50;
     private int foodInt;
     public Vector3 point;
+    public Transform target;
 
     public float timeBeforeMoving;
     public float timeToMove = 3;
@@ -23,15 +26,15 @@ public class TestDummyScript : MonoBehaviour
     {
         agent = GetComponent<NavMeshAgent>();
         RandomPoint(planeVector.position, 10, out point);
-        TestFood[] food = FindObjectsByType<TestFood>(FindObjectsSortMode.None);
-        Debug.Log(food.Length); 
+        TestFood[] food = GameObject.FindObjectsByType<TestFood>(FindObjectsSortMode.None);
+        foods.AddRange(food);
+        Debug.Log(foods.Count);
     }
 
     
     void Update()
     {
         hunger -= Time.deltaTime;
-
         if (hunger > 50)
         {
             if (agent.remainingDistance <= agent.stoppingDistance)
@@ -44,8 +47,8 @@ public class TestDummyScript : MonoBehaviour
         {
             foreach (TestFood food in foods)
             {
-                //float distanceChecker = Vector3.Distance(transform.position, GetComponent<TestFood>().transform.position);
-                //Debug.Log(distanceChecker);
+                float distance = Vector3.Distance(this.transform.position, target.position);
+                Debug.Log(distance);
             }
         }
     }

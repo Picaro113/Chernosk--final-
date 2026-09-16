@@ -8,7 +8,6 @@ public class TestFood : MonoBehaviour
     {
         if (other.gameObject.GetComponent<TestDummyScript>())
         {
-            Debug.Log("Test Dummy");
             if (instance.hunger > 50)
             {
                 return;
@@ -18,10 +17,6 @@ public class TestFood : MonoBehaviour
                 instance.hunger += 50;
                 Destroy(gameObject);
             }
-        }
-        else
-        {
-            Debug.Log("Something is in here");
         }
     }
 }
