@@ -38,6 +38,8 @@ public class Gun : MonoBehaviour
 
     public bool canShoot;
     public GameObject muzzleEffect;
+    //for the future animator when we get the 3d students to do shit for us 
+    //internal Animator animator;
 
     public enum GunModel
     {
@@ -68,8 +70,11 @@ public class Gun : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (isActiveAndEnabled)
+        if (isActiveWeapon)
         {
+            GetComponent<Outline>().enabled = false;
+
+
             if (bulletsLeft == 0 && isShooting)
             {
                 SoundManager.Instance.PlayEmptyMagSound(thisWeaponModel);
@@ -103,6 +108,14 @@ public class Gun : MonoBehaviour
             if (AmmoManager.Instance.ammoCount != null)
             {
                 AmmoManager.Instance.ammoCount.text = $"{bulletsLeft / bulletsPerBurst}/{magazineSize / bulletsPerBurst}";
+            }
+            if (Input.GetKey(KeyCode.LeftControl))
+            {
+                spreadIntensity = spreadIntensity = 0.1f;
+            }
+            else
+            {
+                spreadIntensity = 0.5f;
             }
         } 
     }
