@@ -9,11 +9,9 @@ using UnityEngine.AI;
 public class TestDummyScript : MonoBehaviour
 {
     public GameObject[] amountOfFood;
-    private GameObject FoodAmount;
     public NavMeshAgent agent;
     public Transform planeVector;
     public float hunger = 50;
-    private int foodInt;
     public Vector3 point;
     public Transform target;
 
@@ -45,12 +43,33 @@ public class TestDummyScript : MonoBehaviour
         }
         if (hunger < 50)
         {
-            foreach (TestFood food in foods)
+            closestObject();
+        }
+    }
+    
+    public TestFood closestObject()
+    {
+        TestFood closestTarget = null;
+        float closestDistanceSqr = float.MaxValue;
+
+        foreach (TestFood food in foods)
+        {
+            if (food == null) continue;
+
+            Vector3 directionToTarget = food.transform.position - transform.position;
+            float dSqrToTarget = directionToTarget.sqrMagnitude;
+
+            if (dSqrToTarget < closestDistanceSqr)
             {
-                float distance = Vector3.Distance(this.transform.position, target.position);
-                Debug.Log(distance);
+                closestDistanceSqr = dSqrToTarget;
+                closestTarget = food;
             }
         }
+        if (closestTarget != null)
+        {
+            agent.SetDestination(closestTarget.transform.position);
+        }
+        return closestTarget;
     }
 
     bool RandomPoint(Vector3 center, float range, out Vector3 result)

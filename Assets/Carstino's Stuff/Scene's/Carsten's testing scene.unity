@@ -5350,7 +5350,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &312082238
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5383,7 +5383,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 25, y: 25, z: 25}
+  m_Size: {x: 5, y: 5, z: 5}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &312082240
 MeshRenderer:
@@ -5595,8 +5595,9 @@ MonoBehaviour:
   amountOfFood: []
   agent: {fileID: 0}
   planeVector: {fileID: 2043367795}
-  hunger: 51
+  hunger: 49
   point: {x: 0, y: 0, z: 0}
+  target: {fileID: 0}
   timeBeforeMoving: 0
   timeToMove: 3
   foods: []
@@ -5711,7 +5712,7 @@ Transform:
   m_GameObject: {fileID: 429975011}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 30.75, y: 1, z: 509.21948}
+  m_LocalPosition: {x: 32.68, y: 1, z: 496.16}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -17192,7 +17193,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!65 &1307313523
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -17212,7 +17213,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 25, y: 25, z: 25}
+  m_Size: {x: 5, y: 5, z: 5}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &1307313524
 MeshRenderer:
@@ -17280,7 +17281,7 @@ Transform:
   m_GameObject: {fileID: 1307313521}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 10.6, y: 0.5, z: 501.57367}
+  m_LocalPosition: {x: 10.6, y: 0.5, z: 501.75}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -27433,7 +27434,7 @@ GameObject:
   - component: {fileID: 1855082998}
   - component: {fileID: 1855082997}
   m_Layer: 0
-  m_Name: Cube
+  m_Name: Cube (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -27471,7 +27472,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 25, y: 25, z: 25}
+  m_Size: {x: 5, y: 5, z: 5}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &1855082999
 MeshRenderer:

@@ -15,6 +15,7 @@ public class TestFood : MonoBehaviour
             else
             {
                 instance.hunger += 50;
+                instance.foods.Remove(other.GetComponent<TestFood>());
                 Destroy(gameObject);
             }
         }
