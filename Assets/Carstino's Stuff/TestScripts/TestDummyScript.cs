@@ -8,25 +8,24 @@ using UnityEngine.AI;
 
 public class TestDummyScript : MonoBehaviour
 {
-    public GameObject[] amountOfFood;
     public NavMeshAgent agent;
     public Transform planeVector;
     public float hunger = 50;
     public Vector3 point;
-    public Transform target;
 
     public float timeBeforeMoving;
     public float timeToMove = 3;
 
     public List<TestFood> foods = new List<TestFood>();
 
+    public bool callFunctionClosestObject;
+
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
-        RandomPoint(planeVector.position, 10, out point);
         TestFood[] food = GameObject.FindObjectsByType<TestFood>(FindObjectsSortMode.None);
         foods.AddRange(food);
-        Debug.Log(foods.Count);
+        callFunctionClosestObject = false;
     }
 
     
@@ -35,14 +34,16 @@ public class TestDummyScript : MonoBehaviour
         hunger -= Time.deltaTime;
         if (hunger > 50)
         {
+            callFunctionClosestObject = false;
             if (agent.remainingDistance <= agent.stoppingDistance)
             {
                 RandomPoint(planeVector.position, 25, out point);
                 agent.SetDestination(point);
             }    
         }
-        if (hunger < 50)
+        if (hunger < 50 && callFunctionClosestObject == false)
         {
+            Debug.Log("Hi");
             closestObject();
         }
     }
@@ -69,6 +70,7 @@ public class TestDummyScript : MonoBehaviour
         {
             agent.SetDestination(closestTarget.transform.position);
         }
+        callFunctionClosestObject = true;
         return closestTarget;
     }
 

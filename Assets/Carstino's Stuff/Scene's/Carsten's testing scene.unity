@@ -5350,7 +5350,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &312082238
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5592,15 +5592,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f94b4476a02420d4584d701b21818af3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TestDummyScript
-  amountOfFood: []
   agent: {fileID: 0}
   planeVector: {fileID: 2043367795}
-  hunger: 49
+  hunger: 60
   point: {x: 0, y: 0, z: 0}
-  target: {fileID: 0}
   timeBeforeMoving: 0
   timeToMove: 3
   foods: []
+  callFunctionClosestObject: 0
 --- !u!195 &429975013
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -17193,7 +17192,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!65 &1307313523
 BoxCollider:
   m_ObjectHideFlags: 0
