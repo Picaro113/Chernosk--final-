@@ -33,7 +33,7 @@ public class InteractionManager : MonoBehaviour
         {
             GameObject objectHitByRaycast = hit.transform.gameObject;
 
-            if (objectHitByRaycast.GetComponent<Gun>())
+            if (objectHitByRaycast.GetComponent<Gun>() && objectHitByRaycast.GetComponent<Gun>().isActiveWeapon == false)
             {
                 gunHoveredOver = objectHitByRaycast.gameObject.GetComponent<Gun>();
                 gunHoveredOver.GetComponent<Outline>().enabled = true;
