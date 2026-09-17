@@ -26,6 +26,7 @@ public class WeaponManager : MonoBehaviour
     private void Start()
     {
         activeWeaponSlot = weaponsSlots[0];
+
     }
 
     private void Update()
@@ -107,6 +108,15 @@ public class WeaponManager : MonoBehaviour
             newGun.isActiveWeapon = true;
         }
     }
+
+    internal void PickupAmmo(GameObject gameObject)
+    {
+        print ("Picked up ammo box");
+    }
+
+
+
+
     //  i will figure this out later 
     //public void DropWeaponOnGround(GameObject weaponToDrop)
     //{
@@ -118,4 +128,4 @@ public class WeaponManager : MonoBehaviour
     //        // weaponToDrop.GetComponent<Gun>().animator.enabled = false;
     //        weaponToDrop.transform.SetParent(null);
     //    }
-    }
+}

@@ -7,6 +7,7 @@ public class InteractionManager : MonoBehaviour
 
     public Gun gunHoveredOver = null;
 
+    public AmmoBox hoveredAmmoBox = null;
     private void Awake()
     {
         if (Instance != null && Instance != this)
@@ -49,6 +50,25 @@ public class InteractionManager : MonoBehaviour
                 if (gunHoveredOver)
                 {
                     gunHoveredOver.GetComponent<Outline>().enabled = false;
+                }
+            }
+            // ammo box 
+            if (objectHitByRaycast.GetComponent<AmmoBox>())
+            {
+                hoveredAmmoBox = objectHitByRaycast.gameObject.GetComponent<AmmoBox>();
+                hoveredAmmoBox.GetComponent<Outline>().enabled = true;
+
+                if (Input.GetKeyDown(KeyCode.F))
+                {
+                    WeaponManager.instance.PickupAmmo(objectHitByRaycast.gameObject);
+                }
+            }
+
+            else
+            {
+                if (hoveredAmmoBox)
+                {
+                    hoveredAmmoBox.GetComponent<Outline>().enabled = false;
                 }
             }
         }

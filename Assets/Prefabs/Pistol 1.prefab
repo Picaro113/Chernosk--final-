@@ -43,6 +43,7 @@ GameObject:
   - component: {fileID: 5174089196534581224}
   - component: {fileID: 2064867799775505435}
   - component: {fileID: 6219168926650691094}
+  - component: {fileID: 4024084816084425003}
   m_Layer: 0
   m_Name: Pistol 1
   m_TagString: Untagged
@@ -102,6 +103,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1a4fa845681bd643928b32feeb47514, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Gun
+  isActiveWeapon: 0
   isShooting: 0
   readyToShoot: 0
   shootingDelay: 0.2
@@ -116,12 +118,30 @@ MonoBehaviour:
   magazineSize: 7
   bulletsLeft: 0
   isReloading: 0
-  spawnPosition: {x: 0.293, y: -0.249, z: 0.537}
-  spawnRotation: {x: 0, y: -90, z: 0}
+  spawnPosition: {x: 0, y: 0, z: 0}
+  spawnRotation: {x: 0, y: 0, z: 0}
   canShoot: 0
   muzzleEffect: {fileID: 3929701366469489861}
   thisWeaponModel: 0
   currentShootingMode: 0
+--- !u!114 &4024084816084425003
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 179495945047823688}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Outline
+  outlineMode: 0
+  outlineColor: {r: 1, g: 1, b: 1, a: 1}
+  outlineWidth: 2
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
 --- !u!1 &539189186888426215
 GameObject:
   m_ObjectHideFlags: 0
