@@ -5363,7 +5363,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b274cc376fc2e84bb6bdfb2818a8158, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TestFood
-  instance: {fileID: 429975012}
+  instance: {fileID: 429975019}
 --- !u!65 &312082239
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5571,8 +5571,8 @@ GameObject:
   - component: {fileID: 429975015}
   - component: {fileID: 429975014}
   - component: {fileID: 429975013}
-  - component: {fileID: 429975012}
   - component: {fileID: 429975018}
+  - component: {fileID: 429975019}
   m_Layer: 0
   m_Name: TestDummy
   m_TagString: Enemy
@@ -5580,26 +5580,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &429975012
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 429975011}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f94b4476a02420d4584d701b21818af3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::TestDummyScript
-  agent: {fileID: 0}
-  planeVector: {fileID: 2043367795}
-  hunger: 60
-  point: {x: 0, y: 0, z: 0}
-  timeBeforeMoving: 0
-  timeToMove: 3
-  foods: []
-  callFunctionClosestObject: 0
 --- !u!195 &429975013
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -5744,6 +5724,27 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &429975019
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 429975011}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 77f0d6a61c3abe74287843623249d818, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Searchers
+  enemyObjects: {fileID: 11400000, guid: e4eb920e47f888d48b90503cad19e378, type: 2}
+  agent: {fileID: 0}
+  planeVector: {fileID: 2043367795}
+  hunger: 100
+  point: {x: 0, y: 0, z: 0}
+  timeBeforeMoving: 0
+  timeToMove: 3
+  foods: []
+  callFunctionClosestObject: 0
 --- !u!1 &432144278
 GameObject:
   m_ObjectHideFlags: 0
@@ -17298,7 +17299,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b274cc376fc2e84bb6bdfb2818a8158, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TestFood
-  instance: {fileID: 429975012}
+  instance: {fileID: 429975019}
 --- !u!1 &1353086920
 GameObject:
   m_ObjectHideFlags: 0
@@ -27451,7 +27452,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b274cc376fc2e84bb6bdfb2818a8158, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TestFood
-  instance: {fileID: 429975012}
+  instance: {fileID: 429975019}
 --- !u!65 &1855082998
 BoxCollider:
   m_ObjectHideFlags: 0
