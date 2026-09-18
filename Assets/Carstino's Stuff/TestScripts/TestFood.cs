@@ -2,11 +2,11 @@ using UnityEngine;
 
 public class TestFood : MonoBehaviour
 {
-    public TestDummyScript instance;
+    public Searchers instance;
 
     public void OnTriggerStay(Collider other)
     {
-        if (other.gameObject.GetComponent<TestDummyScript>())
+        if (other.gameObject.GetComponent<Searchers>())
         {
             if (instance.hunger > 50)
             {
