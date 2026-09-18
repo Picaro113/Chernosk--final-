@@ -4,6 +4,8 @@ Shader "FX/PSX Retro Surface"
     {
         _MainTex("Albedo", 2D) = "white" {}
         _Color("Tint", Color) = (1,1,1,1)
+        
+        
 
         [Toggle(PSX_NORMALMAP)] _UseNormalMap("Use Normal Map", Float) = 0
         _BumpMap("Normal Map", 2D) = "bump" {}
@@ -45,6 +47,7 @@ Shader "FX/PSX Retro Surface"
 
                 #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/Core.hlsl"
                 #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/Lighting.hlsl"
+                
 
                 #if (defined(SHADER_API_D3D11) || defined(SHADER_API_GLCORE) || defined(SHADER_API_METAL) || defined(SHADER_API_VULKAN))
                     #define PSX_HAS_NOPERSP 1
