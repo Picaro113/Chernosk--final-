@@ -4,6 +4,8 @@ using UnityEngine.AI;
 
 public class Searchers : MonoBehaviour
 {
+    public EnemyObjects enemyObjects;
+
     public MainEnemyState stateMachine;
 
     public NavMeshAgent agent;
@@ -25,6 +27,7 @@ public class Searchers : MonoBehaviour
         TestFood[] food = GameObject.FindObjectsByType<TestFood>(FindObjectsSortMode.None);
         foods.AddRange(food);
         callFunctionClosestObject = false;
+        Debug.Log(enemyObjects.myString);
 
         //StateMachine Initialization
         stateMachine = new MainEnemyState(this);
