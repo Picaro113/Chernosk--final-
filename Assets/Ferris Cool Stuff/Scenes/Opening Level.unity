@@ -210,13 +210,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 63638624}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.7614855, y: -0.04853996, z: 0.1486307, w: 0.6290411}
+  m_LocalRotation: {x: -0.44659582, y: -0.1556598, z: -0.014739111, w: 0.8809683}
   m_LocalPosition: {x: 0, y: 3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 103.483, y: 314.85, z: 330.991}
+  m_LocalEulerAnglesHint: {x: 232.32199, y: 154.712, z: 190.66}
 --- !u!114 &63638627
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -582,201 +582,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 47ee752051f9e1341b949e2bd3c5e7e3, type: 3}
---- !u!1 &484176211
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 484176217}
-  - component: {fileID: 484176216}
-  - component: {fileID: 484176215}
-  - component: {fileID: 484176214}
-  - component: {fileID: 484176213}
-  - component: {fileID: 484176212}
-  m_Layer: 0
-  m_Name: Global Volume
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &484176212
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 484176211}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a79441f348de89743a2939f4d699eac1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Unity.RenderPipelines.Universal.Runtime::UnityEngine.Rendering.Universal.UniversalAdditionalCameraData
-  m_RenderShadows: 1
-  m_RequiresDepthTextureOption: 2
-  m_RequiresOpaqueTextureOption: 2
-  m_CameraType: 0
-  m_Cameras: []
-  m_RendererIndex: -1
-  m_VolumeLayerMask:
-    serializedVersion: 2
-    m_Bits: 1
-  m_VolumeTrigger: {fileID: 0}
-  m_VolumeFrameworkUpdateModeOption: 2
-  m_RenderPostProcessing: 0
-  m_Antialiasing: 0
-  m_AntialiasingQuality: 2
-  m_StopNaN: 0
-  m_Dithering: 0
-  m_ClearDepth: 1
-  m_AllowXRRendering: 1
-  m_AllowHDROutput: 1
-  m_UseScreenCoordOverride: 0
-  m_ScreenSizeOverride: {x: 0, y: 0, z: 0, w: 0}
-  m_ScreenCoordScaleBias: {x: 0, y: 0, z: 0, w: 0}
-  m_RequiresDepthTexture: 0
-  m_RequiresColorTexture: 0
-  m_TaaSettings:
-    m_Quality: 3
-    m_FrameInfluence: 0.1
-    m_JitterScale: 1
-    m_MipBias: 0
-    m_VarianceClampScale: 0.9
-    m_ContrastAdaptiveSharpening: 0
-  m_Version: 2
---- !u!114 &484176213
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 484176211}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a74f60c3c83a4ee49bec83952eedd45f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PSXStyleShader.PSXDownscaleDitherEffect
-  _shader: {fileID: 4800000, guid: eb732616613fa2d4ab375752805c9e6c, type: 3}
-  _targetResolution: {x: 1255, y: 240}
-  _colorBits: 8
-  _ditherStrength: 1
---- !u!20 &484176214
-Camera:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 484176211}
-  m_Enabled: 0
-  serializedVersion: 2
-  m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
-  m_projectionMatrixMode: 1
-  m_GateFitMode: 2
-  m_FOVAxisMode: 0
-  m_Iso: 200
-  m_ShutterSpeed: 0.005
-  m_Aperture: 16
-  m_FocusDistance: 10
-  m_FocalLength: 50
-  m_BladeCount: 5
-  m_Curvature: {x: 2, y: 11}
-  m_BarrelClipping: 0.25
-  m_Anamorphism: 0
-  m_SensorSize: {x: 36, y: 24}
-  m_LensShift: {x: 0, y: 0}
-  m_NormalizedViewPortRect:
-    serializedVersion: 2
-    x: 0
-    y: 0
-    width: 1
-    height: 1
-  near clip plane: 0.3
-  far clip plane: 1000
-  field of view: 60
-  orthographic: 0
-  orthographic size: 5
-  m_Depth: 0
-  m_CullingMask:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_RenderingPath: -1
-  m_TargetTexture: {fileID: 0}
-  m_TargetDisplay: 0
-  m_TargetEye: 3
-  m_HDR: 1
-  m_AllowMSAA: 1
-  m_AllowDynamicResolution: 0
-  m_ForceIntoRT: 0
-  m_OcclusionCulling: 1
-  m_StereoConvergence: 10
-  m_StereoSeparation: 0.022
---- !u!114 &484176215
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 484176211}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 946cab0d2ada0ad4b9ca8aac5ed2c62f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PSXStyleShader.PSXRetroGlobals
-  _enabled: 1
-  _snapResolution: {x: 320, y: 240}
-  _useScreenResolution: 0
-  _snapStrength: 1
-  _jitterSpeed: 314.1
-  _jitterPixels: 2
-  _depthSteps: 48
-  _depthStrength: 0.75
-  _depthNoise: 0.0015
-  _uvPrecision: 96
-  _uvSnapStrength: 1
-  _uvWarpStrength: 0.35
-  _affineSwim: 0.25
-  _affineUvInterpolation: 1
-  _mipBias: -1
-  _vertexLighting: 1
-  _lightSteps: 6
-  _colorBits: 5
-  _ditherStrength: 0.65
---- !u!114 &484176216
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 484176211}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 172515602e62fb746b5d573b38a5fe58, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Unity.RenderPipelines.Core.Runtime::UnityEngine.Rendering.Volume
-  m_IsGlobal: 1
-  priority: 0
-  blendDistance: 0
-  weight: 1
-  sharedProfile: {fileID: 0}
---- !u!4 &484176217
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 484176211}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -387.77563, y: 7.6493187, z: -7.2453213}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &782827699
 GameObject:
   m_ObjectHideFlags: 0
@@ -898,7 +703,7 @@ Transform:
   m_GameObject: {fileID: 782827699}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -395.57, y: 12.42, z: -15.564}
+  m_LocalPosition: {x: -397.81, y: 12.42, z: -16.17}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1008,6 +813,60 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dbf03db27b2cc4a4fad75f3cf61359b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DialogueUI
+--- !u!1 &1187086552
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1187086554}
+  - component: {fileID: 1187086553}
+  m_Layer: 0
+  m_Name: PSXShaderManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1187086553
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1187086552}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c1a4c69f7a9d3ea43907b5765229dc85, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PSXShaderKit.PSXShaderManager
+  _TextureWarpingFactor: 1
+  _TextureWarpingMode: 0
+  _VertexGridResolution: 418.2
+  _VertexWobbleMode: 0
+  _UseRetroVertexLighting: 1
+  _RetroLightingNormalFactor: 0
+  _RetroLightFalloffStart: 0
+  _FlatShadingMode: 0
+  _TriangleSortMode: 0
+  _DepthDebugView: 0
+--- !u!4 &1187086554
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1187086552}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -393.729, y: 12.4268, z: -14.56595}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1367439826
 GameObject:
   m_ObjectHideFlags: 0
@@ -1120,42 +979,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1490632174 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 268905138968921754, guid: e24eec4157273fe468a8f17be45eb017, type: 3}
-  m_PrefabInstance: {fileID: 2099706634}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1490632179
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1490632174}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 946cab0d2ada0ad4b9ca8aac5ed2c62f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PSXStyleShader.PSXRetroGlobals
-  _enabled: 1
-  _snapResolution: {x: 320, y: 240}
-  _useScreenResolution: 0
-  _snapStrength: 1
-  _jitterSpeed: 44.2
-  _jitterPixels: 1.14
-  _depthSteps: 266.4
-  _depthStrength: 0.75
-  _depthNoise: 0.0015
-  _uvPrecision: 36.3
-  _uvSnapStrength: 1
-  _uvWarpStrength: 0.35
-  _affineSwim: 0.25
-  _affineUvInterpolation: 0
-  _mipBias: -1
-  _vertexLighting: 1
-  _lightSteps: 3.81
-  _colorBits: 8
-  _ditherStrength: 0.675
 --- !u!1 &2032031079
 GameObject:
   m_ObjectHideFlags: 0
@@ -1282,7 +1105,7 @@ PrefabInstance:
       objectReference: {fileID: 1176934787}
     - target: {fileID: 5695499891359873042, guid: e24eec4157273fe468a8f17be45eb017, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -397.59952
+      value: -392.27
       objectReference: {fileID: 0}
     - target: {fileID: 5695499891359873042, guid: e24eec4157273fe468a8f17be45eb017, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1290,7 +1113,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5695499891359873042, guid: e24eec4157273fe468a8f17be45eb017, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -23.119774
+      value: -19.205
       objectReference: {fileID: 0}
     - target: {fileID: 5695499891359873042, guid: e24eec4157273fe468a8f17be45eb017, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1320,6 +1143,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6150544595187167839, guid: e24eec4157273fe468a8f17be45eb017, type: 3}
+      propertyPath: m_OcclusionCulling
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7702924978542739024, guid: e24eec4157273fe468a8f17be45eb017, type: 3}
       propertyPath: m_Name
       value: Player
@@ -1330,8 +1157,67 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 268905138968921754, guid: e24eec4157273fe468a8f17be45eb017, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1490632179}
+      addedObject: {fileID: 2099706637}
+    - targetCorrespondingSourceObject: {fileID: 268905138968921754, guid: e24eec4157273fe468a8f17be45eb017, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2099706636}
   m_SourcePrefab: {fileID: 100100000, guid: e24eec4157273fe468a8f17be45eb017, type: 3}
+--- !u!1 &2099706635 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 268905138968921754, guid: e24eec4157273fe468a8f17be45eb017, type: 3}
+  m_PrefabInstance: {fileID: 2099706634}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2099706636
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2099706635}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 433faa8b758afed4f9295b193c697276, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PSXShaderKit.PSXPostProcessEffect
+  _PixelationFactor: 1
+  _ColorEmulationMode: 3
+  _FullscreenColorDepth: {x: 256, y: 256, z: 256}
+  _FullscreenDitherDepth: {x: 32, y: 32, z: 32}
+  _DitheringMatrixSize: 2
+  _DitheringScale: 1
+  _InterlacingSize: 1
+  _PostProcessShader: {fileID: 4800000, guid: 56d52fd5b7c6911468179e5a7359ce0e, type: 3}
+  _PostProcessMaterial: {fileID: 0}
+  _PostProcessShaderAccurate: {fileID: 4800000, guid: 2ebed186567d3c244a87538744a62920, type: 3}
+  _PostProcessMaterialAccurate: {fileID: 0}
+  _PixelationShader: {fileID: 4800000, guid: f2da0e2a14a532548b5db043244b3df1, type: 3}
+  _PixelationMaterial: {fileID: 0}
+  _InterlacingShader: {fileID: 4800000, guid: 03ebd34214b41ef459d7ee6753b062be, type: 3}
+  _InterlacingMaterial: {fileID: 0}
+  _PreviousFrame: {fileID: 0}
+  _IsFirstFrame: 1
+--- !u!114 &2099706637
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2099706635}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c1a4c69f7a9d3ea43907b5765229dc85, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PSXShaderKit.PSXShaderManager
+  _TextureWarpingFactor: 1
+  _TextureWarpingMode: 0
+  _VertexGridResolution: 100
+  _VertexWobbleMode: 0
+  _UseRetroVertexLighting: 1
+  _RetroLightingNormalFactor: 0
+  _RetroLightFalloffStart: 0
+  _FlatShadingMode: 0
+  _TriangleSortMode: 0
+  _DepthDebugView: 0
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -1341,8 +1227,8 @@ SceneRoots:
   - {fileID: 2032031083}
   - {fileID: 1367439830}
   - {fileID: 343218074}
-  - {fileID: 484176217}
   - {fileID: 2099706634}
   - {fileID: 402291409}
   - {fileID: 782827702}
   - {fileID: 329829926}
+  - {fileID: 1187086554}
