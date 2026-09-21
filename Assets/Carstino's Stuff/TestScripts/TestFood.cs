@@ -4,9 +4,14 @@ public class TestFood : MonoBehaviour
 {
     public Searchers instance;
 
+    public void Start()
+    {
+        
+    }
+
     public void OnTriggerStay(Collider other)
     {
-        if (other.gameObject.GetComponent<Searchers>())
+        if (other.gameObject.TryGetComponent<Searchers>(out Searchers searchers))
         {
             if (instance.hunger > 50)
             {

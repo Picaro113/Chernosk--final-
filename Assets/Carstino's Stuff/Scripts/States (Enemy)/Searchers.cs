@@ -17,14 +17,20 @@ public class Searchers : MonoBehaviour
     public float timeToMove = 3;
 
     public List<TestFood> foods = new List<TestFood>();
+    public List<Searchers> searchers = new List<Searchers>();
 
     public bool callFunctionClosestObject;
+
+    public float RadiusOfSphere;
+    public float angle = 90f;
 
     private void Start()
     {
         //OtherComponents
         agent = GetComponent<NavMeshAgent>();
         TestFood[] food = GameObject.FindObjectsByType<TestFood>(FindObjectsSortMode.None);
+        Searchers[] searcher = GameObject.FindObjectsByType<Searchers>(FindObjectsSortMode.None);
+        searchers.AddRange(searcher);
         foods.AddRange(food);
         callFunctionClosestObject = false;
         Debug.Log(enemyObjects.myString);
@@ -36,6 +42,37 @@ public class Searchers : MonoBehaviour
 
     private void Update()
     {
+        Collider[] EnemiesInRadius = Physics.OverlapSphere(transform.position, RadiusOfSphere);
+
+        foreach(Collider Enemy in EnemiesInRadius)
+        {
+            if (Enemy.gameObject.TryGetComponent<Searchers>(out Searchers searchers) != this.gameObject)
+            {
+                Debug.Log("We've got more enemies");
+            }
+            else
+            {
+                Debug.Log("It's something else");
+            }
+        }
+
+        //Transform target = EnemiesInRadius[0].transform;
+        //Vector3 directionToTarget = (target.position - transform.position).normalized;
+        //
+        //if (Vector3.Angle(transform.forward, directionToTarget) < angle / 2)
+        //{
+        //    float distanceToTarget = Vector3.Distance(transform.position, target.position);
+        //
+        //    if (!Physics.Raycast(transform.position, directionToTarget, distanceToTarget))
+        //    {
+        //        Debug.Log("see player");
+        //    }
+        //    else
+        //    {
+        //        Debug.Log("Can't see player");
+        //    }
+        //}
+
         hunger -= Time.deltaTime;
         stateMachine.Update();
     }
