@@ -45,30 +45,28 @@ public class Searchers : MonoBehaviour
         {
             if (Enemy.gameObject.TryGetComponent<Searchers>(out Searchers searchers) != this.gameObject)
             {
-                Debug.Log("We've got more enemies");
+                Transform target = EnemiesInRadius[0].transform;
+                Vector3 directionToTarget = (target.position - transform.position).normalized;
+                Debug.Log(target.position);
+                if (Vector3.Angle(transform.forward, directionToTarget) < angle / 2)
+                {
+                    float distanceToTarget = Vector3.Distance(transform.position, target.position);
+
+                    if (!Physics.Raycast(transform.position, directionToTarget, distanceToTarget))
+                    {
+                        agent.SetDestination(directionToTarget);
+                    }
+                    else
+                    {
+                        Debug.Log("Can't see player");
+                    }
+                }
             }
             else
             {
                 Debug.Log("It's something else");
             }
         }
-
-        //Transform target = EnemiesInRadius[0].transform;
-        //Vector3 directionToTarget = (target.position - transform.position).normalized;
-        //
-        //if (Vector3.Angle(transform.forward, directionToTarget) < angle / 2)
-        //{
-        //    float distanceToTarget = Vector3.Distance(transform.position, target.position);
-        //
-        //    if (!Physics.Raycast(transform.position, directionToTarget, distanceToTarget))
-        //    {
-        //        Debug.Log("see player");
-        //    }
-        //    else
-        //    {
-        //        Debug.Log("Can't see player");
-        //    }
-        //}
 
         hunger -= Time.deltaTime;
         stateMachine.Update();

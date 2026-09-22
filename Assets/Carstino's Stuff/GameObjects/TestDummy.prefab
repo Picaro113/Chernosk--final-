@@ -186,7 +186,6 @@ MonoBehaviour:
   timeBeforeMoving: 0
   timeToMove: 3
   foods: []
-  searchers: []
   callFunctionClosestObject: 0
-  RadiusOfSphere: 0
+  RadiusOfSphere: 5
   angle: 90
