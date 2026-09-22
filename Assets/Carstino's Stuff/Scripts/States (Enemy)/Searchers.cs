@@ -17,7 +17,6 @@ public class Searchers : MonoBehaviour
     public float timeToMove = 3;
 
     public List<TestFood> foods = new List<TestFood>();
-    public List<Searchers> searchers = new List<Searchers>();
 
     public bool callFunctionClosestObject;
 
@@ -29,8 +28,6 @@ public class Searchers : MonoBehaviour
         //OtherComponents
         agent = GetComponent<NavMeshAgent>();
         TestFood[] food = GameObject.FindObjectsByType<TestFood>(FindObjectsSortMode.None);
-        Searchers[] searcher = GameObject.FindObjectsByType<Searchers>(FindObjectsSortMode.None);
-        searchers.AddRange(searcher);
         foods.AddRange(food);
         callFunctionClosestObject = false;
         Debug.Log(enemyObjects.myString);

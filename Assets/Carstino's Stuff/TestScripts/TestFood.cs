@@ -1,25 +1,21 @@
+using NUnit.Framework;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class TestFood : MonoBehaviour
 {
-    public Searchers instance;
-
-    public void Start()
-    {
-        
-    }
-
     public void OnTriggerStay(Collider other)
     {
-        if (other.gameObject.TryGetComponent<Searchers>(out Searchers searchers))
+        Searchers searching = other.GetComponent<Searchers>();
+        if (searching)
         {
-            if (instance.hunger > 50)
+            if (searching.hunger > 50)
             {
                 return;
             }
             else
             {
-                instance.hunger += 50;
+                searching.hunger += 50;
                 Destroy(gameObject);
             }
         }
