@@ -7,6 +7,7 @@ public class MainEnemyState
 
     public FoodState foodState;
     public SearchState searchState;
+    public HideState hideState;
 
     public MainEnemyState(Searchers searchers)
     {

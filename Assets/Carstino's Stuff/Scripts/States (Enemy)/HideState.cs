@@ -1,13 +1,10 @@
-using Unity.VisualScripting;
-using UnityEditor;
 using UnityEngine;
-using UnityEngine.AI;
 
-public class FoodState : IState
+public class HideState : IState
 {
     private Searchers searchers;
 
-    public FoodState(Searchers searchers)
+    public HideState(Searchers searchers)
     {
         this.searchers = searchers;
     }
@@ -18,13 +15,16 @@ public class FoodState : IState
     }
     public void Update()
     {
-        if (searchers.hunger > 50)
+        if(searchers.hunger > 50)
+        {
+            searchers.FindNearestHideableObject();
+            return;
+        }
+        else
         {
             searchers.stateMachine.TransitionTo(searchers.stateMachine.searchState);
             return;
         }
-        Debug.Log("he's always hungry");
-        searchers.closestObject();
     }
 
     public void Exit()
