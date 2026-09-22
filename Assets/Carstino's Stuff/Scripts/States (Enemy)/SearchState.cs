@@ -21,8 +21,13 @@ public class SearchState : IState
             {
                 searchers.RandomPoint(searchers.planeVector.position, 25, out searchers.point);
                 searchers.agent.SetDestination(searchers.point);
+                return;
             }
-            return;
+            if (searchers.agent.remainingDistance == searchers.agent.stoppingDistance)
+            {
+                searchers.stateMachine.TransitionTo(searchers.stateMachine.hideState);
+                return;
+            }
         }
         if (searchers.hunger < 50)
         {

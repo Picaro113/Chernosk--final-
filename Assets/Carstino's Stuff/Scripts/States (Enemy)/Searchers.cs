@@ -23,6 +23,8 @@ public class Searchers : MonoBehaviour
     public float RadiusOfSphere;
     public float angle = 90f;
 
+    private NavMeshHit hit;
+
     private void Start()
     {
         //OtherComponents
@@ -45,16 +47,14 @@ public class Searchers : MonoBehaviour
         {
             if (Enemy.gameObject.TryGetComponent<Searchers>(out Searchers searchers) != this.gameObject)
             {
-                Transform target = EnemiesInRadius[0].transform;
+                Transform target = Enemy.gameObject.transform;
                 Vector3 directionToTarget = (target.position - transform.position).normalized;
-                Debug.Log(target.position);
                 if (Vector3.Angle(transform.forward, directionToTarget) < angle / 2)
                 {
-                    float distanceToTarget = Vector3.Distance(transform.position, target.position);
-
-                    if (!Physics.Raycast(transform.position, directionToTarget, distanceToTarget))
+                    if (!NavMesh.Raycast(transform.position, target.position, out hit, NavMesh.AllAreas))
                     {
                         agent.SetDestination(directionToTarget);
+                        Debug.Log("Can see player");
                     }
                     else
                     {
@@ -112,5 +112,10 @@ public class Searchers : MonoBehaviour
         }
         callFunctionClosestObject = true;
         return closestTarget;
+    }
+
+    public void FindNearestHideableObject()
+    {
+        Debug.Log("we ball");
     }
 }
