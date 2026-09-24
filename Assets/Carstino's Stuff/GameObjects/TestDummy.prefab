@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 7299694665217257460}
   - component: {fileID: 119621314089918668}
   - component: {fileID: 390952998673680376}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: TestDummy
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -186,6 +186,19 @@ MonoBehaviour:
   timeBeforeMoving: 0
   timeToMove: 3
   foods: []
+  searchers: []
   callFunctionClosestObject: 0
   RadiusOfSphere: 5
   angle: 90
+  sight: 10
+  enemy: {fileID: 0}
+  enemynear: 0
+  viewRadius: 8.11
+  viewAngle: 90
+  targetMask:
+    serializedVersion: 2
+    m_Bits: 512
+  obstacleMask:
+    serializedVersion: 2
+    m_Bits: 1024
+  visibleTargets: []

@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -17,6 +18,7 @@ public class Searchers : MonoBehaviour
     public float timeToMove = 3;
 
     public List<TestFood> foods = new List<TestFood>();
+    public List<Searchers> searchers = new List<Searchers>();
 
     public bool callFunctionClosestObject;
 
@@ -24,12 +26,23 @@ public class Searchers : MonoBehaviour
     public float angle = 90f;
 
     private NavMeshHit hit;
+    public float sight = 10f;
+
+    public GameObject enemy;
+    public bool enemynear = false;
+
+    public float viewRadius;
+    public float viewAngle;
+
+    public LayerMask targetMask;
+    public LayerMask obstacleMask;
 
     private void Start()
     {
         //OtherComponents
         agent = GetComponent<NavMeshAgent>();
         TestFood[] food = GameObject.FindObjectsByType<TestFood>(FindObjectsSortMode.None);
+        Searchers[] search = GameObject.FindObjectsByType<Searchers>(FindObjectsSortMode.None);
         foods.AddRange(food);
         callFunctionClosestObject = false;
         Debug.Log(enemyObjects.myString);
@@ -37,37 +50,12 @@ public class Searchers : MonoBehaviour
         //StateMachine Initialization
         stateMachine = new MainEnemyState(this);
         stateMachine.Initialize(stateMachine.searchState);
+
+        StartCoroutine("FindTargetsWithDelay", .2f);
     }
 
     private void Update()
     {
-        Collider[] EnemiesInRadius = Physics.OverlapSphere(transform.position, RadiusOfSphere);
-
-        foreach(Collider Enemy in EnemiesInRadius)
-        {
-            if (Enemy.gameObject.TryGetComponent<Searchers>(out Searchers searchers) != this.gameObject)
-            {
-                Transform target = Enemy.gameObject.transform;
-                Vector3 directionToTarget = (target.position - transform.position).normalized;
-                if (Vector3.Angle(transform.forward, directionToTarget) < angle / 2)
-                {
-                    if (!NavMesh.Raycast(transform.position, target.position, out hit, NavMesh.AllAreas))
-                    {
-                        agent.SetDestination(directionToTarget);
-                        Debug.Log("Can see player");
-                    }
-                    else
-                    {
-                        Debug.Log("Can't see player");
-                    }
-                }
-            }
-            else
-            {
-                Debug.Log("It's something else");
-            }
-        }
-
         hunger -= Time.deltaTime;
         stateMachine.Update();
     }
@@ -117,5 +105,44 @@ public class Searchers : MonoBehaviour
     public void FindNearestHideableObject()
     {
         Debug.Log("we ball");
+    }
+
+    public Vector3 DirFromAngle(float angleInDegrees, bool angleIsGlobal)
+    {
+        if (!angleIsGlobal)
+        {
+            angleInDegrees += transform.eulerAngles.y;
+        }
+        return new Vector3(Mathf.Sin(angleInDegrees * Mathf.Deg2Rad), 0, Mathf.Cos(angleInDegrees * Mathf.Deg2Rad));
+    }
+
+    public void FindVisibleTargets()
+    {
+        Collider[] targetsInViewRadius = Physics.OverlapSphere(transform.position, viewRadius, targetMask);
+
+        for (int i = 0; i < targetsInViewRadius.Length; i++)
+        {
+            Transform target = targetsInViewRadius[i].transform;
+            Vector3 dirToTarget = (target.position - transform.position).normalized;
+            if (Vector3.Angle(transform.forward, dirToTarget) < viewAngle / 2)
+            {
+                float dstToTarget = Vector3.Distance(transform.position, target.position);
+
+                if (!Physics.Raycast(transform.position, dirToTarget, dstToTarget, obstacleMask) && target.gameObject != gameObject)
+                {
+                    agent.SetDestination(target.transform.position);
+                    Debug.Log("Enemy in sight");
+                }
+            }
+        }
+    }
+
+    public IEnumerator FindTargetsWithDelay(float delay)
+    {
+        while (true)
+        {
+            yield return new WaitForSeconds(delay);
+            FindVisibleTargets();
+        }
     }
 }
