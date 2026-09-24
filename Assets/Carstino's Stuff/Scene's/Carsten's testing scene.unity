@@ -22170,9 +22170,21 @@ PrefabInstance:
       propertyPath: planeVector
       value: 
       objectReference: {fileID: 2043367795}
+    - target: {fileID: 390952998673680376, guid: 9091cf7b6e133a149a55a977b068e923, type: 3}
+      propertyPath: targetMask.m_Bits
+      value: 512
+      objectReference: {fileID: 0}
+    - target: {fileID: 390952998673680376, guid: 9091cf7b6e133a149a55a977b068e923, type: 3}
+      propertyPath: obstacleMask.m_Bits
+      value: 1024
+      objectReference: {fileID: 0}
     - target: {fileID: 5377596626750289848, guid: 9091cf7b6e133a149a55a977b068e923, type: 3}
       propertyPath: m_Name
       value: TestDummy (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5377596626750289848, guid: 9091cf7b6e133a149a55a977b068e923, type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 5377596626750289848, guid: 9091cf7b6e133a149a55a977b068e923, type: 3}
       propertyPath: m_IsActive
@@ -32735,20 +32747,12 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 390952998673680376, guid: 9091cf7b6e133a149a55a977b068e923, type: 3}
-      propertyPath: sight
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 390952998673680376, guid: 9091cf7b6e133a149a55a977b068e923, type: 3}
       propertyPath: planeVector
       value: 
       objectReference: {fileID: 2043367795}
     - target: {fileID: 5377596626750289848, guid: 9091cf7b6e133a149a55a977b068e923, type: 3}
       propertyPath: m_Name
       value: TestDummy (1)
-      objectReference: {fileID: 0}
-    - target: {fileID: 5377596626750289848, guid: 9091cf7b6e133a149a55a977b068e923, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5649999126314471050, guid: 9091cf7b6e133a149a55a977b068e923, type: 3}
       propertyPath: m_LocalPosition.x
