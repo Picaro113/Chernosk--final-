@@ -106,7 +106,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d78b87ba4758e164e9444bb6e1f0caab, type: 3}
   m_Name: PSXEffectFeature
   m_EditorClassIdentifier: PSXShader::PSXShader.PSXEffectFeature
-  m_Active: 1
+  m_Active: 0
   _renderEvent: 550
 --- !u!114 &7704927588454551938
 MonoBehaviour:
