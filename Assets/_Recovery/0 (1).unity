@@ -32754,10 +32754,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: TestDummy (1)
       objectReference: {fileID: 0}
-    - target: {fileID: 5377596626750289848, guid: 9091cf7b6e133a149a55a977b068e923, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 5649999126314471050, guid: 9091cf7b6e133a149a55a977b068e923, type: 3}
       propertyPath: m_LocalPosition.x
       value: 29.239979
