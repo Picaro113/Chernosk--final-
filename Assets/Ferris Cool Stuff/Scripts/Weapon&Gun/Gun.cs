@@ -93,7 +93,7 @@ public class Gun : MonoBehaviour
 
             if (isShooting == false)
             {
-                if (Input.GetKeyDown(KeyCode.R) && bulletsLeft < magazineSize && !isReloading)
+                if (Input.GetKeyDown(KeyCode.R) && bulletsLeft < magazineSize && !isReloading && CheckAmmoLeftFor(thisWeaponModel) > 0)
                 {
                     Reload();
                 }
@@ -119,6 +119,22 @@ public class Gun : MonoBehaviour
             }
         } 
     }
+
+    private int CheckAmmoLeftFor(GunModel thisWeaponModel)
+    {
+        switch (thisWeaponModel)
+        {
+            case GunModel.Pistol1911:
+                return WeaponManager.Instance.total45acpAmmo;
+
+            case GunModel.AKM:
+                return WeaponManager.Instance.total762mmAmmo;
+
+            default:
+                return 0;
+        }
+    }       
+   
 
     private void FireWeapon()
     {
@@ -164,13 +180,23 @@ public class Gun : MonoBehaviour
     private void Reload()
     {
         SoundManager.Instance.PlayReloadingSound(thisWeaponModel);
+        // animator will go here eventually
         isReloading = true;
         Invoke("ReloadCompleted", reloadTime);
     }
 
     private void ReloadCompleted()
     {
-        bulletsLeft = magazineSize;
+        if (CheckAmmoLeftFor(thisWeaponModel) > magazineSize)
+        {
+            bulletsLeft = magazineSize;
+            WeaponManager.Instance.DecreaseTotalAmmo(bulletsLeft, thisWeaponModel);
+        }
+        else
+        {
+            bulletsLeft = CheckAmmoLeftFor(thisWeaponModel);
+            WeaponManager.Instance.DecreaseTotalAmmo(bulletsLeft, thisWeaponModel);
+        }
         isReloading = false;
         canShoot = true;
     }

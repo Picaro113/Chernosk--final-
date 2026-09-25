@@ -41,7 +41,7 @@ public class InteractionManager : MonoBehaviour
 
                 if (Input.GetKeyDown(KeyCode.F))
                 {
-                    WeaponManager.instance.PickupWeapon(objectHitByRaycast.gameObject);
+                    WeaponManager.Instance.PickupWeapon(objectHitByRaycast.gameObject);
                 }
             }
             
@@ -60,7 +60,8 @@ public class InteractionManager : MonoBehaviour
 
                 if (Input.GetKeyDown(KeyCode.F))
                 {
-                    WeaponManager.instance.PickupAmmo(objectHitByRaycast.gameObject);
+                    WeaponManager.Instance.PickupAmmo(hoveredAmmoBox);
+                    Destroy(objectHitByRaycast.gameObject);
                 }
             }
 

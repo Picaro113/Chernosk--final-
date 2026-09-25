@@ -536,10 +536,10 @@ MonoBehaviour:
     m_Value: 1
   ShowInSceneView:
     m_OverrideState: 1
-    m_Value: 1
+    m_Value: 0
   AmbientColor:
     m_OverrideState: 1
-    m_Value: {r: 0, g: 0, b: 0, a: 1}
+    m_Value: {r: 1, g: 1, b: 1, a: 1}
   EnablePixelation:
     m_OverrideState: 1
     m_Value: 1
@@ -548,7 +548,7 @@ MonoBehaviour:
     m_Value: 0
   PixelResolution:
     m_OverrideState: 1
-    m_Value: {x: 400, y: 400}
+    m_Value: {x: 700, y: 700}
   EnableColorPrecision:
     m_OverrideState: 1
     m_Value: 1
@@ -599,7 +599,7 @@ MonoBehaviour:
     m_Value: {r: 0, g: 0, b: 0, a: 1}
   FogDensity:
     m_OverrideState: 1
-    m_Value: 0.167
+    m_Value: 0
   FogNoiseStrength:
     m_OverrideState: 1
     m_Value: 0.474
