@@ -19,6 +19,7 @@ public class RadiationSystem : MonoBehaviour
 
     public void Convert()
     {
+        RadLevel.CurrentRadLevel += 1;
         RadiationSystemLevel.CurrentRadState CurrentState = RadiationSystemLevel.CurrentRadState.RadLevelOne;
         RadLevel.CurrentRadLevel = (int)CurrentState + 1;
         RadLevel.RadStatus = CurrentState;

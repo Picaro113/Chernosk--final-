@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51335b868b45fcd46863675f0edf67b8, type: 3}
   m_Name: RadZoneLevel 3
   m_EditorClassIdentifier: Assembly-CSharp::RadiationSystemLevel
-  CurrentRadLevel: 0
-  RadStatus: 0
+  CurrentRadLevel: 3
+  RadStatus: 2

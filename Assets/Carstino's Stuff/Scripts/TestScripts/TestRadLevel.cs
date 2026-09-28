@@ -9,7 +9,7 @@ public class TestRadLevel : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
             RadiationSystemLevel.CurrentRadState CurrentState = RadiationSystemLevel.CurrentRadState.RadLevelTwo;
-            radiationSystem.CurrentRadLevel = (int)CurrentState + 1;
+            radiationSystem.CurrentRadLevel += 1;
             radiationSystem.RadStatus = CurrentState;
             Destroy(gameObject);
         }
