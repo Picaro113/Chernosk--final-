@@ -5,6 +5,7 @@ public class RadiationSystemLevel : ScriptableObject
 {
     public int CurrentRadLevel;
 
+    //i don't think i'll be using enums for this
     public enum CurrentRadState
     {
         RadLevelOne, 
