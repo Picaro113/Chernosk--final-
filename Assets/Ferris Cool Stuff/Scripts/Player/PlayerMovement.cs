@@ -44,8 +44,8 @@ public class PlayerMovement : MonoBehaviour
             instance = this;
         }
         characterController = GetComponent<CharacterController>();
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
     }
 
     private void Update()

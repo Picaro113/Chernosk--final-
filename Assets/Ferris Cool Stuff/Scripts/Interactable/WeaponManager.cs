@@ -110,7 +110,7 @@ public class WeaponManager : MonoBehaviour
         {
             Gun newGun = activeWeaponSlot.transform.GetChild(0).GetComponent<Gun>();
             newGun.isActiveWeapon = true;
-        }
+        } 
     }
 
     internal void PickupAmmo(AmmoBox ammoBox)
