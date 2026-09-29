@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using static Gun;
 
 public class WeaponManager : MonoBehaviour
 {
@@ -138,6 +139,21 @@ public class WeaponManager : MonoBehaviour
                 break;
         }
     }
+    public int CheckAmmoLeftFor(Gun.GunModel thisWeaponModel)
+    {
+        switch (thisWeaponModel)
+        {
+            case GunModel.Pistol1911:
+                return total45acpAmmo;
+
+            case GunModel.AKM:
+                return total762mmAmmo;
+
+            default:
+                return 0;
+        }
+    }
+
 
 
 

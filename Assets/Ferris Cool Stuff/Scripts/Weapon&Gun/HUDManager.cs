@@ -32,7 +32,7 @@ public class HUDManager : MonoBehaviour
         if (activeWeapon)
         {
             magazineAmmoUI.text = $"{activeWeapon.bulletsLeft / activeWeapon.bulletsPerBurst}";
-            ammoReserveUI.text = $"{activeWeapon.magazineSize / activeWeapon.bulletsPerBurst}";
+            ammoReserveUI.text = $"{WeaponManager.Instance.CheckAmmoLeftFor(activeWeapon.thisWeaponModel)}";
 
             Gun.GunModel model = activeWeapon.thisWeaponModel;
                     
