@@ -29,9 +29,8 @@ Material:
   - _LIGHTINGMETHOD_LIT
   - _SHADINGMETHOD_DEFAULT
   - _TEXTURESAMPLEMODE_POINT
-  - _VERTEXJITTERMODE_SCREEN_SPACE
-  m_InvalidKeywords:
-  - _VERTEXJITTERMODE_SCREEN
+  - _VERTEXJITTERMODE_DISABLED
+  m_InvalidKeywords: []
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
@@ -165,7 +164,7 @@ Material:
     - _UsePalette: 0
     - _UseSpecular: 0
     - _UseVertexColor: 0
-    - _VERTEXJITTERMODE: 2
+    - _VERTEXJITTERMODE: 0
     - _VertexPrecision: 256
     - _WorkflowMode: 1
     - _XRMotionVectorsPass: 1
