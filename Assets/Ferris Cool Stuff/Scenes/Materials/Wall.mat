@@ -157,7 +157,7 @@ Material:
     - _DITHERINGMETHOD: 1
     - _DetailAlbedoMapScale: 1
     - _DetailNormalMapScale: 1
-    - _DitherScale: 1
+    - _DitherScale: 0.02
     - _DitherStrength: 1
     - _DstBlend: 0
     - _DstBlendAlpha: 0
@@ -203,7 +203,7 @@ Material:
     - _Surface: 0
     - _SurfaceType: 0
     - _TEXTURESAMPLEMODE: 1
-    - _TextureResolution: 287
+    - _TextureResolution: 226.11
     - _TextureResolutionScale: 1
     - _UVSec: 0
     - _UseColorQuantization: 1

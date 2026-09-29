@@ -105,10 +105,6 @@ public class Gun : MonoBehaviour
                 FireWeapon();
             }
 
-            if (AmmoManager.Instance.ammoCount != null)
-            {
-                AmmoManager.Instance.ammoCount.text = $"{bulletsLeft / bulletsPerBurst}/{magazineSize / bulletsPerBurst}";
-            }
             if (Input.GetKey(KeyCode.LeftControl))
             {
                 spreadIntensity = spreadIntensity = 0.1f;
