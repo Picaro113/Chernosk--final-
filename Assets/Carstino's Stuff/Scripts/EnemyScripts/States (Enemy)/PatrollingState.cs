@@ -14,6 +14,17 @@ public class PatrollingState : IState
     }
     public void Update()
     {
+        if (searchers.agent.remainingDistance <= searchers.agent.stoppingDistance)
+        {
+            searchers.RandomPoint(searchers.planeVector.position, 25, out searchers.point);
+            searchers.agent.SetDestination(searchers.point);
+            return;
+        }
+        if (searchers.hunger < 50)
+        {
+            searchers.stateMachine.TransitionTo(searchers.stateMachine.investigateState);
+            return;
+        }
 
     }
 

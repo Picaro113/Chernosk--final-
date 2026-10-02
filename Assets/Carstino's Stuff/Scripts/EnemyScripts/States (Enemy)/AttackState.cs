@@ -14,7 +14,8 @@ public class AttackState : IState
     }
     public void Update()
     {
-
+        //do an attack function right here
+        searchers.shoot();
     }
 
     public void Exit()

@@ -5,37 +5,34 @@ using UnityEngine.AI;
 
 public class Searchers : MonoBehaviour
 {
+    [Header("Scriptable Objects")]
     public EnemyObjects enemyObjects;
 
+    [Header("StateMachine")]
     public MainEnemyState stateMachine;
 
+    [Header("Ai")]
     public NavMeshAgent agent;
     public Transform planeVector;
     public float hunger = 50;
     public Vector3 point;
 
-    public float timeBeforeMoving;
-    public float timeToMove = 3;
-
+    [Header("Lists")]
     public List<TestFood> foods = new List<TestFood>();
     public List<Searchers> searchers = new List<Searchers>();
 
-    public bool callFunctionClosestObject;
-
-    public float RadiusOfSphere;
-    public float angle = 90f;
-
-    private NavMeshHit hit;
-    public float sight = 10f;
-
-    public GameObject enemy;
-    public bool enemynear = false;
-
+    [Header("Detection for enemies")]
     public float viewRadius;
     public float viewAngle;
-
     public LayerMask targetMask;
     public LayerMask obstacleMask;
+    public bool seenEnemy;
+
+    [Header("Gun functions//testing purposes")]
+    public GameObject bullet;
+    public Transform gun;
+    public float timeToAttack = 3f;
+    public float timeDelay;
 
     private void Start()
     {
@@ -44,14 +41,13 @@ public class Searchers : MonoBehaviour
         TestFood[] food = GameObject.FindObjectsByType<TestFood>(FindObjectsSortMode.None);
         Searchers[] search = GameObject.FindObjectsByType<Searchers>(FindObjectsSortMode.None);
         foods.AddRange(food);
-        callFunctionClosestObject = false;
-        Debug.Log(enemyObjects.myString);
 
         //StateMachine Initialization
         stateMachine = new MainEnemyState(this);
-        stateMachine.Initialize(stateMachine.searchState);
+        stateMachine.Initialize(stateMachine.patrollState);
 
         StartCoroutine("FindTargetsWithDelay", .2f);
+        seenEnemy = false;
     }
 
     private void Update()
@@ -60,6 +56,7 @@ public class Searchers : MonoBehaviour
         stateMachine.Update();
     }
 
+    //this is finding a randompoint throughout the map
     public bool RandomPoint(Vector3 center, float range, out Vector3 result)
     {
         for (int i = 0; i < 30; i++)
@@ -76,6 +73,8 @@ public class Searchers : MonoBehaviour
         result = Vector3.zero;
         return false;
     }
+
+    //finds the closest object (food) from the current gameObject this script is on
     public TestFood closestObject()
     {
         TestFood closestTarget = null;
@@ -98,15 +97,9 @@ public class Searchers : MonoBehaviour
         {
             agent.SetDestination(closestTarget.transform.position);
         }
-        callFunctionClosestObject = true;
         return closestTarget;
     }
-
-    public void FindNearestHideableObject()
-    {
-        Debug.Log("we ball");
-    }
-
+    //makes a cone to calculate if something is infront of it
     public Vector3 DirFromAngle(float angleInDegrees, bool angleIsGlobal)
     {
         if (!angleIsGlobal)
@@ -116,6 +109,7 @@ public class Searchers : MonoBehaviour
         return new Vector3(Mathf.Sin(angleInDegrees * Mathf.Deg2Rad), 0, Mathf.Cos(angleInDegrees * Mathf.Deg2Rad));
     }
 
+    //any target in radius is added to this list
     public void FindVisibleTargets()
     {
         Collider[] targetsInViewRadius = Physics.OverlapSphere(transform.position, viewRadius, targetMask);
@@ -130,10 +124,24 @@ public class Searchers : MonoBehaviour
 
                 if (!Physics.Raycast(transform.position, dirToTarget, dstToTarget, obstacleMask) && target.gameObject != gameObject)
                 {
-                    agent.SetDestination(target.transform.position);
-                    Debug.Log("Enemy in sight");
+                    seenEnemy = true;
+                }
+                else
+                {
+                    seenEnemy = false;
                 }
             }
+        }
+    }
+
+    public void shoot()
+    {
+        timeDelay += Time.deltaTime;
+
+        if (timeDelay > timeToAttack)
+        {
+            Instantiate(bullet, gun.position, gun.rotation);
+            timeDelay = 0;
         }
     }
 

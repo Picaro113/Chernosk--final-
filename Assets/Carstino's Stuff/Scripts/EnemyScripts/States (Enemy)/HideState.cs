@@ -17,7 +17,6 @@ public class HideState : IState
     {
         if(searchers.hunger > 50)
         {
-            searchers.FindNearestHideableObject();
             return;
         }
         else
