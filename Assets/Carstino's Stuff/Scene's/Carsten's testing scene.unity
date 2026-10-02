@@ -806,7 +806,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c57250dcd6bd5e64aa6bd7bc63dafabc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AmmoManager
-  ammoCount: {fileID: 931414764}
 --- !u!4 &517978942
 Transform:
   m_ObjectHideFlags: 0
@@ -852,7 +851,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 47f32fb8eb42c8646a0519a00c80ac68, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::RadiationZone
-  systemLevel: {fileID: 11400000, guid: be5b07a9b1a9bcd4e8468f4a399c9f1f, type: 2}
+  systemLevel: {fileID: 11400000, guid: f917b6ec4d142454b80678d3c0581841, type: 2}
   RadiationSystem: {fileID: 2125574092}
   radDamageTick: 5
   radDamageTimer: 0
@@ -3015,7 +3014,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5377596626750289848, guid: 9091cf7b6e133a149a55a977b068e923, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5649999126314471050, guid: 9091cf7b6e133a149a55a977b068e923, type: 3}
       propertyPath: m_LocalPosition.x
