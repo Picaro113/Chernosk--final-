@@ -25,7 +25,7 @@ Material:
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords:
-  - _LIGHTINGMETHOD_LIT
+  - _LIGHTINGMETHOD_VERTEX_LIT
   - _SHADINGMETHOD_DEFAULT
   - _TEXTURESAMPLEMODE_BILINEAR
   - _VERTEXJITTERMODE_DISABLED
@@ -180,7 +180,7 @@ Material:
     - _BumpScale: 1
     - _ClearCoatMask: 0
     - _ClearCoatSmoothness: 0
-    - _ColorDepth: 91
+    - _ColorDepth: 256
     - _Cull: 2
     - _Cutoff: 0.5
     - _DetailAlbedoMapScale: 1
@@ -198,7 +198,7 @@ Material:
     - _GlossyReflections: 0
     - _HeightTransition: 0
     - _HueShift: 0
-    - _LIGHTINGMETHOD: 1
+    - _LIGHTINGMETHOD: 3
     - _LightnessMultiplier: 1
     - _Metallic: 0
     - _Metallic0: 0
@@ -226,7 +226,7 @@ Material:
     - _SrcBlendAlpha: 1
     - _Surface: 0
     - _TEXTURESAMPLEMODE: 1
-    - _TextureResolution: 256
+    - _TextureResolution: 10.8
     - _TextureResolutionScale: 512
     - _UseColorQuantization: 1
     - _UsePalette: 0
