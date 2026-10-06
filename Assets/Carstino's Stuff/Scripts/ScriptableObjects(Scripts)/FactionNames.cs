@@ -7,7 +7,8 @@ using static UnityEngine.GraphicsBuffer;
 [CreateAssetMenu(fileName = "Factions", menuName = "Factions/Factions")]
 public class FactionNames : ScriptableObject
 {
-    private Searchers searchers;
+    public Searchers searchers;
+    private bool seenEnemy;
 
     public enum Factions
     {
@@ -21,15 +22,99 @@ public class FactionNames : ScriptableObject
 
     private void Awake()
     {
-        if (searchers == null)
-        {
-            searchers = GameObject.FindFirstObjectByType<Searchers>();
-        }
+        Debug.Log(searchers.factions);
     }
 
-    public void CheckEnemyFactions()
+    public void CurrentFaction(Factions faction)
     {
-        Debug.Log("hello");
+        Factions currentFaction = faction;
+
+        Factions dementors = Factions.Dementors;
+        Factions forgotten = Factions.Forgotten;
+        Factions ccc = Factions.CCC;
+        Factions wanderers = Factions.Wanderers;
+
+        if (currentFaction == Factions.Dementors)
+        {
+            Debug.Log("dementors");
+            if (seenEnemy == true)
+            {
+                
+            }
+            else return;
+        }
+
+        //if (currentFaction == Factions.Forgotten)
+        //{
+        //    if (seenEnemy == true)
+        //    {
+        //        if (Factions.Dementors == dementors)
+        //        {
+        //            return;
+        //        }
+        //        if (Factions.Forgotten == forgotten)
+        //        {
+        //            return;
+        //        }
+        //        if (Factions.CCC == ccc)
+        //        {
+        //            searchers.seenEnemy = true;
+        //        }
+        //        if (Factions.Wanderers == wanderers)
+        //        {
+        //            searchers.seenEnemy = true;
+        //        }
+        //    }
+        //    else return;
+        //}
+        //
+        //if (currentFaction == Factions.CCC)
+        //{
+        //    if (seenEnemy == true)
+        //    {
+        //        if (Factions.Dementors == dementors)
+        //        {
+        //            return;
+        //        }
+        //        if (Factions.Forgotten == forgotten)
+        //        {
+        //            return;
+        //        }
+        //        if (Factions.CCC == ccc)
+        //        {
+        //            searchers.seenEnemy = true;
+        //        }
+        //        if (Factions.Wanderers == wanderers)
+        //        {
+        //            searchers.seenEnemy = true;
+        //        }
+        //    }
+        //    else return;
+        //}
+        //
+        //if (currentFaction == Factions.Wanderers)
+        //{
+        //    if (seenEnemy == true)
+        //    {
+        //        if (Factions.Dementors == dementors)
+        //        {
+        //            return;
+        //        }
+        //        if (Factions.Forgotten == forgotten)
+        //        {
+        //            return;
+        //        }
+        //        if (Factions.CCC == ccc)
+        //        {
+        //            searchers.seenEnemy = true;
+        //        }
+        //        if (Factions.Wanderers == wanderers)
+        //        {
+        //            searchers.seenEnemy = true;
+        //        }
+        //    }
+        //    else return;
+        //}
     }
 
     public void FindVisibleTargets()
@@ -48,13 +133,11 @@ public class FactionNames : ScriptableObject
 
                     if (!Physics.Raycast(searchers.transform.position, dirToTarget, dstToTarget, searchers.obstacleMask) && target.gameObject != searchers.gameObject)
                     {
-                        Debug.Log("enemies have been found");
-                        searchers.seenEnemy = true;
+                        seenEnemy = true;
                     }
                     else
                     {
-                        Debug.Log("no enemies have been found");
-                        searchers.seenEnemy = false;
+                        seenEnemy = false;
                     }
                 }
             }

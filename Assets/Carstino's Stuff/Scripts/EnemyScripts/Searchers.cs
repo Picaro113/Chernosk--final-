@@ -46,6 +46,8 @@ public class Searchers : MonoBehaviour
         //StateMachine Initialization
         stateMachine = new MainEnemyState(this);
         stateMachine.Initialize(stateMachine.patrollState);
+
+        factions.searchers = this;
         if (factions != null)
         {
             Debug.Log("faction couroutine is starting");
@@ -71,9 +73,10 @@ public class Searchers : MonoBehaviour
     {
         hunger -= Time.deltaTime;
         stateMachine.Update();
+
         if (factions != null)
         {
-            factions.CheckEnemyFactions();
+            factions.CurrentFaction(factions.factions);
         }
     }
 

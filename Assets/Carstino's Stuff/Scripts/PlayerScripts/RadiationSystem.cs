@@ -23,8 +23,6 @@ public class RadiationSystem : MonoBehaviour
         RadiationSystemLevel.CurrentRadState CurrentState = RadiationSystemLevel.CurrentRadState.RadLevelOne;
         RadLevel.CurrentRadLevel = (int)CurrentState + 1;
         RadLevel.RadStatus = CurrentState;
-
-        Debug.Log(RadLevel.CurrentRadLevel);
     }
 
     public void RadDamage(float damage)

@@ -2369,6 +2369,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 390952998673680376, guid: 9091cf7b6e133a149a55a977b068e923, type: 3}
+      propertyPath: factions
+      value: 
+      objectReference: {fileID: 11400000, guid: 46fab053444502e4eaf6b58df0ac4ee6, type: 2}
+    - target: {fileID: 390952998673680376, guid: 9091cf7b6e133a149a55a977b068e923, type: 3}
       propertyPath: planeVector
       value: 
       objectReference: {fileID: 2043367795}
@@ -2378,7 +2382,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5377596626750289848, guid: 9091cf7b6e133a149a55a977b068e923, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5649999126314471050, guid: 9091cf7b6e133a149a55a977b068e923, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2978,7 +2982,7 @@ PrefabInstance:
     - target: {fileID: 390952998673680376, guid: 9091cf7b6e133a149a55a977b068e923, type: 3}
       propertyPath: factions
       value: 
-      objectReference: {fileID: 11400000, guid: bf41aa69d1226a7469a6c7e0314d8bcc, type: 2}
+      objectReference: {fileID: 11400000, guid: 1076f835d70473244ae7be306f3651e9, type: 2}
     - target: {fileID: 390952998673680376, guid: 9091cf7b6e133a149a55a977b068e923, type: 3}
       propertyPath: planeVector
       value: 
