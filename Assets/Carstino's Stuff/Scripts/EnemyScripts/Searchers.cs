@@ -7,6 +7,7 @@ public class Searchers : MonoBehaviour
 {
     [Header("Scriptable Objects")]
     public EnemyObjects enemyObjects;
+    public FactionNames factions;
 
     [Header("StateMachine")]
     public MainEnemyState stateMachine;
@@ -45,15 +46,35 @@ public class Searchers : MonoBehaviour
         //StateMachine Initialization
         stateMachine = new MainEnemyState(this);
         stateMachine.Initialize(stateMachine.patrollState);
+        if (factions != null)
+        {
+            Debug.Log("faction couroutine is starting");
+            StartCoroutine(factions.FindTargetsWithDelay(.2f));
+        }
 
-        StartCoroutine("FindTargetsWithDelay", .2f);
         seenEnemy = false;
+
+
+        //Searching for faction
+
+        if (factions == null)
+        {
+            Debug.Log("Could not find a faction");
+        }
+        else
+        {
+            Debug.Log("faction has been found" + factions.factions);
+        }
     }
 
     private void Update()
     {
         hunger -= Time.deltaTime;
         stateMachine.Update();
+        if (factions != null)
+        {
+            factions.CheckEnemyFactions();
+        }
     }
 
     //this is finding a randompoint throughout the map
@@ -109,31 +130,6 @@ public class Searchers : MonoBehaviour
         return new Vector3(Mathf.Sin(angleInDegrees * Mathf.Deg2Rad), 0, Mathf.Cos(angleInDegrees * Mathf.Deg2Rad));
     }
 
-    //any target in radius is added to this list
-    public void FindVisibleTargets()
-    {
-        Collider[] targetsInViewRadius = Physics.OverlapSphere(transform.position, viewRadius, targetMask);
-
-        for (int i = 0; i < targetsInViewRadius.Length; i++)
-        {
-            Transform target = targetsInViewRadius[i].transform;
-            Vector3 dirToTarget = (target.position - transform.position).normalized;
-            if (Vector3.Angle(transform.forward, dirToTarget) < viewAngle / 2)
-            {
-                float dstToTarget = Vector3.Distance(transform.position, target.position);
-
-                if (!Physics.Raycast(transform.position, dirToTarget, dstToTarget, obstacleMask) && target.gameObject != gameObject)
-                {
-                    seenEnemy = true;
-                }
-                else
-                {
-                    seenEnemy = false;
-                }
-            }
-        }
-    }
-
     public void shoot()
     {
         timeDelay += Time.deltaTime;
@@ -142,15 +138,6 @@ public class Searchers : MonoBehaviour
         {
             Instantiate(bullet, gun.position, gun.rotation);
             timeDelay = 0;
-        }
-    }
-
-    public IEnumerator FindTargetsWithDelay(float delay)
-    {
-        while (true)
-        {
-            yield return new WaitForSeconds(delay);
-            FindVisibleTargets();
         }
     }
 }
