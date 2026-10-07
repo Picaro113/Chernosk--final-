@@ -140,12 +140,19 @@ public class Searchers : MonoBehaviour
                     {
                         seenEnemy = true;
                         Searchers targetfaction = target.GetComponent<Searchers>();
-                        if (targetfaction != null)
+                        if (targetfaction != null && targetfaction != this.gameObject)
                         {
                             if (factions.GetFaction(targetfaction.factions.myfaction))
                             {
-                                Debug.Log("another faction");
-                                Debug.Log(targetfaction.factions.myfaction);
+                                if (factions.neutral == false)
+                                {
+                                    Debug.Log("we chill for now");
+                                }
+                                else if (factions.neutral == true)
+                                {
+                                    Debug.Log("another faction");
+                                    Debug.Log(targetfaction.factions.myfaction);
+                                }
                             }
                             else if (!factions.GetFaction(targetfaction.factions.myfaction))
                             {

@@ -2371,7 +2371,7 @@ PrefabInstance:
     - target: {fileID: 390952998673680376, guid: 9091cf7b6e133a149a55a977b068e923, type: 3}
       propertyPath: factions
       value: 
-      objectReference: {fileID: 11400000, guid: 46fab053444502e4eaf6b58df0ac4ee6, type: 2}
+      objectReference: {fileID: 11400000, guid: 5b24a858c16b3844984908a070338599, type: 2}
     - target: {fileID: 390952998673680376, guid: 9091cf7b6e133a149a55a977b068e923, type: 3}
       propertyPath: planeVector
       value: 
@@ -2997,7 +2997,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5649999126314471050, guid: 9091cf7b6e133a149a55a977b068e923, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 15.94
+      value: 13.74
       objectReference: {fileID: 0}
     - target: {fileID: 5649999126314471050, guid: 9091cf7b6e133a149a55a977b068e923, type: 3}
       propertyPath: m_LocalPosition.y
@@ -3005,7 +3005,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5649999126314471050, guid: 9091cf7b6e133a149a55a977b068e923, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 502.95
+      value: 502.88
       objectReference: {fileID: 0}
     - target: {fileID: 5649999126314471050, guid: 9091cf7b6e133a149a55a977b068e923, type: 3}
       propertyPath: m_LocalRotation.w

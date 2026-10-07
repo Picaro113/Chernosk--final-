@@ -3,14 +3,16 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "Factions", menuName = "Factions/Factions")]
 public class FactionNames : ScriptableObject
 {
+    public bool neutral;
     public enum Faction
     {
 
 
-        Dementors, //0
-        Forgotten, //1
-        CCC, //2
-        Wanderers //3
+        Dementors, 
+        Forgotten, 
+        CCC, 
+        Wanderers, 
+        HiveMind
 
     }
 
@@ -18,26 +20,25 @@ public class FactionNames : ScriptableObject
 
     public bool GetFaction(Faction faction) 
     {
-
-        if (faction != myfaction)
-        {
-            return true;
-        }
-
-        if (faction == myfaction)
-        {
-            return false;
-        }
-
         switch (faction)
         {
             case Faction.Dementors:
                 if (faction == myfaction)
                     return false;
+                if (faction != myfaction)
+                {
+                    if (faction == Faction.Forgotten) return neutral == true;
+                    if (faction != Faction.Forgotten) return neutral == false;
+                }
                 break;
             case Faction.Forgotten:
                 if (faction == myfaction)
                     return false;
+                if (faction != myfaction)
+                {
+                    if (faction == Faction.Dementors) return neutral == true;
+                    if (faction != Faction.Dementors) return neutral == false;
+                }
                 break;
             case Faction.CCC:
                 if (faction == myfaction)
@@ -47,9 +48,13 @@ public class FactionNames : ScriptableObject
                 if (faction == myfaction)
                     return false;
                 break;
+            case Faction.HiveMind:
+                if (faction == myfaction)
+                    return false;
+                break;
 
 
         }
-        return false;
+        return true;
     }
 }

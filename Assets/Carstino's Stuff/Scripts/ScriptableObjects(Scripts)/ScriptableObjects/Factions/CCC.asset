@@ -12,4 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3c13249f423d35458f0484af30fdab5, type: 3}
   m_Name: CCC
   m_EditorClassIdentifier: Assembly-CSharp::FactionNames
-  factions: 2
+  neutral: 0
+  myfaction: 2
