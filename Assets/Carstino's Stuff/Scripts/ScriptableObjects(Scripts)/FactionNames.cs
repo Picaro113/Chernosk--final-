@@ -1,159 +1,55 @@
-using System.Collections;
-using Unity.VisualScripting;
-using UnityEditor;
 using UnityEngine;
-using static UnityEngine.GraphicsBuffer;
 
 [CreateAssetMenu(fileName = "Factions", menuName = "Factions/Factions")]
 public class FactionNames : ScriptableObject
 {
-    public Searchers searchers;
-    private bool seenEnemy;
-
-    public enum Factions
+    public enum Faction
     {
-        Dementors,
-        Forgotten,
-        CCC,
-        Wanderers
+
+
+        Dementors, //0
+        Forgotten, //1
+        CCC, //2
+        Wanderers //3
+
     }
 
-    public Factions factions;
+    public Faction myfaction;
 
-    private void Awake()
+    public bool GetFaction(Faction faction) 
     {
-        Debug.Log(searchers.factions);
-    }
 
-    public void CurrentFaction(Factions faction)
-    {
-        Factions currentFaction = faction;
-
-        Factions dementors = Factions.Dementors;
-        Factions forgotten = Factions.Forgotten;
-        Factions ccc = Factions.CCC;
-        Factions wanderers = Factions.Wanderers;
-
-        if (currentFaction == Factions.Dementors)
+        if (faction != myfaction)
         {
-            Debug.Log("dementors");
-            if (seenEnemy == true)
-            {
-                
-            }
-            else return;
+            return true;
         }
 
-        //if (currentFaction == Factions.Forgotten)
-        //{
-        //    if (seenEnemy == true)
-        //    {
-        //        if (Factions.Dementors == dementors)
-        //        {
-        //            return;
-        //        }
-        //        if (Factions.Forgotten == forgotten)
-        //        {
-        //            return;
-        //        }
-        //        if (Factions.CCC == ccc)
-        //        {
-        //            searchers.seenEnemy = true;
-        //        }
-        //        if (Factions.Wanderers == wanderers)
-        //        {
-        //            searchers.seenEnemy = true;
-        //        }
-        //    }
-        //    else return;
-        //}
-        //
-        //if (currentFaction == Factions.CCC)
-        //{
-        //    if (seenEnemy == true)
-        //    {
-        //        if (Factions.Dementors == dementors)
-        //        {
-        //            return;
-        //        }
-        //        if (Factions.Forgotten == forgotten)
-        //        {
-        //            return;
-        //        }
-        //        if (Factions.CCC == ccc)
-        //        {
-        //            searchers.seenEnemy = true;
-        //        }
-        //        if (Factions.Wanderers == wanderers)
-        //        {
-        //            searchers.seenEnemy = true;
-        //        }
-        //    }
-        //    else return;
-        //}
-        //
-        //if (currentFaction == Factions.Wanderers)
-        //{
-        //    if (seenEnemy == true)
-        //    {
-        //        if (Factions.Dementors == dementors)
-        //        {
-        //            return;
-        //        }
-        //        if (Factions.Forgotten == forgotten)
-        //        {
-        //            return;
-        //        }
-        //        if (Factions.CCC == ccc)
-        //        {
-        //            searchers.seenEnemy = true;
-        //        }
-        //        if (Factions.Wanderers == wanderers)
-        //        {
-        //            searchers.seenEnemy = true;
-        //        }
-        //    }
-        //    else return;
-        //}
-    }
-
-    public void FindVisibleTargets()
-    {
-        if (searchers != null)
+        if (faction == myfaction)
         {
-            Collider[] targetsInViewRadius = Physics.OverlapSphere(searchers.transform.position, searchers.viewRadius, searchers.targetMask);
-
-            for (int i = 0; i < targetsInViewRadius.Length; i++)
-            {
-                Transform target = targetsInViewRadius[i].transform;
-                Vector3 dirToTarget = (target.position - searchers.transform.position).normalized;
-                if (Vector3.Angle(searchers.transform.forward, dirToTarget) < searchers.viewAngle / 2)
-                {
-                    float dstToTarget = Vector3.Distance(searchers.transform.position, target.position);
-
-                    if (!Physics.Raycast(searchers.transform.position, dirToTarget, dstToTarget, searchers.obstacleMask) && target.gameObject != searchers.gameObject)
-                    {
-                        seenEnemy = true;
-                    }
-                    else
-                    {
-                        seenEnemy = false;
-                    }
-                }
-            }
+            return false;
         }
-        if (searchers == null)
+
+        switch (faction)
         {
-            Debug.Log("something is wrong");
-        }
-    }
+            case Faction.Dementors:
+                if (faction == myfaction)
+                    return false;
+                break;
+            case Faction.Forgotten:
+                if (faction == myfaction)
+                    return false;
+                break;
+            case Faction.CCC:
+                if (faction == myfaction)
+                    return false;
+                break;
+            case Faction.Wanderers:
+                if (faction == myfaction)
+                    return false;
+                break;
 
-    public IEnumerator FindTargetsWithDelay(float delay)
-    {
-        while (true)
-        {
-            yield return new WaitForSeconds(delay);
-            FindVisibleTargets();
+
         }
+        return false;
     }
 }
