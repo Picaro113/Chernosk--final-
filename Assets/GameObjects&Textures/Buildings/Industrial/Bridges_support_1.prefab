@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &140712717533392047
+--- !u!1 &383487060631535131
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,9 +8,9 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 8497150775037577408}
-  - component: {fileID: 3686860608558632622}
-  - component: {fileID: 2831050660165218162}
+  - component: {fileID: 8835402676807818203}
+  - component: {fileID: 4086353167334167525}
+  - component: {fileID: 3642200959884678000}
   m_Layer: 0
   m_Name: Bridges_support_1
   m_TagString: Untagged
@@ -18,13 +18,13 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &8497150775037577408
+--- !u!4 &8835402676807818203
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 140712717533392047}
+  m_GameObject: {fileID: 383487060631535131}
   serializedVersion: 2
   m_LocalRotation: {x: -0.000000037748947, y: 0, z: -0, w: 1}
   m_LocalPosition: {x: -2.888968, y: -0.044306755, z: -70.52643}
@@ -33,21 +33,21 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!33 &3686860608558632622
+--- !u!33 &4086353167334167525
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 140712717533392047}
+  m_GameObject: {fileID: 383487060631535131}
   m_Mesh: {fileID: 6660524490498373426, guid: b7cd6798638554842a355043419a4b01, type: 3}
---- !u!23 &2831050660165218162
+--- !u!23 &3642200959884678000
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 140712717533392047}
+  m_GameObject: {fileID: 383487060631535131}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1

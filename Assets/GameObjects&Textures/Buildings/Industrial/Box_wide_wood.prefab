@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &873026361326455829
+--- !u!1 &8046866141950915211
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,9 +8,9 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 6423674167405976541}
-  - component: {fileID: 7317703923529635506}
-  - component: {fileID: 7488408668897086417}
+  - component: {fileID: 4579595033335911770}
+  - component: {fileID: 5166630080546763448}
+  - component: {fileID: 8998390982251165103}
   m_Layer: 0
   m_Name: Box_wide_wood
   m_TagString: Untagged
@@ -18,13 +18,13 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &6423674167405976541
+--- !u!4 &4579595033335911770
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 873026361326455829}
+  m_GameObject: {fileID: 8046866141950915211}
   serializedVersion: 2
   m_LocalRotation: {x: -0.000000037748947, y: 0, z: -0, w: 1}
   m_LocalPosition: {x: -24.9148, y: 0.017778635, z: -72.01615}
@@ -33,21 +33,21 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!33 &7317703923529635506
+--- !u!33 &5166630080546763448
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 873026361326455829}
+  m_GameObject: {fileID: 8046866141950915211}
   m_Mesh: {fileID: -5913059029265340196, guid: b7cd6798638554842a355043419a4b01, type: 3}
---- !u!23 &7488408668897086417
+--- !u!23 &8998390982251165103
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 873026361326455829}
+  m_GameObject: {fileID: 8046866141950915211}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1

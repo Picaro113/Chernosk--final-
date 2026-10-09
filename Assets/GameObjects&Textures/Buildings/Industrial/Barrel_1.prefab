@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &8412570750854669479
+--- !u!1 &5246397240796421124
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,9 +8,9 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 5216718341546993085}
-  - component: {fileID: 3906940136845478566}
-  - component: {fileID: 2551416676305595311}
+  - component: {fileID: 1459747694399232219}
+  - component: {fileID: 9024879316252024563}
+  - component: {fileID: 2141551023557482595}
   m_Layer: 0
   m_Name: Barrel_1
   m_TagString: Untagged
@@ -18,13 +18,13 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &5216718341546993085
+--- !u!4 &1459747694399232219
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8412570750854669479}
+  m_GameObject: {fileID: 5246397240796421124}
   serializedVersion: 2
   m_LocalRotation: {x: -0.000000037748947, y: 0, z: -0, w: 1}
   m_LocalPosition: {x: -27.140982, y: 0.008084536, z: -69.451164}
@@ -33,21 +33,21 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!33 &3906940136845478566
+--- !u!33 &9024879316252024563
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8412570750854669479}
+  m_GameObject: {fileID: 5246397240796421124}
   m_Mesh: {fileID: -1717708615527161202, guid: b7cd6798638554842a355043419a4b01, type: 3}
---- !u!23 &2551416676305595311
+--- !u!23 &2141551023557482595
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8412570750854669479}
+  m_GameObject: {fileID: 5246397240796421124}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
