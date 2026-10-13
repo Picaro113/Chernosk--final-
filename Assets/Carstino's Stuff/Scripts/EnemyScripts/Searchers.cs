@@ -123,7 +123,7 @@ public class Searchers : MonoBehaviour
 
     public void FindVisibleTargets()
     {
-        if (searchers != null)
+        if (searchers != null || gameObject.CompareTag(""))
         {
             Collider[] targetsInViewRadius = Physics.OverlapSphere(transform.position, viewRadius, targetMask);
 

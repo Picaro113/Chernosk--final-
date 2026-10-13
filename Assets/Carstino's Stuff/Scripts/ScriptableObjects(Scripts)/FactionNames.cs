@@ -6,14 +6,11 @@ public class FactionNames : ScriptableObject
     public bool neutral = false;
     public enum Faction
     {
-
-
         Dementors, 
         Forgotten, 
         CCC, 
         Wanderers, 
         HiveMind
-
     }
 
     public Faction myfaction;
