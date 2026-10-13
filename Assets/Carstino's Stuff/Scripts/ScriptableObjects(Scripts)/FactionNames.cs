@@ -3,7 +3,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "Factions", menuName = "Factions/Factions")]
 public class FactionNames : ScriptableObject
 {
-    public bool neutral;
+    public bool neutral = false;
     public enum Faction
     {
 
@@ -24,37 +24,37 @@ public class FactionNames : ScriptableObject
         {
             case Faction.Dementors:
                 if (faction == myfaction)
-                    return false;
+                    return true & neutral;
                 if (faction != myfaction)
                 {
-                    if (faction == Faction.Forgotten) return neutral == true;
-                    if (faction != Faction.Forgotten) return neutral == false;
+                    if (myfaction == Faction.Forgotten) return neutral = true;
+                    else return neutral;
                 }
                 break;
             case Faction.Forgotten:
                 if (faction == myfaction)
-                    return false;
+                    return true & neutral;
                 if (faction != myfaction)
                 {
-                    if (faction == Faction.Dementors) return neutral == true;
-                    if (faction != Faction.Dementors) return neutral == false;
+                    if (myfaction == Faction.Dementors) return neutral = true;
+                    else return neutral;
                 }
                 break;
             case Faction.CCC:
                 if (faction == myfaction)
-                    return false;
+                    return true;
                 break;
             case Faction.Wanderers:
                 if (faction == myfaction)
-                    return false;
+                    return true;
                 break;
             case Faction.HiveMind:
                 if (faction == myfaction)
-                    return false;
+                    return true;
                 break;
 
 
         }
-        return true;
+        return false;
     }
 }
