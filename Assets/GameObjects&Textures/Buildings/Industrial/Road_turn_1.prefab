@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &994769257521474696
+--- !u!1 &2984898803062768613
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,9 +8,9 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 7959557651711871585}
-  - component: {fileID: 4845688612505490269}
-  - component: {fileID: 5089021196558555936}
+  - component: {fileID: 8519653113257680232}
+  - component: {fileID: 6597082619484716943}
+  - component: {fileID: 2396509612112918678}
   m_Layer: 0
   m_Name: Road_turn_1
   m_TagString: Untagged
@@ -18,13 +18,13 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &7959557651711871585
+--- !u!4 &8519653113257680232
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 994769257521474696}
+  m_GameObject: {fileID: 2984898803062768613}
   serializedVersion: 2
   m_LocalRotation: {x: -0.000000037748947, y: 0, z: -0, w: 1}
   m_LocalPosition: {x: -34.282925, y: 0.9081805, z: 1.4131508}
@@ -33,21 +33,21 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!33 &4845688612505490269
+--- !u!33 &6597082619484716943
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 994769257521474696}
+  m_GameObject: {fileID: 2984898803062768613}
   m_Mesh: {fileID: -4158691094438554777, guid: b7cd6798638554842a355043419a4b01, type: 3}
---- !u!23 &5089021196558555936
+--- !u!23 &2396509612112918678
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 994769257521474696}
+  m_GameObject: {fileID: 2984898803062768613}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
