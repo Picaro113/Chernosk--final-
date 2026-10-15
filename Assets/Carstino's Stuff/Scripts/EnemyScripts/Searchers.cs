@@ -159,13 +159,9 @@ public class Searchers : MonoBehaviour
                                     Debug.Log("another faction");
                                     Debug.Log(targetfaction.factions.myfaction);  
                                 }
+                            
                             }
                         }
-                        if (gameObject.CompareTag("Player"))
-                        {
-                            Debug.Log("seen player");
-                        }
-
                     }
                     else
                     {
