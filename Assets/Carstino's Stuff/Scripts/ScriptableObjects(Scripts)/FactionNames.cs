@@ -10,7 +10,7 @@ public class FactionNames : ScriptableObject
         Forgotten, 
         CCC, 
         Wanderers, 
-        HiveMind
+        HiveMind,
     }
 
     public Faction myfaction;
@@ -24,8 +24,8 @@ public class FactionNames : ScriptableObject
                     return true & neutral;
                 if (faction != myfaction)
                 {
-                    if (myfaction == Faction.Forgotten) return neutral = true;
-                    else return neutral;
+                    if (myfaction == Faction.Forgotten) return true;
+                    else return false;
                 }
                 break;
             case Faction.Forgotten:
@@ -33,8 +33,8 @@ public class FactionNames : ScriptableObject
                     return true & neutral;
                 if (faction != myfaction)
                 {
-                    if (myfaction == Faction.Dementors) return neutral = true;
-                    else return neutral;
+                    if (myfaction == Faction.Dementors) return true;
+                    else return false;
                 }
                 break;
             case Faction.CCC:
@@ -49,8 +49,6 @@ public class FactionNames : ScriptableObject
                 if (faction == myfaction)
                     return true;
                 break;
-
-
         }
         return false;
     }
