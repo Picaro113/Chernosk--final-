@@ -224,7 +224,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.00036621094, y: 0.000061035156}
+  m_AnchoredPosition: {x: 0.00048828125, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
 --- !u!114 &74084543
@@ -906,6 +906,65 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -7.4552, y: 0, z: -8.8095}
   m_LocalScale: {x: 3.3834224, y: 1, z: 3.0176666}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &779790359
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 779790361}
+  - component: {fileID: 779790360}
+  m_Layer: 0
+  m_Name: SurvivalManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &779790360
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 779790359}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a13496e46c6989d49b4290dfaa2d524d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SurvivalManager
+  maxHunger: 100
+  hungerDrainRate: 0.01
+  currentHunger: 0
+  maxThirst: 100
+  thirstDrainRate: 0.01
+  currentThirst: 0
+  maxStamina: 100
+  staminaDrainRate: 1
+  staminaRecoveryRate: 2
+  staminaRecoveryDelay: 1
+  playerMovement: {fileID: 588838500}
+  playerHealth: {fileID: 1552452527}
+  damagePerSecond: 0.5
+  damageDelay: 3
+  damageTick: 0
+--- !u!4 &779790361
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 779790359}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -5.1106, y: 0.60189, z: -13.12475}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -1840,6 +1899,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8b9c577108fb1ef46b3a855b591225af, type: 3}
+--- !u!114 &1552452527 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4361688049000667016, guid: e24eec4157273fe468a8f17be45eb017, type: 3}
+  m_PrefabInstance: {fileID: 5100776828012700577}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f25004455de8de24b95e0f6cad0c2444, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Health
 --- !u!1 &1554073379
 GameObject:
   m_ObjectHideFlags: 0
@@ -4481,3 +4551,4 @@ SceneRoots:
   - {fileID: 1361192144}
   - {fileID: 543450652823811179}
   - {fileID: 1675346638}
+  - {fileID: 779790361}

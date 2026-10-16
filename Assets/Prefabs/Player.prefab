@@ -311,6 +311,7 @@ GameObject:
   - component: {fileID: 8805285863114129087}
   - component: {fileID: 895886341663145238}
   - component: {fileID: 4317152134645730357}
+  - component: {fileID: 4361688049000667016}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -383,6 +384,7 @@ MonoBehaviour:
   defaultHeight: 2
   crouchHeight: 1
   crouchSpeed: 3
+  isRunning: 0
   canMove: 1
 --- !u!114 &4317152134645730357
 MonoBehaviour:
@@ -396,10 +398,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0af5d52e9c8cb6945ba7d3d3e19e0c6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::RadiationSystem
-  levels:
-  - {fileID: 11400000, guid: 06125cf4f43e8c84db3b90f9e46492a0, type: 2}
-  - {fileID: 11400000, guid: 621fde5aafc9573438ef7c0dc29e8399, type: 2}
-  - {fileID: 11400000, guid: 7c54af8106f38154b8dd6e66abdbf3a1, type: 2}
+  RadLevel: {fileID: 11400000, guid: 06125cf4f43e8c84db3b90f9e46492a0, type: 2}
+  RadiationHealth: 100
+--- !u!114 &4361688049000667016
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7702924978542739024}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f25004455de8de24b95e0f6cad0c2444, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Health
+  health: 100
+  maxhealth: 100
 --- !u!1 &8219165825014373644
 GameObject:
   m_ObjectHideFlags: 0
