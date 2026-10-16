@@ -10,7 +10,7 @@ public class DialogueUI : MonoBehaviour
 
     private ResponseHandler responseHandler;
 
-    [SerializeField] private PlayerMovement playerMovement;
+    [SerializeField] private FPSMovement playerMovement;
 
     public Gun gun;
     private TypeWriterEffect typeWriterEffect;

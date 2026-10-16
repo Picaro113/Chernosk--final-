@@ -38,7 +38,7 @@ public class FPSMovement : MonoBehaviour
     private bool isGrounded;
     private bool isJumping;
     private bool isCrouching;
-    private bool isRunning;
+    public bool isRunning;
     private float verticalVelocity;
     private float targetHeight;
 
