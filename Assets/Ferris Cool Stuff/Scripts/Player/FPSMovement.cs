@@ -65,12 +65,27 @@ public class FPSMovement : MonoBehaviour
     }
     private void HandleMovement()
     {
-        var move = cameraTransform.TransformDirection(new Vector3(moveInput.x, 0, moveInput.y)).normalized;
-        var currentSpeed = isCrouching ? crouchSpeed : isRunning ? runSpeed : walkSpeed;
-        var finalMove = move * currentSpeed;
+        // Get camera directions, ignoring vertical tilt
+        Vector3 forward = cameraTransform.forward;
+        Vector3 right = cameraTransform.right;
+
+        forward.y = 0f;
+        right.y = 0f;
+
+        forward.Normalize();
+        right.Normalize();
+
+        // Calculate horizontal movement relative to camera
+        Vector3 move = (right * moveInput.x + forward * moveInput.y).normalized;
+
+        var currentSpeed = isCrouching ? crouchSpeed :
+                           isRunning ? runSpeed : walkSpeed;
+
+        Vector3 finalMove = move * currentSpeed;
         finalMove.y = verticalVelocity;
 
-        var collisions = characterController.Move(finalMove * Time.deltaTime);
+        CollisionFlags collisions = characterController.Move(finalMove * Time.deltaTime);
+
         if ((collisions & CollisionFlags.Above) != 0)
         {
             verticalVelocity = initialFallVelocity;
