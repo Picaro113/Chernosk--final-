@@ -131,7 +131,6 @@ GameObject:
   - component: {fileID: 9062635}
   - component: {fileID: 9062634}
   - component: {fileID: 9062633}
-  - component: {fileID: 9062637}
   m_Layer: 0
   m_Name: Sphere
   m_TagString: Untagged
@@ -232,22 +231,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &9062637
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9062631}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c73990cc8bd4279419eb986bea44bf3d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::ChangeColor
-  colors:
-  - {r: 1, g: 0, b: 0, a: 0}
-  - {r: 0.16316223, g: 1, b: 0, a: 0}
-  duration: 2
 --- !u!1 &318539282
 GameObject:
   m_ObjectHideFlags: 0
@@ -395,63 +378,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 318539282}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 790744c462254b7ba8038e6ed28b3db2, type: 3}
+  m_Script: {fileID: 11500000, guid: b7f56762d1e8fb4468a198330954ca1d, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::TMPro.Examples.WarpTextExample
-  VertexCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    - serializedVersion: 3
-      time: 0.25
-      value: 2
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    - serializedVersion: 3
-      time: 0.5
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    - serializedVersion: 3
-      time: 0.75
-      value: 2
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    - serializedVersion: 3
-      time: 1
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  AngleMultiplier: 1
-  SpeedMultiplier: 1
-  CurveScale: 1
+  m_EditorClassIdentifier: Assembly-CSharp::CurvedText
 --- !u!1 &629914812
 GameObject:
   m_ObjectHideFlags: 0
@@ -738,6 +667,7 @@ GameObject:
   - component: {fileID: 958687065}
   - component: {fileID: 958687064}
   - component: {fileID: 958687063}
+  - component: {fileID: 958687066}
   m_Layer: 5
   m_Name: Button
   m_TagString: Untagged
@@ -847,6 +777,24 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 958687060}
   m_CullTransparentMesh: 1
+--- !u!114 &958687066
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 958687060}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c73990cc8bd4279419eb986bea44bf3d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ChangeColor
+  hover: 0
+  colors:
+  - {r: 1, g: 0, b: 0, a: 0}
+  - {r: 0, g: 0.8897755, b: 1, a: 0}
+  duration: 1
+  sphere: {fileID: 9062631}
 --- !u!1 &1649144794
 GameObject:
   m_ObjectHideFlags: 0
