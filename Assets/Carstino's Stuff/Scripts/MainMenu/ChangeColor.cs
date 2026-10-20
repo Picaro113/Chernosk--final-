@@ -1,9 +1,10 @@
+using System.Linq;
 using UnityEditor.Rendering;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class ChangeColor : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
+public class ChangeColor : MonoBehaviour
 {
     public bool hover;
 
@@ -17,49 +18,50 @@ public class ChangeColor : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
     
     private void Start()
     {
-        rend = sphere.GetComponent<Renderer>();
-        hover = false;
+        //rend = sphere.GetComponent<Renderer>();
+        //hover = false;
     }
     
     private void Update()
     {
-        if (hover == true)
+        AddColor();
+        //if (hover == true)
+        //{
+        //    t += Time.deltaTime / duration;
+        //    rend.material.color = Color.Lerp(colors[currentColorIndex], colors[(currentColorIndex + 1) % colors.Length], t);
+        //
+        //    if (t > 1f)
+        //    {
+        //        t = 0f;
+        //        currentColorIndex = currentColorIndex + 1 % colors.Length;
+        //    }
+        //}
+        //else if (hover == false && colors != null) 
+        //{
+        //    t += Time.deltaTime / duration;
+        //    rend.material.color = Color.Lerp(colors[currentColorIndex], colors[(currentColorIndex - 1) % colors.Length], t);
+        //
+        //    if (t > 1f)
+        //    {
+        //        t = 0f;
+        //        currentColorIndex = currentColorIndex - 1 % colors.Length;
+        //    }
+        //}
+    }
+    public void AddColor()
+    {
+        for (int i = 0; i < currentColorIndex; i++)
         {
-            t += Time.deltaTime / duration;
-            rend.material.color = Color.Lerp(colors[currentColorIndex], colors[(currentColorIndex + 1) % colors.Length], t);
-
-            if (t > 1f)
-            {
-                t = 0f;
-                currentColorIndex = currentColorIndex + 1 % colors.Length;
-            }
-        }
-        else if (hover == false && colors != null) 
-        {
-            t += Time.deltaTime / duration;
-            rend.material.color = Color.Lerp(colors[currentColorIndex], colors[(currentColorIndex - 1) % colors.Length], t);
-
-            if (t > 1f)
-            {
-                t = 0f;
-                currentColorIndex = currentColorIndex - 1 % colors.Length;
-            }
+            currentColorIndex += 1;
+            Debug.Log(currentColorIndex);
         }
     }
     
+
+
     public void changeColor()
     {
         rend.material.color = Color.Lerp(colors[currentColorIndex], colors[(currentColorIndex + 1) % colors.Length], t);
         currentColorIndex = currentColorIndex + 1 % colors.Length;
-    }
-
-    public void OnPointerEnter(PointerEventData eventData)
-    {
-        hover = true;
-    }
-
-    public void OnPointerExit(PointerEventData eventData)
-    {
-        hover = false;
     }
 }
