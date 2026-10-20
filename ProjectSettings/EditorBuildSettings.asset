@@ -6,6 +6,12 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Carstino's Stuff/Scene's/MainMenu.unity
+    guid: 62ef773fefe740e4490fd973c7b4e014
+  - enabled: 1
+    path: Assets/Jacob's cool stuff/main map.unity
+    guid: b2873de603d9aa74e885a7a842a9f4c6
+  - enabled: 1
     path: Assets/Ferris Cool Stuff/Scenes/test scene.unity
     guid: 99c9720ab356a0642a771bea13969a05
   m_configObjects:
