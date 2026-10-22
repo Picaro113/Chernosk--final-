@@ -1,8 +1,7 @@
-using System.Linq;
-using UnityEditor.Rendering;
 using UnityEngine;
-using UnityEngine.EventSystems;
 using UnityEngine.UI;
+using System.Collections.Generic;
+using System.Collections;
 
 public class ChangeColor : MonoBehaviour
 {
@@ -15,53 +14,85 @@ public class ChangeColor : MonoBehaviour
     private Renderer rend;
     private int currentColorIndex = 0;
     private float t = 0f;
+
+    public bool onclick;
+    public float timer;
+
+    public List<Button> buttons = new List<Button>();
     
     private void Start()
     {
-        //rend = sphere.GetComponent<Renderer>();
-        //hover = false;
+        rend = sphere.GetComponent<Renderer>();
+        hover = false;
+        currentColorIndex = 0;
+        rend.material.color = colors[currentColorIndex];
+
     }
     
     private void Update()
     {
-        AddColor();
-        //if (hover == true)
-        //{
-        //    t += Time.deltaTime / duration;
-        //    rend.material.color = Color.Lerp(colors[currentColorIndex], colors[(currentColorIndex + 1) % colors.Length], t);
+
+        //t += Time.deltaTime / duration;
+        //rend.material.color = Color.Lerp(colors[currentColorIndex], colors[(currentColorIndex + 1) % colors.Length], t);
         //
-        //    if (t > 1f)
-        //    {
-        //        t = 0f;
-        //        currentColorIndex = currentColorIndex + 1 % colors.Length;
-        //    }
-        //}
-        //else if (hover == false && colors != null) 
+        //if (t > 1f)
         //{
-        //    t += Time.deltaTime / duration;
-        //    rend.material.color = Color.Lerp(colors[currentColorIndex], colors[(currentColorIndex - 1) % colors.Length], t);
-        //
-        //    if (t > 1f)
-        //    {
-        //        t = 0f;
-        //        currentColorIndex = currentColorIndex - 1 % colors.Length;
-        //    }
+        //    t = 0f;
+        //    currentColorIndex = currentColorIndex + 1 % colors.Length;
         //}
-    }
-    public void AddColor()
-    {
-        for (int i = 0; i < currentColorIndex; i++)
+        //
+        //t += Time.deltaTime / duration;
+        //
+        //if (t > 1f)
+        //{
+        //    t = 0f;
+        //    
+        //}
+
+        if (onclick == true)
         {
-            currentColorIndex += 1;
-            Debug.Log(currentColorIndex);
+            StartCoroutine(ButtonManager(timer));
+        }
+        if (onclick == false)
+        {
+            StopAllCoroutines();
         }
     }
-    
 
-
-    public void changeColor()
+    public void changeColorAdd()
     {
-        rend.material.color = Color.Lerp(colors[currentColorIndex], colors[(currentColorIndex + 1) % colors.Length], t);
-        currentColorIndex = currentColorIndex + 1 % colors.Length;
+        //rend.material.color = Color.Lerp(colors[currentColorIndex], colors[(currentColorIndex + 1)], t);
+        if (onclick == false)
+        {
+            if (currentColorIndex < colors.Length - 1)
+            {
+                currentColorIndex = currentColorIndex + 1;
+                rend.material.color = colors[currentColorIndex];
+                onclick = true;
+            }
+            else return;
+        }
+    }
+
+    public void changeColorsMinus()
+    {
+        //rend.material.color = Color.Lerp(colors[currentColorIndex], colors[(currentColorIndex - 1)], t);
+
+        if (onclick == false)
+        {
+            if (currentColorIndex != 0)
+            {
+                currentColorIndex = currentColorIndex - 1;
+                rend.material.color = colors[currentColorIndex];
+                onclick = true;
+            }
+            else return;
+        }
+    }
+
+    public IEnumerator ButtonManager(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        onclick = false;
     }
 }
