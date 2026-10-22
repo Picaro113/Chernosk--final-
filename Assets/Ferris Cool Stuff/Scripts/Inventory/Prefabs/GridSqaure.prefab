@@ -92,4 +92,5 @@ MonoBehaviour:
   col: 0
   inventory: {fileID: 0}
   image: {fileID: 1670285291505547682}
-  highlightColor: {r: 0, g: 1, b: 0.8614476, a: 0.62352943}
+  highlightColor: {r: 0, g: 0.96044064, b: 1, a: 0.8352941}
+  invalidColor: {r: 1, g: 0, b: 0, a: 0.69411767}

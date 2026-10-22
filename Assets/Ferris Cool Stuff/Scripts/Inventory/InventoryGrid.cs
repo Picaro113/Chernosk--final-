@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class InventoryGrid : MonoBehaviour
 {
+    public static InventoryGrid instance;
     public int totalColumns;
     public int totalRows;
     public GameObject gridSquarePrefab;
@@ -11,10 +12,11 @@ public class InventoryGrid : MonoBehaviour
     GridSquare[,] grid;
     private void Start()
     {
+        instance = this;
         grid = new GridSquare[totalColumns, totalRows];
         for (int i = 0; i < totalRows; i++)
         {
-            for(int j = 0; j < totalColumns; j++)
+            for (int j = 0; j < totalColumns; j++)
             {
                 GameObject spawned = Instantiate(gridSquarePrefab, transform);
                 spawned.transform.localPosition = new Vector3(GetX(j), GetY(i), 0);
@@ -28,7 +30,7 @@ public class InventoryGrid : MonoBehaviour
         GameObject itemObject = Instantiate(itemPrefab, transform);
         itemObject.GetComponent<InventoryItem>().SetGridSquareSize(gridItemSize);
         SetItemPosition(itemObject.transform, 1, 2);
-    }   
+    }
 
     float GetX(int column)
     {
@@ -57,27 +59,38 @@ public class InventoryGrid : MonoBehaviour
         }
         if (column + width - 1 >= totalColumns)
         {
-            return false; 
+            return false;
         }
 
         return true;
     }
 
-    public void highlightItemGridHighlight(int column, int row, int width, int height)
+    public void ItemGridApplyState(int column, int row, int width, int height, GridSquareState toApply)
     {
-        for(int i = 0; i < totalRows; i++)
+        for (int i = 0; i < totalRows; i++)
         {
             for (int j = 0; j < totalColumns; j++)
             {
                 if (j >= column && j < column + width &&
                        i >= row && i < row + height)
                 {
-                    grid[j,i].SetHighlighted(true);
+                    grid[j, i].SetState(toApply);
                 }
                 else
                 {
-                    grid[j,i].SetHighlighted(false);
+                    grid[j, i].SetState(GridSquareState.normal);
                 }
+            }
+        }
+    }
+
+    public void ClearHighlights()
+    {
+        for (int i = 0; i < totalRows; i++)
+        {
+            for (int j = 0; j < totalColumns; j++)
+            {
+                grid[j, i].SetState(GridSquareState.normal);
             }
         }
     }

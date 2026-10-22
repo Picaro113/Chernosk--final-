@@ -38,7 +38,14 @@ public class InventoryHand : MonoBehaviour
                 GridSquare hit = GetGridSquare(pointerEventData);
                 if (hit != null)
                 {
-                    hit.ItemGridHighlight(heldObject.width, heldObject.height);
+                    if (hit.IsValidLocation(heldObject.width, heldObject.height))
+                    {
+                        hit.ItemGridApplyState(heldObject.width, heldObject.height, GridSquareState.highlight);
+                    }
+                    else
+                    {
+                        hit.ItemGridApplyState(heldObject.width, heldObject.height, GridSquareState.invalid);
+                    }
                 }                                                                    
             }
         }
@@ -74,9 +81,11 @@ public class InventoryHand : MonoBehaviour
         }
         else
         {
-            heldObject.CancelMove();
+            // drop item into world
+            InventoryItemDropper.instance.Drop(heldObject);
+            Destroy(heldObject.gameObject);
         }
-
+        InventoryGrid.instance.ClearHighlights();
     }
     public void PickUpItem(InventoryItem item)
     {

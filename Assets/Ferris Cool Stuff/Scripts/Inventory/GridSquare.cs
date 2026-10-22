@@ -9,6 +9,7 @@ public class GridSquare : MonoBehaviour
     public InventoryGrid inventory;
     public Image image;
     public Color highlightColor;
+    public Color invalidColor;
     Color defaultColor;
 
     private void Start()
@@ -27,16 +28,31 @@ public class GridSquare : MonoBehaviour
         return inventory.IsValidLocation(col, row, width, height);
     }
 
-    public void SetHighlighted(bool isHighlighted)
+    public void SetState(GridSquareState state)
     {
-        if(isHighlighted)
-            image.color = highlightColor;
-        else
-            image.color = defaultColor;
+        switch (state)
+        {
+            case GridSquareState.normal:
+                image.color = defaultColor;
+                break;
+            case GridSquareState.highlight:
+                image.color = highlightColor;
+                break;
+            case GridSquareState.invalid:
+                image.color = invalidColor;
+                break;
+        }
     }
 
-    public void ItemGridHighlight(int width, int height)
+    public void ItemGridApplyState(int width, int height, GridSquareState toApply)
     {
-        inventory.highlightItemGridHighlight(col, row, width, height);
+        inventory.ItemGridApplyState(col, row, width, height, toApply);
     }
+}
+
+public enum GridSquareState
+{
+    normal,
+    highlight,
+    invalid,
 }

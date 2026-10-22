@@ -6,6 +6,7 @@ using UnityEngine.UI;
 
 public class InventoryItem : MonoBehaviour, IPointerDownHandler
 {
+    public ItemData itemData;
     public int width;
     public int height;
     public Image image;
