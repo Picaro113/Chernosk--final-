@@ -84,6 +84,7 @@ public class InventoryHand : MonoBehaviour
             // drop item into world
             InventoryItemDropper.instance.Drop(heldObject);
             Destroy(heldObject.gameObject);
+            InventoryGrid.instance.RemoveItem(heldObject);
         }
         InventoryGrid.instance.ClearHighlights();
     }

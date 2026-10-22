@@ -8,6 +8,7 @@ using UnityEngine.InputSystem.EnhancedTouch;
 
 public class FPSMovement : MonoBehaviour
 {
+    public IInteractable interactable { get; set; }
     [Header("Speed")]
     [SerializeField] private float walkSpeed = 5f;
     [SerializeField] private float runSpeed = 8f;

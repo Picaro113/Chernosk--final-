@@ -1,5 +1,6 @@
 using JetBrains.Annotations;
 using UnityEngine;
+using System.Collections.Generic;
 
 public class InventoryGrid : MonoBehaviour
 {
@@ -10,6 +11,7 @@ public class InventoryGrid : MonoBehaviour
     public float gridItemSize;
     public GameObject itemPrefab;
     GridSquare[,] grid;
+    List<InventoryContent> contents = new();
     private void Start()
     {
         instance = this;
@@ -27,9 +29,7 @@ public class InventoryGrid : MonoBehaviour
                 grid[j, i] = gridSquare;
             }
         }
-        GameObject itemObject = Instantiate(itemPrefab, transform);
-        itemObject.GetComponent<InventoryItem>().SetGridSquareSize(gridItemSize);
-        SetItemPosition(itemObject.transform, 1, 2);
+      
     }
 
     float GetX(int column)
@@ -62,7 +62,30 @@ public class InventoryGrid : MonoBehaviour
             return false;
         }
 
+        foreach(InventoryContent content in contents)
+        {
+            if(IsOverlapWithContent(column, row, width, height, content))
+            {
+                return false;
+            }
+        }
+
         return true;
+    }
+
+    bool IsOverlapWithContent(int column, int row, int width, int height, InventoryContent content)
+    {
+       if(row + height <= content.row)
+            return false;
+       if (column + width <= content.column)
+            return false;
+       if (content.column + content.Item.width <= column)
+            return false;
+       if (content.row + content.Item.height <= row)
+            return false;
+      
+       
+       return true;
     }
 
     public void ItemGridApplyState(int column, int row, int width, int height, GridSquareState toApply)
@@ -91,6 +114,42 @@ public class InventoryGrid : MonoBehaviour
             for (int j = 0; j < totalColumns; j++)
             {
                 grid[j, i].SetState(GridSquareState.normal);
+            }
+        }
+    }
+
+    public bool AddItem(InventoryItem item)
+    {
+        for (int i = 0; i < totalRows; i++)
+        {
+            for (int j = 0; j < totalColumns; j++)
+            {
+                if (IsValidLocation(j, i, item.width, item.height))
+                {
+                    InventoryItem spawned = Instantiate(item, transform);  
+                    spawned.SetGridSquareSize(gridItemSize);
+                    SetItemPosition(spawned.transform, j, i);
+                    InventoryContent content = new InventoryContent();
+                    content.Item = spawned;
+                    content.column = j;
+                    content.row = i;
+
+                    contents.Add(content);
+                    return true;
+                }
+            }
+        }
+            return false;
+    }
+
+    public void RemoveItem(InventoryItem item)
+    {
+        foreach(InventoryContent content in contents)
+        {
+            if(content.Item == item)
+            {
+                contents.Remove(content);
+                return;
             }
         }
     }

@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: feaae0517409ce04aa7aa498f03ec45d, type: 3}
   m_Name: healthPack
   m_EditorClassIdentifier: Assembly-CSharp::ItemData
-  inventoryPrefab: {fileID: 0}
-  worldPrefab: {fileID: 0}
+  inventoryPrefab: {fileID: 4300560561460476358, guid: 1b224462dbbe75d498ee3a2d9cf52145, type: 3}
+  worldPrefab: {fileID: 1274822900930529369, guid: 602be156ce4bff440aaa8cb502666c63, type: 3}

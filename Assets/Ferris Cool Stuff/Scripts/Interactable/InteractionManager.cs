@@ -34,14 +34,11 @@ public class InteractionManager : MonoBehaviour
         {
             GameObject objectHitByRaycast = hit.transform.gameObject;
 
-            if (objectHitByRaycast.GetComponent<Gun>() && objectHitByRaycast.GetComponent<Gun>().isActiveWeapon == false)
+            if (objectHitByRaycast.GetComponent<PickUp>())
             {
-                gunHoveredOver = objectHitByRaycast.gameObject.GetComponent<Gun>();
-                gunHoveredOver.GetComponent<Outline>().enabled = true;
-
                 if (Input.GetKeyDown(KeyCode.F))
                 {
-                    WeaponManager.Instance.PickupWeapon(objectHitByRaycast.gameObject);
+                    PickUp(objectHitByRaycast.GetComponent<PickUp>());
                 }
             }
             
@@ -72,6 +69,13 @@ public class InteractionManager : MonoBehaviour
                     hoveredAmmoBox.GetComponent<Outline>().enabled = false;
                 }
             }
+        }
+    }
+    void PickUp(PickUp item)
+    {
+        if (InventoryGrid.instance.AddItem(item.itemData.inventoryPrefab.GetComponent<InventoryItem>())) 
+        {
+            Destroy(item.gameObject);
         }
     }
 }
