@@ -98,6 +98,7 @@ public class InventoryHand : MonoBehaviour
     public void PickUpItem(InventoryItem item)
     {
         heldObject = item;
+        item.SetGridSquareSize(InventoryGrid.instance.gridItemSize);
         InventoryGrid.instance.RemoveItem(heldObject);
     }
     public void DropHeldItem()

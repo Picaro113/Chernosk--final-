@@ -19,6 +19,12 @@ public class InventoryItem : MonoBehaviour, IPointerDownHandler
         rect.sizeDelta = new Vector2(size * width, size * height);
     }
 
+    public void SetSize(float boxWidth, float boxHeight)
+    {
+        RectTransform rect = GetComponent<RectTransform>();
+        rect.sizeDelta = new Vector2(boxWidth, boxHeight);
+    }
+
 
     public void OnPointerDown(PointerEventData eventData)
     {

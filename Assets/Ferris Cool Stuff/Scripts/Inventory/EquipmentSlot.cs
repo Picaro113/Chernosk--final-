@@ -1,6 +1,7 @@
 using UnityEngine;
+using UnityEngine.EventSystems;
 
-public class EquipmentSlot : ItemSquare
+public class EquipmentSlot : ItemSquare, IPointerExitHandler
 {
     public EquipmentType equipmentType;
     InventoryItem equippedItem;
@@ -17,7 +18,11 @@ public class EquipmentSlot : ItemSquare
                 }
             }
 
+
+
             equippedItem = InventoryHand.i.GetHeldItem();
+            RectTransform rect = GetComponent<RectTransform>();
+            equippedItem.SetSize(rect.sizeDelta.x *  rect.localScale.x, rect.sizeDelta.y * rect.localScale.y);
             equippedItem.transform.position = transform.position;
         }
     }
@@ -30,6 +35,11 @@ public class EquipmentSlot : ItemSquare
     public override void ItemGridApplyState(int width, int height, GridSquareState toApply)
     {
         SetState(toApply);
+    }
+
+    public void OnPointerExit(PointerEventData eventData)
+    {
+        SetState(GridSquareState.normal);
     }
 }
 
