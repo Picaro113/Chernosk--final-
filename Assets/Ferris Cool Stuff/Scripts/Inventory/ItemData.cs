@@ -5,4 +5,5 @@ public class ItemData : ScriptableObject
 {
     public GameObject inventoryPrefab;
     public GameObject worldPrefab;
+    public EquipmentType equipmentType;
 }

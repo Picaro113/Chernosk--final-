@@ -126,20 +126,26 @@ public class InventoryGrid : MonoBehaviour
             {
                 if (IsValidLocation(j, i, item.width, item.height))
                 {
-                    InventoryItem spawned = Instantiate(item, transform);  
-                    spawned.SetGridSquareSize(gridItemSize);
-                    SetItemPosition(spawned.transform, j, i);
-                    InventoryContent content = new InventoryContent();
-                    content.Item = spawned;
-                    content.column = j;
-                    content.row = i;
-
-                    contents.Add(content);
+                    item.transform.parent = transform;
+                    item.SetGridSquareSize(gridItemSize);
+                    AddItemAtLocation(item, j, i);
                     return true;
                 }
             }
         }
             return false;
+    }
+
+    public void AddItemAtLocation(InventoryItem item, int col, int row)
+    {
+        SetItemPosition(item.transform, col, row);
+
+        InventoryContent content = new InventoryContent();
+        content.Item = item;
+        content.column = col;
+        content.row = row;
+
+        contents.Add(content);
     }
 
     public void RemoveItem(InventoryItem item)
@@ -152,5 +158,17 @@ public class InventoryGrid : MonoBehaviour
                 return;
             }
         }
+    }
+    public InventoryContent GetItemContent(InventoryItem item)
+    {
+        foreach (InventoryContent content in contents)
+        {
+            if (content.Item == item)
+            {
+               return content;
+            }
+        }
+
+        return null;
     }
 }

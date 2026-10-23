@@ -35,10 +35,10 @@ public class InventoryHand : MonoBehaviour
             }
             else
             {
-                GridSquare hit = GetGridSquare(pointerEventData);
+                ItemSquare hit = GetGridSquare(pointerEventData);
                 if (hit != null)
                 {
-                    if (hit.IsValidLocation(heldObject.width, heldObject.height))
+                    if (hit.IsValidLocation(heldObject))
                     {
                         hit.ItemGridApplyState(heldObject.width, heldObject.height, GridSquareState.highlight);
                     }
@@ -50,13 +50,21 @@ public class InventoryHand : MonoBehaviour
             }
         }
     }
-    public GridSquare GetGridSquare(PointerEventData eventData)
+    public ItemSquare GetGridSquare(PointerEventData eventData)
     {
         List<RaycastResult> result = new List<RaycastResult>();
         EventSystem.current.RaycastAll(eventData, result);
         if (result.Count > 0)
         {
-            return result[0].gameObject.GetComponent<GridSquare>();
+            foreach(RaycastResult r in result)
+            {
+                ItemSquare gridSquare = r.gameObject.GetComponent<ItemSquare>();
+                if(gridSquare != null)
+                {
+                    return gridSquare;
+                }
+            }
+            return null;
         }
         else
         {
@@ -66,10 +74,10 @@ public class InventoryHand : MonoBehaviour
 
     public void ReleaseItem(PointerEventData eventData)
     {
-        GridSquare hit = GetGridSquare(eventData);
+        ItemSquare hit = GetGridSquare(eventData);
         if (hit != null)
         {
-            if (hit.IsValidLocation(heldObject.width, heldObject.height))
+            if (hit.IsValidLocation(heldObject))
             {
                 hit.DropItem();
                 heldObject.Drop();
@@ -84,13 +92,13 @@ public class InventoryHand : MonoBehaviour
             // drop item into world
             InventoryItemDropper.instance.Drop(heldObject);
             Destroy(heldObject.gameObject);
-            InventoryGrid.instance.RemoveItem(heldObject);
         }
         InventoryGrid.instance.ClearHighlights();
     }
     public void PickUpItem(InventoryItem item)
     {
         heldObject = item;
+        InventoryGrid.instance.RemoveItem(heldObject);
     }
     public void DropHeldItem()
     {

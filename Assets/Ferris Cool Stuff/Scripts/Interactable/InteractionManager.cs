@@ -38,6 +38,7 @@ public class InteractionManager : MonoBehaviour
             {
                 if (Input.GetKeyDown(KeyCode.F))
                 {
+                  
                     PickUp(objectHitByRaycast.GetComponent<PickUp>());
                 }
             }
@@ -73,7 +74,8 @@ public class InteractionManager : MonoBehaviour
     }
     void PickUp(PickUp item)
     {
-        if (InventoryGrid.instance.AddItem(item.itemData.inventoryPrefab.GetComponent<InventoryItem>())) 
+        GameObject spawned = Instantiate(item.itemData.inventoryPrefab);
+        if (InventoryGrid.instance.AddItem(spawned.GetComponent<InventoryItem>())) 
         {
             Destroy(item.gameObject);
         }

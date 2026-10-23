@@ -14,3 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ItemData
   inventoryPrefab: {fileID: 1531406167928896327, guid: 512fa15e8bd1aa9448976d46a49ce845, type: 3}
   worldPrefab: {fileID: 4556981306826718148, guid: a6d4943cdd62082499bd66536ca96642, type: 3}
+  equipmentType: 1

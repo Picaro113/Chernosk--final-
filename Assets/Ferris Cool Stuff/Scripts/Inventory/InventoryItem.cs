@@ -11,7 +11,8 @@ public class InventoryItem : MonoBehaviour, IPointerDownHandler
     public int height;
     public Image image;
 
-    Vector3 previousPostion;
+    int previousColumn;
+    int previousRow;
     public void SetGridSquareSize(float size)
     {
         RectTransform rect = GetComponent<RectTransform>();
@@ -21,19 +22,24 @@ public class InventoryItem : MonoBehaviour, IPointerDownHandler
 
     public void OnPointerDown(PointerEventData eventData)
     {
-        InventoryHand.i.PickUpItem(this);
         PickUp();
+        InventoryHand.i.PickUpItem(this);
     }
 
     public void PickUp()
     {
         image.raycastTarget = false;
-        previousPostion = transform.localPosition;
+        InventoryContent content = InventoryGrid.instance.GetItemContent(this);
+        if (content != null)
+        {
+            previousColumn = content.column;
+            previousRow = content.row;            
+        }
     }
 
     public void CancelMove()
     {
-        transform.localPosition = previousPostion;
+        InventoryGrid.instance.AddItemAtLocation(this, previousColumn, previousRow);
         Drop();
     }
 
