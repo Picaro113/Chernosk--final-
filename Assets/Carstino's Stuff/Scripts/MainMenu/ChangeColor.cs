@@ -12,6 +12,8 @@ public class ChangeColor : MonoBehaviour
     private int currentColorIndex = 0;
     public bool onclick;
 
+    public List<Button> buttons = new List<Button>();
+
     private void Start()
     {
         rend = sphere.GetComponent<Renderer>();
@@ -40,6 +42,11 @@ public class ChangeColor : MonoBehaviour
                 currentColorIndex = currentColorIndex + 1;
                 rend.material.color = colors[currentColorIndex];
                 onclick = true;
+                sphere.transform.rotation = sphere.transform.rotation * Quaternion.Euler(0, 0, -90);
+                //foreach(var button in buttons)
+                //{
+                //    button.transform.rotation = button.transform.rotation * Quaternion.Euler(0, 0, -90);
+                //}
             }
             else return;
         }
@@ -54,6 +61,11 @@ public class ChangeColor : MonoBehaviour
                 currentColorIndex = currentColorIndex - 1;
                 rend.material.color = colors[currentColorIndex];
                 onclick = true;
+                sphere.transform.rotation = sphere.transform.rotation * Quaternion.Euler(0, 0, 90);
+                //foreach(var button in buttons)
+                //{
+                //    button.transform.rotation = button.transform.rotation * Quaternion.Euler(0, 0, 90);
+                //}
             }
             else return;
         }
