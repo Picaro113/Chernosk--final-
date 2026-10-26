@@ -267,7 +267,7 @@ Material:
     - _GlossyReflections: 1
     - _HueShift: -1
     - _LIGHTINGMETHOD: 0
-    - _LightnessMultiplier: 0.82
+    - _LightnessMultiplier: 1.47
     - _MainSmoothness: 0.22412397
     - _MainSmoothness1: 0.22412397
     - _MaxDepth: 0
@@ -287,7 +287,7 @@ Material:
     - _QueueControl: -1
     - _QueueOffset: 0
     - _SHADINGMETHOD: 0
-    - _SaturationMultiplier: 2
+    - _SaturationMultiplier: 1.4
     - _Scale: 0.81580454
     - _ScaleFlat: 1.9530317
     - _ShadowDistCutoff: 100
