@@ -2,12 +2,14 @@ using UnityEngine;
 using UnityEngine.UI;
 using System.Collections.Generic;
 using System.Collections;
+using Unity.VisualScripting;
 
 public class ChangeColor : MonoBehaviour
 {
     public Color[] colors;
     public float duration;
     public GameObject sphere;
+    public GameObject rotateSphere;
     private Renderer rend;
     private int currentColorIndex = 0;
     public bool onclick;
@@ -42,11 +44,7 @@ public class ChangeColor : MonoBehaviour
                 currentColorIndex = currentColorIndex + 1;
                 rend.material.color = colors[currentColorIndex];
                 onclick = true;
-                sphere.transform.rotation = sphere.transform.rotation * Quaternion.Euler(0, 0, -90);
-                //foreach(var button in buttons)
-                //{
-                //    button.transform.rotation = button.transform.rotation * Quaternion.Euler(0, 0, -90);
-                //}
+                rotateSphere.transform.rotation *= Quaternion.Euler(0, 0, 90);
             }
             else return;
         }
@@ -61,11 +59,7 @@ public class ChangeColor : MonoBehaviour
                 currentColorIndex = currentColorIndex - 1;
                 rend.material.color = colors[currentColorIndex];
                 onclick = true;
-                sphere.transform.rotation = sphere.transform.rotation * Quaternion.Euler(0, 0, 90);
-                //foreach(var button in buttons)
-                //{
-                //    button.transform.rotation = button.transform.rotation * Quaternion.Euler(0, 0, 90);
-                //}
+                rotateSphere.transform.rotation *= Quaternion.Euler(0, 0, -90);
             }
             else return;
         }
