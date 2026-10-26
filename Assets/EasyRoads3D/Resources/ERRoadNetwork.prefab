@@ -148,6 +148,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   projectid: 
+  resourcesFolderName: Resources
+  resourcesFullFolderName: 
+  runtimeAIFlag: 1
+  runtimeRoadNetworkFlag: 1
   updateInt: 10
   newSplatMapRestoreCode: 0
   toolbarInt: 1
@@ -162,6 +166,10 @@ MonoBehaviour:
   - {fileID: 2800000, guid: b2f9adc22d0fa0647880b18b89bf0872, type: 3}
   - {fileID: 2800000, guid: 8583bfb2058e94a48801d7212430d8d1, type: 3}
   - {fileID: 2800000, guid: a734eccac0ad8bc49950dd4fbee58611, type: 3}
+  crosswalkUIOn: {fileID: 0}
+  crosswalkUIOff: {fileID: 0}
+  navTex: {fileID: 0}
+  navTexs: []
   menuGUIContents:
   - m_Text: 
     m_Image: {fileID: 2800000, guid: 34aed1010b525bf4c9cfd7da35361a90, type: 3}
@@ -208,7 +216,7 @@ MonoBehaviour:
   refreshIconOff: {fileID: 0}
   roadObjectsParent: {fileID: 400000}
   connectionObjectsParent: {fileID: 400002}
-  OODOQCOOCO: {fileID: 0}
+  OODODOOQCO: {fileID: 0}
   roadTypes:
   - roadTypeName: Default Road
     id: 1
@@ -286,8 +294,7 @@ MonoBehaviour:
     roadMaterials: []
     roadPhysicsMaterial: {fileID: 0}
     roadPhysicsMaterials: []
-    connectionMaterial: {fileID: 2100000, guid: 3c555588afad81d428ad1704d5d015a7,
-      type: 2}
+    connectionMaterial: {fileID: 2100000, guid: 3c555588afad81d428ad1704d5d015a7, type: 2}
     isSideObject: 0
     isCustomRoad: 0
     subSegments: 1
@@ -354,6 +361,11 @@ MonoBehaviour:
     trafficPosts: []
     activeTrafficPostIndex: 0
     showTrafficPosts: 0
+    centerObject: {fileID: 0}
+    centerObjectActive: 0
+    islandObject: {fileID: 0}
+    islandObjectActive: 0
+    materialCreatorIsSet: 0
     materialCreator: 0
     synchRoadWidth: 0
     totalLanes: 0
@@ -386,15 +398,19 @@ MonoBehaviour:
     medianRightLineMarkingColor: {r: 0, g: 0, b: 0, a: 0}
     materialType: 0
     baseTexture: {fileID: 0}
+    baseTextureMask: {fileID: 0}
     baseTextureSize: 0
     baseTexture2: {fileID: 0}
     normalMap: {fileID: 0}
+    pbrNoiseSourceTexture: {fileID: 0}
     pbrTexture: {fileID: 0}
+    pbrNoiseTexture: {fileID: 0}
     pbrLaneStrength: 0
     pbrCurveStrength: 0
     noiseTexture: {fileID: 0}
     noiseTexture2: {fileID: 0}
     linesTexture: {fileID: 0}
+    connectionLinesTexture: {fileID: 0}
     linesTextureSize: 0
     linesNormalMapBlend: 0
     normalMapScale: 0
@@ -402,6 +418,26 @@ MonoBehaviour:
     smoothnessScale: 0
     aoScale: 0
     lineMaskQuality: 0
+    dynMapsUpdated: 0
+    roadEdgeMapping: 0
+    baseUVs: []
+    leftEdgeUVs: []
+    leftEdgeWidth: 0
+    rightEdgeUVs: []
+    rightEdgeWidth: 0
+    laneNoiseControl: 0
+    mirrorLaneNoiseOnShoulder: 0
+    noiseMaps: []
+    noiseMap: {fileID: 0}
+    noiseBaseMapTiling: 0
+    noiseMapTiling: 0
+    bakeLinePBR: 0
+    shoulderOffset: 0
+    defaultLanesMetSM: 0
+    defaultShoulderMetSM: 0
+    unwrapUVs: 0
+    connectionShoulderMarkings: 0
+  lockRoadTypeSelection: 1
   selectedRoadType: 0
   selectedNewRoadType: 0
   inspRoadTypes: []
@@ -413,10 +449,8 @@ MonoBehaviour:
   roadMaterial: {fileID: 2100000, guid: f182e2714eb8a714a99ed091081ce16c, type: 2}
   crossingMaterial: {fileID: 2100000, guid: f182e2714eb8a714a99ed091081ce16c, type: 2}
   roundAboutMaterial: {fileID: 2100000, guid: 55e19257e99adea4380d1160ee92af9f, type: 2}
-  roundAboutConnectionMaterial: {fileID: 2100000, guid: ce8bb957aa39a384eb46fd561e66303f,
-    type: 2}
-  roundAboutRoadMaterial: {fileID: 2100000, guid: f182e2714eb8a714a99ed091081ce16c,
-    type: 2}
+  roundAboutConnectionMaterial: {fileID: 2100000, guid: ce8bb957aa39a384eb46fd561e66303f, type: 2}
+  roundAboutRoadMaterial: {fileID: 2100000, guid: f182e2714eb8a714a99ed091081ce16c, type: 2}
   sidewalkMaterial: {fileID: 0}
   targetMaterial: {fileID: 0}
   sourceTerrain: {fileID: 0}
@@ -491,11 +525,13 @@ MonoBehaviour:
   osmTerrainBottomLon: 0
   osmTerrainLeftLat: 0
   osmTerrainRightLat: 0
+  maxRoadResolution: 30
   terrainCheckDone: 1
   terrainMinIndent: 3.6621094
   terrainCellSize: 2.4414062
-  minIndent: 3.662109
+  minIndent: 3.6621094
   minSurrounding: 5
+  ignoreMinIndents: 0
   surroundingHeightFactor: 0.5
   terrainCellAngleThreshold: 90
   terrainCellHeightThreshold: 25
@@ -509,13 +545,32 @@ MonoBehaviour:
   mirrorCrossings: 1
   terrainNames:
   - All Terrains
-  - Terrain
+  - Terrain (3)
+  - Terrain_(-2000.00, 0.00, -1000.00)
+  - Terrain_(-1000.00, 0.00, -2000.00)
+  - Terrain_(-1000.00, 0.00, -1000.00)
+  - Terrain_(0.00, 0.00, -2000.00)
+  - Terrain_(-2000.00, 0.00, 0.00)
+  - Terrain_(0.00, 0.00, -1000.00)
+  - Terrain_(-2000.00, 0.00, -2000.00)
+  - Terrain (1)
+  - Terrain_(-1000.00, 0.00, 0.00)
+  - Terrain (2)
   terrainObjects:
   - {fileID: 0}
   - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   terrainSplatTextures:
-  - Splat 1 - Grass
-  - Splat 2 - Grass&Rock
+  - Splat 1 - NewLayer
   activeTerrain: {fileID: 0}
   activeTerrainY: 0
   selectedTerrain: 0
@@ -602,7 +657,7 @@ MonoBehaviour:
   showSurfaces: 0
   useLightProbes: 0
   hideLockedObjects: 0
-  ODOQQOOQDO: 0
+  ODQODCCQOC: 0
   isInBuildMode: 0
   progressFlag: 0
   progressTerrain: 1
@@ -663,13 +718,14 @@ MonoBehaviour:
   importCrossingPresetsAlert: 0
   importSidewalkPresetsAlert: 0
   updateSideObjectsAlert: 0
-  updateRoadPresetsAlert: 0
+  updateRoadPresetsAlert: 1
   updateCrossingPresetsAlert: 0
   updateSidewalkPresetsAlert: 0
   waypointDistance: 10
   RoadObjectsSoUpdates: []
   connectionObjects: []
   connectionSWObjects: []
+  crosswalkPosts: []
   assetsFolderID: 
   meshSurface: {fileID: 0}
   meshTerrainCollider: {fileID: 0}
@@ -681,7 +737,6 @@ MonoBehaviour:
   leftTHandles: []
   rightTHandles: []
   roadNetworkY: 0
-  ignoreMinIndents: 0
   zoomStart: {x: 0, y: 0, z: 0}
   zoomEnd: {x: 0, y: 0, z: 0}
   lookAtStart: {x: 0, y: 0, z: 0}
@@ -693,16 +748,16 @@ MonoBehaviour:
   dirtyBool: 0
   dirtyOnSceneBool: 0
   forceRoadNetworkSelect: 0
-  OCCQCODQCD: 1
-  OODOQCOOCOScript: {fileID: 0}
-  OCCDQODDQCCrossingsScript: {fileID: 0}
-  OCCDQODDQCScript: {fileID: 0}
-  OODOQCOOCOElement: -1
-  OQDCOCQQCC: -1
-  OCQODDDQOD: {fileID: 0}
-  ODOOCQDQDD: {fileID: 0}
-  OOQOCCQODO: {fileID: 0}
-  ODQQCCOOOO: -1
+  OQCOQODDOQ: 1
+  OODODOOQCOScript: {fileID: 0}
+  OQQDCOCDQCCrossingsScript: {fileID: 0}
+  OQQDCOCDQCScript: {fileID: 0}
+  OODODOOQCOElement: -1
+  OCCOCDOOOQ: -1
+  ODCQQCQDCQ: {fileID: 0}
+  OCCDDQOOOQ: {fileID: 0}
+  OCDCDCQCOC: {fileID: 0}
+  OCCCDQQOQD: -1
   selectedRoadSOMarker: -1
   selectedMarkerNode: -1
   selectedMarkerNodes: 
@@ -710,6 +765,10 @@ MonoBehaviour:
   selectedMarkerSONodes: 
   selectedObjects: []
   selectedExitRoad: -1
+  selectedCrosswalk: -1
+  selectedCrosswalkHandlePosition: {x: 0, y: 0, z: 0}
+  selectedCrosswalkMouseDown: 0
+  leftRightDrag: -1
   newRoadFlag: 0
   roadTypeUpdateFlag: 0
   roadUpdateDragFlag: 0
@@ -809,6 +868,10 @@ MonoBehaviour:
     texSizeRatio: 1
     castShadow: 1
     isStatic: 1
+    crosswalkSign: {fileID: 0}
+    crosswalkSignXOffset: 0
+    crosswalkSignZOffset: 0
+    rotateLeftSigns: 1
   roadUpdated: 0
   clampUVs: 1
   soCategoryInt: 0
@@ -820,13 +883,14 @@ MonoBehaviour:
   maxRoundAboutRadius: 80
   minCornerRadius: 0.5
   maxCornerRadius: 5
+  maxMeshVertices: 65000
   flexConnectorRadiusMultiplier: 1
   SoTestObject: {fileID: 0}
   lockRoadNetwork: 0
   showNotifications: 1
   multipleTerrainsWarning: 0
-  OQCDDDOQOD: []
-  OOQCQODOOC: []
+  OCOQQDCOCD: []
+  ODDOCQQODC: []
   textureCounter: 0
   vegetationStudio: 0
   vegetationStudioPro: 0
@@ -875,9 +939,7 @@ MonoBehaviour:
   ignoreFlexConnectorUpdate: 0
   surfaceChangeFlag: 0
   waterLevel: 0
-  runtimeAIFlag: 1
-  runtimeRoadNetworkFlag: 1
-  resourcesFolderName: Resources
+  minFlexCornerAngle: 35
   cornerRadiusMainRoad: 3
   cornerSementsMainRoad: 6
   cornerRadiusSecondaryRoad: 3
@@ -891,3 +953,204 @@ MonoBehaviour:
   onSalePercentage: 
   onSaleString: 
   onSaleDate: 
+  crossingHandleStyle:
+    m_Name: 
+    m_Normal:
+      m_Background: {fileID: 0}
+      m_ScaledBackgrounds: []
+      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+    m_Hover:
+      m_Background: {fileID: 0}
+      m_ScaledBackgrounds: []
+      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+    m_Active:
+      m_Background: {fileID: 0}
+      m_ScaledBackgrounds: []
+      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+    m_Focused:
+      m_Background: {fileID: 0}
+      m_ScaledBackgrounds: []
+      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+    m_OnNormal:
+      m_Background: {fileID: 0}
+      m_ScaledBackgrounds: []
+      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+    m_OnHover:
+      m_Background: {fileID: 0}
+      m_ScaledBackgrounds: []
+      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+    m_OnActive:
+      m_Background: {fileID: 0}
+      m_ScaledBackgrounds: []
+      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+    m_OnFocused:
+      m_Background: {fileID: 0}
+      m_ScaledBackgrounds: []
+      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+    m_Border:
+      m_Left: 0
+      m_Right: 0
+      m_Top: 0
+      m_Bottom: 0
+    m_Margin:
+      m_Left: 0
+      m_Right: 0
+      m_Top: 0
+      m_Bottom: 0
+    m_Padding:
+      m_Left: 0
+      m_Right: 0
+      m_Top: 0
+      m_Bottom: 0
+    m_Overflow:
+      m_Left: 0
+      m_Right: 0
+      m_Top: 0
+      m_Bottom: 0
+    m_Font: {fileID: 0}
+    m_FontSize: 0
+    m_FontStyle: 0
+    m_Alignment: 0
+    m_WordWrap: 0
+    m_RichText: 1
+    m_TextClipping: 0
+    m_ImagePosition: 0
+    m_ContentOffset: {x: 0, y: 0}
+    m_FixedWidth: 0
+    m_FixedHeight: 0
+    m_StretchWidth: 1
+    m_StretchHeight: 0
+  crossingHandleDisabledStyle:
+    m_Name: 
+    m_Normal:
+      m_Background: {fileID: 0}
+      m_ScaledBackgrounds: []
+      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+    m_Hover:
+      m_Background: {fileID: 0}
+      m_ScaledBackgrounds: []
+      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+    m_Active:
+      m_Background: {fileID: 0}
+      m_ScaledBackgrounds: []
+      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+    m_Focused:
+      m_Background: {fileID: 0}
+      m_ScaledBackgrounds: []
+      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+    m_OnNormal:
+      m_Background: {fileID: 0}
+      m_ScaledBackgrounds: []
+      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+    m_OnHover:
+      m_Background: {fileID: 0}
+      m_ScaledBackgrounds: []
+      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+    m_OnActive:
+      m_Background: {fileID: 0}
+      m_ScaledBackgrounds: []
+      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+    m_OnFocused:
+      m_Background: {fileID: 0}
+      m_ScaledBackgrounds: []
+      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+    m_Border:
+      m_Left: 0
+      m_Right: 0
+      m_Top: 0
+      m_Bottom: 0
+    m_Margin:
+      m_Left: 0
+      m_Right: 0
+      m_Top: 0
+      m_Bottom: 0
+    m_Padding:
+      m_Left: 0
+      m_Right: 0
+      m_Top: 0
+      m_Bottom: 0
+    m_Overflow:
+      m_Left: 0
+      m_Right: 0
+      m_Top: 0
+      m_Bottom: 0
+    m_Font: {fileID: 0}
+    m_FontSize: 0
+    m_FontStyle: 0
+    m_Alignment: 0
+    m_WordWrap: 0
+    m_RichText: 1
+    m_TextClipping: 0
+    m_ImagePosition: 0
+    m_ContentOffset: {x: 0, y: 0}
+    m_FixedWidth: 0
+    m_FixedHeight: 0
+    m_StretchWidth: 1
+    m_StretchHeight: 0
+  crossingHandleNavStyle:
+    m_Name: 
+    m_Normal:
+      m_Background: {fileID: 0}
+      m_ScaledBackgrounds: []
+      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+    m_Hover:
+      m_Background: {fileID: 0}
+      m_ScaledBackgrounds: []
+      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+    m_Active:
+      m_Background: {fileID: 0}
+      m_ScaledBackgrounds: []
+      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+    m_Focused:
+      m_Background: {fileID: 0}
+      m_ScaledBackgrounds: []
+      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+    m_OnNormal:
+      m_Background: {fileID: 0}
+      m_ScaledBackgrounds: []
+      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+    m_OnHover:
+      m_Background: {fileID: 0}
+      m_ScaledBackgrounds: []
+      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+    m_OnActive:
+      m_Background: {fileID: 0}
+      m_ScaledBackgrounds: []
+      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+    m_OnFocused:
+      m_Background: {fileID: 0}
+      m_ScaledBackgrounds: []
+      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+    m_Border:
+      m_Left: 0
+      m_Right: 0
+      m_Top: 0
+      m_Bottom: 0
+    m_Margin:
+      m_Left: 0
+      m_Right: 0
+      m_Top: 0
+      m_Bottom: 0
+    m_Padding:
+      m_Left: 0
+      m_Right: 0
+      m_Top: 0
+      m_Bottom: 0
+    m_Overflow:
+      m_Left: 0
+      m_Right: 0
+      m_Top: 0
+      m_Bottom: 0
+    m_Font: {fileID: 0}
+    m_FontSize: 0
+    m_FontStyle: 0
+    m_Alignment: 0
+    m_WordWrap: 0
+    m_RichText: 1
+    m_TextClipping: 0
+    m_ImagePosition: 0
+    m_ContentOffset: {x: 0, y: 0}
+    m_FixedWidth: 0
+    m_FixedHeight: 0
+    m_StretchWidth: 1
+    m_StretchHeight: 0

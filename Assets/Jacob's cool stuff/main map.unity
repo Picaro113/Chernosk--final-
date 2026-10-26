@@ -1742,6 +1742,7 @@ GameObject:
   - component: {fileID: 262104959}
   - component: {fileID: 262104958}
   - component: {fileID: 262104957}
+  - component: {fileID: 262104960}
   m_Layer: 0
   m_Name: Terrain_(-1000.00, 0.00, 0.00)
   m_TagString: Untagged
@@ -1824,6 +1825,51 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &262104960
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 262104956}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 910771039, guid: f56d46228aee4734f9114056c53bb57e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: EasyRoads3Dv3.dll::EasyRoads3Dv3.ERTerrain
+  surfacevecs: []
+  tdataFloat: []
+  terrainData: {fileID: 15600000, guid: 19e0cbd46e8e18b4dabc1fc0eceb44b5, type: 2}
+  xStart: 0
+  zStart: 0
+  roadSurface: {fileID: 0}
+  surfaceMesh: {fileID: 0}
+  surfaceCollider: {fileID: 0}
+  terrainDataStored: []
+  terrainChanges: []
+  terrainTrees: []
+  detailInstances: []
+  detailInstanceStarts: 
+  surfaceObjects: []
+  terrainTestPoints: []
+  splatData: []
+  addedTrees: []
+  holes: []
+  terrainHeightsBackup: []
+  terrainTreesBackup: []
+  terrainDetailBackup: []
+  terrainSplatBackup: []
+  detailInstanceStartsBackUp: 
+  heightmapFlag: 0
+  splatmapFlag: 0
+  treeFlag: 0
+  detailFlag: 0
+  holesFlag: 0
+  terrainDone: 0
+  backupFlagNotification: 0
+  ignore: 0
+  backupObject: {fileID: 0}
+  terrain: {fileID: 0}
 --- !u!1001 &264400068
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3216,6 +3262,7 @@ GameObject:
   - component: {fileID: 405168740}
   - component: {fileID: 405168739}
   - component: {fileID: 405168738}
+  - component: {fileID: 405168741}
   m_Layer: 0
   m_Name: Terrain (1)
   m_TagString: Untagged
@@ -3298,6 +3345,51 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &405168741
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 405168737}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 910771039, guid: f56d46228aee4734f9114056c53bb57e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: EasyRoads3Dv3.dll::EasyRoads3Dv3.ERTerrain
+  surfacevecs: []
+  tdataFloat: []
+  terrainData: {fileID: 15600000, guid: 49be198adb511fb4f9f1c74e78de216d, type: 2}
+  xStart: 0
+  zStart: 0
+  roadSurface: {fileID: 0}
+  surfaceMesh: {fileID: 0}
+  surfaceCollider: {fileID: 0}
+  terrainDataStored: []
+  terrainChanges: []
+  terrainTrees: []
+  detailInstances: []
+  detailInstanceStarts: 
+  surfaceObjects: []
+  terrainTestPoints: []
+  splatData: []
+  addedTrees: []
+  holes: []
+  terrainHeightsBackup: []
+  terrainTreesBackup: []
+  terrainDetailBackup: []
+  terrainSplatBackup: []
+  detailInstanceStartsBackUp: 
+  heightmapFlag: 0
+  splatmapFlag: 0
+  treeFlag: 0
+  detailFlag: 0
+  holesFlag: 0
+  terrainDone: 0
+  backupFlagNotification: 0
+  ignore: 0
+  backupObject: {fileID: 0}
+  terrain: {fileID: 0}
 --- !u!1001 &414240412
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3986,6 +4078,7 @@ GameObject:
   - component: {fileID: 590762806}
   - component: {fileID: 590762805}
   - component: {fileID: 590762804}
+  - component: {fileID: 590762807}
   m_Layer: 0
   m_Name: Terrain_(-2000.00, 0.00, 0.00)
   m_TagString: Untagged
@@ -4068,6 +4161,51 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &590762807
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 590762803}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 910771039, guid: f56d46228aee4734f9114056c53bb57e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: EasyRoads3Dv3.dll::EasyRoads3Dv3.ERTerrain
+  surfacevecs: []
+  tdataFloat: []
+  terrainData: {fileID: 15600000, guid: ab4ab9287f1c0b14589cb48740da319a, type: 2}
+  xStart: 0
+  zStart: 0
+  roadSurface: {fileID: 0}
+  surfaceMesh: {fileID: 0}
+  surfaceCollider: {fileID: 0}
+  terrainDataStored: []
+  terrainChanges: []
+  terrainTrees: []
+  detailInstances: []
+  detailInstanceStarts: 
+  surfaceObjects: []
+  terrainTestPoints: []
+  splatData: []
+  addedTrees: []
+  holes: []
+  terrainHeightsBackup: []
+  terrainTreesBackup: []
+  terrainDetailBackup: []
+  terrainSplatBackup: []
+  detailInstanceStartsBackUp: 
+  heightmapFlag: 0
+  splatmapFlag: 0
+  treeFlag: 0
+  detailFlag: 0
+  holesFlag: 0
+  terrainDone: 0
+  backupFlagNotification: 0
+  ignore: 0
+  backupObject: {fileID: 0}
+  terrain: {fileID: 0}
 --- !u!1 &593488082
 GameObject:
   m_ObjectHideFlags: 0
@@ -4079,6 +4217,7 @@ GameObject:
   - component: {fileID: 593488085}
   - component: {fileID: 593488084}
   - component: {fileID: 593488083}
+  - component: {fileID: 593488086}
   m_Layer: 0
   m_Name: Terrain_(0.00, 0.00, -1000.00)
   m_TagString: Untagged
@@ -4161,6 +4300,51 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &593488086
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 593488082}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 910771039, guid: f56d46228aee4734f9114056c53bb57e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: EasyRoads3Dv3.dll::EasyRoads3Dv3.ERTerrain
+  surfacevecs: []
+  tdataFloat: []
+  terrainData: {fileID: 15600000, guid: 7dd131cdc90392944aed0471cddc0ed3, type: 2}
+  xStart: 0
+  zStart: 0
+  roadSurface: {fileID: 0}
+  surfaceMesh: {fileID: 0}
+  surfaceCollider: {fileID: 0}
+  terrainDataStored: []
+  terrainChanges: []
+  terrainTrees: []
+  detailInstances: []
+  detailInstanceStarts: 
+  surfaceObjects: []
+  terrainTestPoints: []
+  splatData: []
+  addedTrees: []
+  holes: []
+  terrainHeightsBackup: []
+  terrainTreesBackup: []
+  terrainDetailBackup: []
+  terrainSplatBackup: []
+  detailInstanceStartsBackUp: 
+  heightmapFlag: 0
+  splatmapFlag: 0
+  treeFlag: 0
+  detailFlag: 0
+  holesFlag: 0
+  terrainDone: 0
+  backupFlagNotification: 0
+  ignore: 0
+  backupObject: {fileID: 0}
+  terrain: {fileID: 0}
 --- !u!1001 &601043102
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4233,6 +4417,7 @@ GameObject:
   - component: {fileID: 605920064}
   - component: {fileID: 605920063}
   - component: {fileID: 605920062}
+  - component: {fileID: 605920065}
   m_Layer: 0
   m_Name: Terrain_(-2000.00, 0.00, -2000.00)
   m_TagString: Untagged
@@ -4315,6 +4500,51 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &605920065
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 605920061}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 910771039, guid: f56d46228aee4734f9114056c53bb57e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: EasyRoads3Dv3.dll::EasyRoads3Dv3.ERTerrain
+  surfacevecs: []
+  tdataFloat: []
+  terrainData: {fileID: 15600000, guid: e7a563de86a8a88439a4e38390ee9e3d, type: 2}
+  xStart: 0
+  zStart: 0
+  roadSurface: {fileID: 0}
+  surfaceMesh: {fileID: 0}
+  surfaceCollider: {fileID: 0}
+  terrainDataStored: []
+  terrainChanges: []
+  terrainTrees: []
+  detailInstances: []
+  detailInstanceStarts: 
+  surfaceObjects: []
+  terrainTestPoints: []
+  splatData: []
+  addedTrees: []
+  holes: []
+  terrainHeightsBackup: []
+  terrainTreesBackup: []
+  terrainDetailBackup: []
+  terrainSplatBackup: []
+  detailInstanceStartsBackUp: 
+  heightmapFlag: 0
+  splatmapFlag: 0
+  treeFlag: 0
+  detailFlag: 0
+  holesFlag: 0
+  terrainDone: 0
+  backupFlagNotification: 0
+  ignore: 0
+  backupObject: {fileID: 0}
+  terrain: {fileID: 0}
 --- !u!1001 &613962268
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5598,6 +5828,7 @@ GameObject:
   - component: {fileID: 831452300}
   - component: {fileID: 831452299}
   - component: {fileID: 831452298}
+  - component: {fileID: 831452301}
   m_Layer: 0
   m_Name: Terrain (3)
   m_TagString: Untagged
@@ -5680,6 +5911,51 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &831452301
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 831452297}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 910771039, guid: f56d46228aee4734f9114056c53bb57e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: EasyRoads3Dv3.dll::EasyRoads3Dv3.ERTerrain
+  surfacevecs: []
+  tdataFloat: []
+  terrainData: {fileID: 15600000, guid: 49be198adb511fb4f9f1c74e78de216d, type: 2}
+  xStart: 0
+  zStart: 0
+  roadSurface: {fileID: 0}
+  surfaceMesh: {fileID: 0}
+  surfaceCollider: {fileID: 0}
+  terrainDataStored: []
+  terrainChanges: []
+  terrainTrees: []
+  detailInstances: []
+  detailInstanceStarts: 
+  surfaceObjects: []
+  terrainTestPoints: []
+  splatData: []
+  addedTrees: []
+  holes: []
+  terrainHeightsBackup: []
+  terrainTreesBackup: []
+  terrainDetailBackup: []
+  terrainSplatBackup: []
+  detailInstanceStartsBackUp: 
+  heightmapFlag: 0
+  splatmapFlag: 0
+  treeFlag: 0
+  detailFlag: 0
+  holesFlag: 0
+  terrainDone: 0
+  backupFlagNotification: 0
+  ignore: 0
+  backupObject: {fileID: 0}
+  terrain: {fileID: 0}
 --- !u!1001 &834826739
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7557,6 +7833,7 @@ GameObject:
   - component: {fileID: 1177660905}
   - component: {fileID: 1177660904}
   - component: {fileID: 1177660903}
+  - component: {fileID: 1177660906}
   m_Layer: 0
   m_Name: Terrain_(-1000.00, 0.00, -2000.00)
   m_TagString: Untagged
@@ -7639,6 +7916,51 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1177660906
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1177660902}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 910771039, guid: f56d46228aee4734f9114056c53bb57e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: EasyRoads3Dv3.dll::EasyRoads3Dv3.ERTerrain
+  surfacevecs: []
+  tdataFloat: []
+  terrainData: {fileID: 15600000, guid: 5a7f1bc1ac779664d8a81b7a692e5196, type: 2}
+  xStart: 0
+  zStart: 0
+  roadSurface: {fileID: 0}
+  surfaceMesh: {fileID: 0}
+  surfaceCollider: {fileID: 0}
+  terrainDataStored: []
+  terrainChanges: []
+  terrainTrees: []
+  detailInstances: []
+  detailInstanceStarts: 
+  surfaceObjects: []
+  terrainTestPoints: []
+  splatData: []
+  addedTrees: []
+  holes: []
+  terrainHeightsBackup: []
+  terrainTreesBackup: []
+  terrainDetailBackup: []
+  terrainSplatBackup: []
+  detailInstanceStartsBackUp: 
+  heightmapFlag: 0
+  splatmapFlag: 0
+  treeFlag: 0
+  detailFlag: 0
+  holesFlag: 0
+  terrainDone: 0
+  backupFlagNotification: 0
+  ignore: 0
+  backupObject: {fileID: 0}
+  terrain: {fileID: 0}
 --- !u!1001 &1188485153
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7707,6 +8029,7 @@ GameObject:
   - component: {fileID: 1192477124}
   - component: {fileID: 1192477123}
   - component: {fileID: 1192477122}
+  - component: {fileID: 1192477125}
   m_Layer: 0
   m_Name: Terrain_(-1000.00, 0.00, -1000.00)
   m_TagString: Untagged
@@ -7789,6 +8112,51 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1192477125
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1192477121}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 910771039, guid: f56d46228aee4734f9114056c53bb57e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: EasyRoads3Dv3.dll::EasyRoads3Dv3.ERTerrain
+  surfacevecs: []
+  tdataFloat: []
+  terrainData: {fileID: 15600000, guid: d48a1fb288037e342a1d501a689a78ea, type: 2}
+  xStart: 0
+  zStart: 0
+  roadSurface: {fileID: 0}
+  surfaceMesh: {fileID: 0}
+  surfaceCollider: {fileID: 0}
+  terrainDataStored: []
+  terrainChanges: []
+  terrainTrees: []
+  detailInstances: []
+  detailInstanceStarts: 
+  surfaceObjects: []
+  terrainTestPoints: []
+  splatData: []
+  addedTrees: []
+  holes: []
+  terrainHeightsBackup: []
+  terrainTreesBackup: []
+  terrainDetailBackup: []
+  terrainSplatBackup: []
+  detailInstanceStartsBackUp: 
+  heightmapFlag: 0
+  splatmapFlag: 0
+  treeFlag: 0
+  detailFlag: 0
+  holesFlag: 0
+  terrainDone: 0
+  backupFlagNotification: 0
+  ignore: 0
+  backupObject: {fileID: 0}
+  terrain: {fileID: 0}
 --- !u!1001 &1222694774
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9224,6 +9592,7 @@ GameObject:
   - component: {fileID: 1469039067}
   - component: {fileID: 1469039066}
   - component: {fileID: 1469039065}
+  - component: {fileID: 1469039068}
   m_Layer: 0
   m_Name: Terrain_(0.00, 0.00, -2000.00)
   m_TagString: Untagged
@@ -9306,6 +9675,51 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1469039068
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1469039064}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 910771039, guid: f56d46228aee4734f9114056c53bb57e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: EasyRoads3Dv3.dll::EasyRoads3Dv3.ERTerrain
+  surfacevecs: []
+  tdataFloat: []
+  terrainData: {fileID: 15600000, guid: 4b8120db41fe2a8478c41fe05d80d978, type: 2}
+  xStart: 0
+  zStart: 0
+  roadSurface: {fileID: 0}
+  surfaceMesh: {fileID: 0}
+  surfaceCollider: {fileID: 0}
+  terrainDataStored: []
+  terrainChanges: []
+  terrainTrees: []
+  detailInstances: []
+  detailInstanceStarts: 
+  surfaceObjects: []
+  terrainTestPoints: []
+  splatData: []
+  addedTrees: []
+  holes: []
+  terrainHeightsBackup: []
+  terrainTreesBackup: []
+  terrainDetailBackup: []
+  terrainSplatBackup: []
+  detailInstanceStartsBackUp: 
+  heightmapFlag: 0
+  splatmapFlag: 0
+  treeFlag: 0
+  detailFlag: 0
+  holesFlag: 0
+  terrainDone: 0
+  backupFlagNotification: 0
+  ignore: 0
+  backupObject: {fileID: 0}
+  terrain: {fileID: 0}
 --- !u!4 &1477472095 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7381775301970821947, guid: 3f3fe03e033d43a49ba2cfb47082b18f, type: 3}
@@ -9574,6 +9988,7 @@ GameObject:
   - component: {fileID: 1536902932}
   - component: {fileID: 1536902931}
   - component: {fileID: 1536902934}
+  - component: {fileID: 1536902935}
   m_Layer: 0
   m_Name: Terrain_(-2000.00, 0.00, -1000.00)
   m_TagString: Untagged
@@ -9705,6 +10120,51 @@ MeshRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &1536902935
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1536902930}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 910771039, guid: f56d46228aee4734f9114056c53bb57e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: EasyRoads3Dv3.dll::EasyRoads3Dv3.ERTerrain
+  surfacevecs: []
+  tdataFloat: []
+  terrainData: {fileID: 15600000, guid: d9f70d15f2df2eb41a7c437083e4d56d, type: 2}
+  xStart: 0
+  zStart: 0
+  roadSurface: {fileID: 0}
+  surfaceMesh: {fileID: 0}
+  surfaceCollider: {fileID: 0}
+  terrainDataStored: []
+  terrainChanges: []
+  terrainTrees: []
+  detailInstances: []
+  detailInstanceStarts: 
+  surfaceObjects: []
+  terrainTestPoints: []
+  splatData: []
+  addedTrees: []
+  holes: []
+  terrainHeightsBackup: []
+  terrainTreesBackup: []
+  terrainDetailBackup: []
+  terrainSplatBackup: []
+  detailInstanceStartsBackUp: 
+  heightmapFlag: 0
+  splatmapFlag: 0
+  treeFlag: 0
+  detailFlag: 0
+  holesFlag: 0
+  terrainDone: 0
+  backupFlagNotification: 0
+  ignore: 0
+  backupObject: {fileID: 0}
+  terrain: {fileID: 0}
 --- !u!1001 &1547724707
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12682,6 +13142,7 @@ GameObject:
   - component: {fileID: 2048604340}
   - component: {fileID: 2048604339}
   - component: {fileID: 2048604338}
+  - component: {fileID: 2048604341}
   m_Layer: 0
   m_Name: Terrain (2)
   m_TagString: Untagged
@@ -12764,6 +13225,51 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2048604341
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2048604337}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 910771039, guid: f56d46228aee4734f9114056c53bb57e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: EasyRoads3Dv3.dll::EasyRoads3Dv3.ERTerrain
+  surfacevecs: []
+  tdataFloat: []
+  terrainData: {fileID: 15600000, guid: 49be198adb511fb4f9f1c74e78de216d, type: 2}
+  xStart: 0
+  zStart: 0
+  roadSurface: {fileID: 0}
+  surfaceMesh: {fileID: 0}
+  surfaceCollider: {fileID: 0}
+  terrainDataStored: []
+  terrainChanges: []
+  terrainTrees: []
+  detailInstances: []
+  detailInstanceStarts: 
+  surfaceObjects: []
+  terrainTestPoints: []
+  splatData: []
+  addedTrees: []
+  holes: []
+  terrainHeightsBackup: []
+  terrainTreesBackup: []
+  terrainDetailBackup: []
+  terrainSplatBackup: []
+  detailInstanceStartsBackUp: 
+  heightmapFlag: 0
+  splatmapFlag: 0
+  treeFlag: 0
+  detailFlag: 0
+  holesFlag: 0
+  terrainDone: 0
+  backupFlagNotification: 0
+  ignore: 0
+  backupObject: {fileID: 0}
+  terrain: {fileID: 0}
 --- !u!4 &2086810143 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3509213444115171803, guid: 1a0dd05a0e8804b49bdb5e15a41afb8f, type: 3}
