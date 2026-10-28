@@ -5,12 +5,13 @@ public class DialogueUI : MonoBehaviour
 {
     [SerializeField] private GameObject dialogueBox;
     [SerializeField] private TMP_Text textLabel;
+    public InventoryToggler inventory;
 
     public bool IsOpen { get; private set;  }
 
     private ResponseHandler responseHandler;
 
-    [SerializeField] private FPSMovement playerMovement;
+    [SerializeField] private PlayerMovement playerMovement;
 
     public Gun gun;
     private TypeWriterEffect typeWriterEffect;
@@ -24,12 +25,12 @@ public class DialogueUI : MonoBehaviour
 
     public void ShowDialogue (DialogueObject dialogueObject)
     {
-        gun.canShoot = false;
         IsOpen = true;
         Debug.Log("Showing Dialogue Box");
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
         playerMovement.enabled = false;
+        inventory.enabled = false;
         dialogueBox.SetActive(true);
         StartCoroutine(StepThroughDialogue(dialogueObject));
     }
@@ -84,10 +85,10 @@ public class DialogueUI : MonoBehaviour
 
     public void CloseDialogueBox()
     {
-        gun.canShoot = true;
         Debug.Log("Disabling Dialogue Box");
         dialogueBox.SetActive(false);
         IsOpen = false;
+        inventory.enabled = true;
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
         playerMovement.enabled = true;

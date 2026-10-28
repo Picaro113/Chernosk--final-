@@ -54,6 +54,7 @@ public class FPSMovement : MonoBehaviour
     {
         characterController = GetComponent<CharacterController>();
         targetHeight = standingHeight;
+        Cursor.lockState = CursorLockMode.Locked;
     }
 
 

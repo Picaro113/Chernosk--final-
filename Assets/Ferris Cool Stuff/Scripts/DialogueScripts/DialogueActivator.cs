@@ -3,6 +3,7 @@ using UnityEngine;
 public class DialogueActivator : MonoBehaviour, IInteractable
 {
     [SerializeField] private DialogueObject dialogueObject;
+    public InventoryToggler inventory;
 
     public void UpdateDialogueObject(DialogueObject dialogueObject)
     {
@@ -14,6 +15,7 @@ public class DialogueActivator : MonoBehaviour, IInteractable
         if (other.CompareTag("Player") && other.TryGetComponent(out PlayerMovement player))
         {
             player.interactable = this;
+            inventory.enabled = false;
             Debug.Log("Player Detected");
         }
         if (other.CompareTag("Bullet"))
@@ -30,6 +32,7 @@ public class DialogueActivator : MonoBehaviour, IInteractable
             Debug.Log("Player Left");
             if (player.interactable is DialogueActivator dialogueActivator && dialogueActivator == this)
             {
+                inventory.enabled = true;
                 player.interactable = null;
             }
         }
