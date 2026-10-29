@@ -265,7 +265,7 @@ Material:
     - _GlossMapScale: 1
     - _Glossiness: 0.235
     - _GlossyReflections: 1
-    - _HueShift: -1
+    - _HueShift: -0.98
     - _LIGHTINGMETHOD: 0
     - _LightnessMultiplier: 1.47
     - _MainSmoothness: 0.22412397
