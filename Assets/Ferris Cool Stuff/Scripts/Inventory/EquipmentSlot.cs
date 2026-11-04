@@ -18,8 +18,6 @@ public class EquipmentSlot : ItemSquare, IPointerExitHandler
                 }
             }
 
-
-
             equippedItem = InventoryHand.i.GetHeldItem();
             RectTransform rect = GetComponent<RectTransform>();
             equippedItem.SetSize(rect.sizeDelta.x *  rect.localScale.x, rect.sizeDelta.y * rect.localScale.y);
@@ -49,5 +47,8 @@ public enum EquipmentType
     Chest,
     Hands,
     Legs,
-    Eyes
+    Eyes,
+    Weapon1,
+    Weapon2,
+    Melee
 }
