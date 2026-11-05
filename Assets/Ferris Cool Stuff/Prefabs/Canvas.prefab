@@ -35,8 +35,8 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8001735785562104006}
-  - {fileID: 6282416639154125348}
   - {fileID: 728587700103958079}
+  - {fileID: 6282416639154125348}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -121,6 +121,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::DialogueUI
   dialogueBox: {fileID: 5281976448608333364}
   textLabel: {fileID: 3731161935416248773}
+  inventory: {fileID: 0}
   playerMovement: {fileID: 0}
   gun: {fileID: 0}
 --- !u!114 &6426181624785645235

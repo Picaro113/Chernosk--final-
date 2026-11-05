@@ -12,7 +12,7 @@ public class DialogueActivator : MonoBehaviour, IInteractable
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player") && other.TryGetComponent(out PlayerMovement player))
+        if (other.CompareTag("Player") && other.TryGetComponent(out FPSMovement player))
         {
             player.interactable = this;
             inventory.enabled = false;
@@ -27,7 +27,7 @@ public class DialogueActivator : MonoBehaviour, IInteractable
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.CompareTag("Player") && other.TryGetComponent(out PlayerMovement player))
+        if (other.CompareTag("Player") && other.TryGetComponent(out FPSMovement player))
         {
             Debug.Log("Player Left");
             if (player.interactable is DialogueActivator dialogueActivator && dialogueActivator == this)
@@ -38,7 +38,7 @@ public class DialogueActivator : MonoBehaviour, IInteractable
         }
     }
 
-    public void Interact(PlayerMovement player)
+    public void Interact(FPSMovement player)
     {
         foreach (DialogueResponseEvents responseEvents in GetComponents<DialogueResponseEvents>())
         {
