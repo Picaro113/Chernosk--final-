@@ -8,6 +8,12 @@ using UnityEngine.InputSystem.EnhancedTouch;
 
 public class FPSMovement : MonoBehaviour
 {
+    public static FPSMovement instance;
+    [SerializeField] private DialogueUI dialogueUI;
+
+    public DialogueUI DialogueUI => dialogueUI;
+
+    private bool canMove;
     public IInteractable interactable { get; set; }
     [Header("Speed")]
     [SerializeField] private float walkSpeed = 5f;
@@ -43,19 +49,35 @@ public class FPSMovement : MonoBehaviour
     private float verticalVelocity;
     private float targetHeight;
 
-    private void Update()
-    {
-        isGrounded = characterController.isGrounded;
-        HandleGravity();
-        HandleMovement();
-        HandleCrouchTransition();
-    }
     private void Awake()
     {
         characterController = GetComponent<CharacterController>();
         targetHeight = standingHeight;
         Cursor.lockState = CursorLockMode.Locked;
     }
+    void Start()
+    {
+        canMove = true;
+        if (instance == null)
+        {
+            instance = this;
+        }
+    }
+    private void Update()
+    {
+        isGrounded = characterController.isGrounded;
+        HandleGravity();
+        HandleMovement();
+        HandleCrouchTransition();
+        if (dialogueUI.IsOpen) return;
+
+        if (Input.GetKeyDown(KeyCode.F))
+        {
+            interactable?.Interact(this);
+        }
+    }
+
+
 
 
     private void Jump(InputAction.CallbackContext context)
@@ -67,6 +89,9 @@ public class FPSMovement : MonoBehaviour
     }
     private void HandleMovement()
     {
+        if (canMove == true)
+        {
+
         // Get camera directions, ignoring vertical tilt
         Vector3 forward = cameraTransform.forward;
         Vector3 right = cameraTransform.right;
@@ -93,6 +118,7 @@ public class FPSMovement : MonoBehaviour
             verticalVelocity = initialFallVelocity;
         }
     }
+}
     private void HandleGravity()
     {
         if (isGrounded && verticalVelocity < 0)

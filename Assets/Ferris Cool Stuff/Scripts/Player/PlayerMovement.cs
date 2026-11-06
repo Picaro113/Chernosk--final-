@@ -12,7 +12,6 @@ public class PlayerMovement : MonoBehaviour
 
     public IInteractable interactable { get; set; }
 
-    public static PlayerMovement instance;
     public Camera playerCamera;
     public float walkSpeed = 6f;
     public float runSpeed = 12f;
@@ -33,33 +32,24 @@ public class PlayerMovement : MonoBehaviour
     
     static public bool dialogue = false;
 
-    private void FixedUpdate()
-    {
-       
-    }
-
     void Start()
     {
-        if (instance == null)
-        {
-            instance = this;
-        }
         characterController = GetComponent<CharacterController>();
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
     }
 
-    private void Update()
-    {
-        if (dialogueUI.IsOpen) return;
-
-        PlayerMovementThing();
-
-        if (Input.GetKeyDown(KeyCode.F))
-        {
-            interactable?.Interact(this);
-        }
-    }
+//    private void Update()
+//    {
+//        if (dialogueUI.IsOpen) return;
+//
+//        PlayerMovementThing();
+//
+//        if (Input.GetKeyDown(KeyCode.F))
+//        {
+//            interactable?.Interact(this);
+//        }
+//    }
     public void PlayerMovementThing()
     {
         Vector3 forward = transform.TransformDirection(Vector3.forward);

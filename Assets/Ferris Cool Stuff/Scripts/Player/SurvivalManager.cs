@@ -25,7 +25,7 @@ public class SurvivalManager : MonoBehaviour
     public float staminaPercent => currentStamina / maxStamina;
 
     [Header("Player References")]
-    [SerializeField] private PlayerMovement playerMovement;
+    [SerializeField] private FPSMovement playerMovement;
     [SerializeField] private Health playerHealth;
     [SerializeField] private float damagePerSecond = 0.5f;
     [SerializeField] private float damageDelay = 3f;

@@ -5,7 +5,7 @@ public class InventoryToggler : MonoBehaviour
 {
     public GameObject Inventory;
     public bool isActive = false;
-    public PlayerMovement playerMovement;
+    public FPSMovement playerMovement;
 
     // Update is called once per frame
     void Update()
@@ -21,16 +21,14 @@ public class InventoryToggler : MonoBehaviour
             Inventory.gameObject.SetActive(true);
             isActive = true;
             Cursor.lockState = CursorLockMode.None;
-            Cursor.visible = true;
-            playerMovement.canMove = false;
+            Cursor.visible = true;           
         }
         else if (isActive == true && Input.GetKeyDown(KeyCode.Tab))
         {
             Inventory.gameObject.SetActive(false);
             isActive = false;
             Cursor.lockState = CursorLockMode.Locked;
-            Cursor.visible = false;
-            playerMovement.canMove = true;
+            Cursor.visible = false;          
         }
     }
 }

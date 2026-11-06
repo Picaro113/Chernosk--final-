@@ -1,6 +1,7 @@
 using UnityEngine;
 using TMPro;
 using System.Collections;
+using Unity.Cinemachine;
 public class DialogueUI : MonoBehaviour
 {
     [SerializeField] private GameObject dialogueBox;
@@ -11,7 +12,8 @@ public class DialogueUI : MonoBehaviour
 
     private ResponseHandler responseHandler;
 
-    [SerializeField] private PlayerMovement playerMovement;
+    [SerializeField] private FPSMovement playerMovement;
+    public CinemachineInputAxisController cameraController;
 
     public Gun gun;
     private TypeWriterEffect typeWriterEffect;
@@ -19,8 +21,7 @@ public class DialogueUI : MonoBehaviour
     {       
        responseHandler = GetComponent<ResponseHandler>();
        typeWriterEffect = GetComponent<TypeWriterEffect>();
-       CloseDialogueBox();
-       
+       CloseDialogueBox();      
     }
 
     public void ShowDialogue (DialogueObject dialogueObject)
@@ -33,6 +34,7 @@ public class DialogueUI : MonoBehaviour
         inventory.enabled = false;
         dialogueBox.SetActive(true);
         StartCoroutine(StepThroughDialogue(dialogueObject));
+        cameraController.enabled = false;
     }
 
     public void AddResponseEvents(ResponseEvent[] responseEvents)
@@ -92,7 +94,7 @@ public class DialogueUI : MonoBehaviour
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
         playerMovement.enabled = true;
-        
+        cameraController.enabled = true;
         textLabel.text = string.Empty;
     }
 }
