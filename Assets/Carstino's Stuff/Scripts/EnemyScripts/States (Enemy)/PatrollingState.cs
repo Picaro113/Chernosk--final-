@@ -14,16 +14,23 @@ public class PatrollingState : IState
     }
     public void Update()
     {
-        if (searchers.agent.remainingDistance <= searchers.agent.stoppingDistance)
+        if (searchers.seenEnemy == false)
         {
-            searchers.RandomPoint(searchers.planeVector.position, 25, out searchers.point);
-            searchers.agent.SetDestination(searchers.point);
-            return;
+            if (searchers.agent.remainingDistance <= searchers.agent.stoppingDistance)
+            {
+                searchers.RandomPoint(searchers.planeVector.position, 25, out searchers.point);
+                searchers.agent.SetDestination(searchers.point);
+                return;
+            }
+            if (searchers.hunger < 50)
+            {
+                searchers.stateMachine.TransitionTo(searchers.stateMachine.investigateState);
+                return;
+            }
         }
-        if (searchers.hunger < 50)
+        if (searchers.seenEnemy == true)
         {
-            searchers.stateMachine.TransitionTo(searchers.stateMachine.investigateState);
-            return;
+            searchers.stateMachine.TransitionTo(searchers.stateMachine.attackState);
         }
 
     }

@@ -8,8 +8,6 @@ public class Searchers : MonoBehaviour
     [Header("Scriptable Objects")]
     public FactionNames factions;
 
-   
-
     [Header("StateMachine")]
     public MainEnemyState stateMachine;
 
@@ -21,7 +19,6 @@ public class Searchers : MonoBehaviour
 
     [Header("Lists")]
     public List<TestFood> foods = new List<TestFood>();
-    public List<Searchers> searchers = new List<Searchers>();
 
     [Header("Detection for enemies")]
     public float viewRadius;
@@ -30,11 +27,18 @@ public class Searchers : MonoBehaviour
     public LayerMask obstacleMask;
     public bool seenEnemy;
 
-    [Header("Gun functions//testing purposes")]
-    public GameObject bullet;
-    public Transform gun;
+    [Header("Gun functions")]
+    public GameObject bulletAsGameObject;
+    public Transform gunbarrel;
     public float timeToAttack = 3f;
     public float timeDelay;
+    private float movetimer;
+    public float loseplayertime = 5f;
+    private float shottimer;
+    private float firerate = 5f;
+
+    [Header("Player references")]
+    public GameObject Player;
 
     private void Start()
     {
@@ -123,69 +127,98 @@ public class Searchers : MonoBehaviour
 
     public void FindVisibleTargets()
     {
-        if (searchers != null || gameObject.CompareTag(""))
+        Collider[] targetsInViewRadius = Physics.OverlapSphere(transform.position, viewRadius, targetMask);
+
+        for (int i = 0; i < targetsInViewRadius.Length; i++)
         {
-            Collider[] targetsInViewRadius = Physics.OverlapSphere(transform.position, viewRadius, targetMask);
-
-            for (int i = 0; i < targetsInViewRadius.Length; i++)
+            Transform target = targetsInViewRadius[i].transform;
+            Vector3 dirToTarget = (target.position - transform.position).normalized;
+            if (Vector3.Angle(transform.forward, dirToTarget) < viewAngle / 2)
             {
-                Transform target = targetsInViewRadius[i].transform;
-                Vector3 dirToTarget = (target.position - transform.position).normalized;
-                if (Vector3.Angle(transform.forward, dirToTarget) < viewAngle / 2)
-                {
-                    float dstToTarget = Vector3.Distance(transform.position, target.position);
+                float dstToTarget = Vector3.Distance(transform.position, target.position);
 
-                    if (!Physics.Raycast(transform.position, dirToTarget, dstToTarget, obstacleMask) && target.gameObject != gameObject)
+                if (!Physics.Raycast(transform.position, dirToTarget, dstToTarget, obstacleMask) && target.gameObject != gameObject)
+                {
+
+                    if (target.gameObject.CompareTag("Player"))
                     {
-                        Searchers targetfaction = target.GetComponent<Searchers>();
-                        if (targetfaction != null && targetfaction != this.gameObject)
-                        {
-                            if (factions.GetFaction(targetfaction.factions.myfaction) == true || factions.neutral == true)
-                            {
-                                if (factions.neutral == true && factions.GetFaction(targetfaction.factions.myfaction) == false)
-                                {
-                                    Debug.Log("you're not my faction but we chill");
-                                }
-                                if (factions.GetFaction(targetfaction.factions.myfaction) == true)
-                                {
-                                    Debug.Log("you're my faction");
-                                    Debug.Log(targetfaction.factions.myfaction);
-                                }
-                            }
-                            else if (factions.GetFaction(targetfaction.factions.myfaction) == false || factions.neutral == false)
-                            {   
-                                if (factions.neutral == false)
-                                {
-                                    Debug.Log("another faction");
-                                    Debug.Log(targetfaction.factions.myfaction);  
-                                }
-                            
-                            }
-                        }
+                        seenEnemy = true;
                     }
-                    else
-                    {
-                        seenEnemy = false;
-                    }
+                    else { seenEnemy = false; }
+
+                    //Searchers targetfaction = target.GetComponent<Searchers>();
+                    //if (targetfaction != null && targetfaction != this.gameObject)
+                    //{
+                    //    if (factions.GetFaction(targetfaction.factions.myfaction) == true || factions.neutral == true)
+                    //    {
+                    //        if (factions.neutral == true && factions.GetFaction(targetfaction.factions.myfaction) == false)
+                    //        {
+                    //            Debug.Log("you're not my faction but we chill");
+                    //        }
+                    //        if (factions.GetFaction(targetfaction.factions.myfaction) == true)
+                    //        {
+                    //            Debug.Log("you're my faction");
+                    //            Debug.Log(targetfaction.factions.myfaction);
+                    //        }
+                    //    }
+                    //    else if (factions.GetFaction(targetfaction.factions.myfaction) == false || factions.neutral == false)
+                    //    {   
+                    //        if (factions.neutral == false)
+                    //        {
+                    //            Debug.Log("another faction");
+                    //            Debug.Log(targetfaction.factions.myfaction);  
+                    //        }
+                    //    
+                    //    }
+                    //}
+                }
+                else
+                {
+                    seenEnemy = false;
                 }
             }
         }
-        if (searchers == null)
-        {
-            Debug.Log("something is wrong");
-        }
+        //if (searchers == null)
+        //{
+        //    Debug.Log("something is wrong");
+        //}
     }
 
     public void shoot()
     {
-        timeDelay += Time.deltaTime;
-
-        if (timeDelay > timeToAttack)
-        {
-            Instantiate(bullet, gun.position, gun.rotation);
-            timeDelay = 0;
-        }
+        //inst bullet
+        GameObject bullet = GameObject.Instantiate(bulletAsGameObject, gunbarrel.position, transform.rotation);
+        //calc dir to palyer
+        Vector3 shootdir = (Player.transform.position - gunbarrel.position).normalized;
+        //add force to rb
+        bullet.GetComponent<Rigidbody>().linearVelocity = Quaternion.AngleAxis(Random.Range(-2f, 2f), Vector3.up) * shootdir * 55;
+        Debug.Log("shoot");
+        shottimer = 0;
     }
+
+    public void Something()
+    {
+        //lock lose player timer and increment move and shoot timers
+        loseplayertime = 0;
+        movetimer += Time.deltaTime;
+        shottimer += Time.deltaTime;
+        transform.LookAt(Player.transform);
+        //if shot timer > firerate
+        if (shottimer > firerate)
+        {
+            shoot();
+        }
+
+        if (movetimer > Random.Range(2, 5)) //move to random position after random time
+        {
+            agent.SetDestination(transform.position + (Random.insideUnitSphere * 5));
+            movetimer = 0;
+        }
+
+        transform.position = Player.transform.position;
+        shoot();
+    }
+
     public IEnumerator FindTargetsWithDelay(float delay)
     {
         while (true)
@@ -195,3 +228,4 @@ public class Searchers : MonoBehaviour
         }
     }
 }
+

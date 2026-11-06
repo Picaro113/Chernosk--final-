@@ -14,8 +14,17 @@ public class AttackState : IState
     }
     public void Update()
     {
-        //do an attack function right here
         searchers.shoot();
+
+        if (searchers.loseplayertime > 0)
+        {
+            searchers.seenEnemy = false;
+        }
+
+        if (searchers.seenEnemy == false)
+        {
+            searchers.stateMachine.TransitionTo(searchers.stateMachine.patrollState);
+        }
     }
 
     public void Exit()
