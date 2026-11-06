@@ -6,8 +6,10 @@ public class InventoryToggler : MonoBehaviour
     public GameObject Inventory;
     public bool isActive = false;
     public FPSMovement playerMovement;
-
-    // Update is called once per frame
+    private void Start()
+    {
+        Inventory.gameObject.SetActive(false);
+    }
     void Update()
     {
         Debug.Log("inventory is" + Inventory.activeSelf);
