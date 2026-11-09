@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -24,6 +25,11 @@ public class InventoryHand : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            RotateItem();
+        }
         if (heldObject != null)
         {
             heldObject.transform.position = Input.mousePosition;
@@ -47,9 +53,17 @@ public class InventoryHand : MonoBehaviour
                         hit.ItemGridApplyState(heldObject.width, heldObject.height, GridSquareState.invalid);
                     }
                 }                                                                    
-            }
+            }          
         }
     }
+
+    private void RotateItem()
+    {
+        if (heldObject == null) { return; }
+
+        heldObject.Rotate();
+    }
+
     public ItemSquare GetGridSquare(PointerEventData eventData)
     {
         List<RaycastResult> result = new List<RaycastResult>();

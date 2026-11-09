@@ -1,4 +1,5 @@
 using NUnit.Framework.Interfaces;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -10,6 +11,32 @@ public class InventoryItem : MonoBehaviour, IPointerDownHandler
     public int width;
     public int height;
     public Image image;
+
+    public int Height
+    {
+        get
+        {
+            if(isRotated == false)
+            {
+                return width;
+            }
+            return height;
+        }
+    }
+
+    public int Width
+    {
+        get
+        {
+            if (isRotated == false)
+            {
+                return height;
+            }
+            return width;
+        }
+    }
+
+    public bool isRotated = false;
 
     int previousColumn;
     int previousRow;
@@ -53,5 +80,13 @@ public class InventoryItem : MonoBehaviour, IPointerDownHandler
     {
         image.raycastTarget = true;
         InventoryHand.i.DropHeldItem();
+    }
+
+    internal void Rotate()
+    {
+        isRotated = !isRotated;
+
+        RectTransform rect = GetComponent<RectTransform>();
+        rect.rotation = Quaternion.Euler(0, 0, isRotated == true ? 90f : 0f);
     }
 }
