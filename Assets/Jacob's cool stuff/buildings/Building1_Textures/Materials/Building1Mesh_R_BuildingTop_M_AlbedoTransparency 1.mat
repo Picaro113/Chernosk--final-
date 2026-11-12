@@ -139,7 +139,7 @@ Material:
     - _GlossyReflections: 0
     - _HueShift: 0.02
     - _LIGHTINGMETHOD: 0
-    - _LightnessMultiplier: 1.09
+    - _LightnessMultiplier: 1.01
     - _Metallic: 0
     - _Metalness: 0
     - _OcclusionStrength: 0.507

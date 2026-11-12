@@ -137,9 +137,9 @@ Material:
     - _GlossMapScale: 0
     - _Glossiness: 0
     - _GlossyReflections: 0
-    - _HueShift: 0
+    - _HueShift: -0.21
     - _LIGHTINGMETHOD: 0
-    - _LightnessMultiplier: 1
+    - _LightnessMultiplier: 1.09
     - _Metallic: 0
     - _Metalness: 0
     - _OcclusionStrength: 1
@@ -148,7 +148,7 @@ Material:
     - _QueueOffset: 0
     - _ReceiveShadows: 1
     - _SHADINGMETHOD: 0
-    - _SaturationMultiplier: 1
+    - _SaturationMultiplier: 1.91
     - _ShadowDistCutoff: 100
     - _ShadowOffset: 0.01
     - _Smoothness: 0.04
