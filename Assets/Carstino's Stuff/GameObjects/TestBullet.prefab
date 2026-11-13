@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: 2325914278836490665}
   - component: {fileID: 1846324676922634348}
   - component: {fileID: 8514655034300900689}
-  - component: {fileID: 3626643179702323297}
   - component: {fileID: 7962771644455944414}
+  - component: {fileID: -4313883104639620276}
   m_Layer: 0
   m_Name: TestBullet
   m_TagString: Untagged
@@ -114,18 +114,6 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &3626643179702323297
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3069929727198984773}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 20593e67fb5483e4cbfcbc142921513c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::TestBullet
 --- !u!54 &7962771644455944414
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -153,3 +141,15 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &-4313883104639620276
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3069929727198984773}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0096f192d7611254986a0f3bb6fd06c5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BulletDamage

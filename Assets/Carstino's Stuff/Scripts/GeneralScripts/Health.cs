@@ -11,14 +11,6 @@ public class Health : MonoBehaviour
         health = maxhealth;
     }
 
-    public void Update()
-    {
-        if (health <= 0)
-        {
-            Destroy(gameObject);
-        }
-    }
-
     public void onDamaged(float damage)
     {
         health -= damage;

@@ -140,31 +140,41 @@ public class Searchers : MonoBehaviour
                 if (!Physics.Raycast(transform.position, dirToTarget, dstToTarget, obstacleMask) && target.gameObject != gameObject)
                 {
 
-                    Searchers targetfaction = target.GetComponent<Searchers>();
-                    if (targetfaction != null && targetfaction != this.gameObject)
-                    {
-                        if (factions.GetFaction(targetfaction.factions.myfaction) == true || factions.neutral == true)
-                        {
-                            if (factions.neutral == true && factions.GetFaction(targetfaction.factions.myfaction) == false)
-                            {
-                                Debug.Log("you're not my faction but we chill");
-                            }
-                            if (factions.GetFaction(targetfaction.factions.myfaction) == true)
-                            {
-                                Debug.Log("you're my faction");
-                                Debug.Log(targetfaction.factions.myfaction);
-                            }
-                        }
-                        else if (factions.GetFaction(targetfaction.factions.myfaction) == false || factions.neutral == false)
-                        {   
-                            if (factions.neutral == false)
-                            {
-                                Debug.Log("another faction");
-                                Debug.Log(targetfaction.factions.myfaction);  
-                            }
-                        
-                        }
-                    }
+                    //if (target.gameObject.CompareTag("Player"))
+                    //{
+                    //    Debug.Log("Hello this is the player");
+                    //}
+                    //else
+                    //{
+                    //    Debug.Log("This is not the player");
+                    //}
+
+
+                    //Searchers targetfaction = target.GetComponent<Searchers>();
+                    //if (targetfaction != null && targetfaction != this.gameObject)
+                    //{
+                    //    if (factions.GetFaction(targetfaction.factions.myfaction) == true || factions.neutral == true)
+                    //    {
+                    //        if (factions.neutral == true && factions.GetFaction(targetfaction.factions.myfaction) == false)
+                    //        {
+                    //            Debug.Log("you're not my faction but we chill");
+                    //        }
+                    //        if (factions.GetFaction(targetfaction.factions.myfaction) == true)
+                    //        {
+                    //            Debug.Log("you're my faction");
+                    //            Debug.Log(targetfaction.factions.myfaction);
+                    //        }
+                    //    }
+                    //    else if (factions.GetFaction(targetfaction.factions.myfaction) == false || factions.neutral == false)
+                    //    {   
+                    //        if (factions.neutral == false)
+                    //        {
+                    //            Debug.Log("another faction");
+                    //            Debug.Log(targetfaction.factions.myfaction);  
+                    //        }
+                    //    
+                    //    }
+                    //}
                 }
                 else
                 {

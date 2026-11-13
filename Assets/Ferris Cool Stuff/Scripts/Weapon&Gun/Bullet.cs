@@ -30,6 +30,21 @@ public class Bullet : MonoBehaviour
             print("hit " + objectHit.gameObject.name + " !");
             objectHit.gameObject.GetComponent<BeerBottlerr>().Shatter();        
         }
+
+        if (objectHit.gameObject.CompareTag("Enemy"))
+        {
+            if (objectHit.gameObject.GetComponent<Health>() != null)
+            {
+                if (objectHit.gameObject.GetComponent<Health>().health > 0)
+                {
+                    objectHit.gameObject.GetComponent<Health>().onDamaged(5);
+                }
+                else if (objectHit.gameObject.GetComponent<Health>().health <= 0)
+                {
+                    Destroy(objectHit.gameObject);
+                }
+            }
+        }
     }
     void CreateBulletImpactEffect(Collision objectHit)
     {
