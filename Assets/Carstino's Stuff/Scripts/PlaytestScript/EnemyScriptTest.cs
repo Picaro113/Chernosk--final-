@@ -21,12 +21,24 @@ public class EnemyScriptTest : MonoBehaviour
     void Update()
     {
         RandomPoint(transform.position, 100, out point);
-        if (agent.remainingDistance <= agent.stoppingDistance)
+        Vector3 direction = Player.transform.position - transform.position;
+
+        if (Vector3.Dot(transform.forward, direction) > 0)
         {
-            agent.SetDestination(point);
+            Something();
+            if (agent.remainingDistance <= agent.stoppingDistance)
+            {
+                agent.SetDestination(Player.transform.position);
+            }
+        }
+        if (Vector3.Dot(transform.forward,direction) < 0)
+        {
+            if (agent.remainingDistance <= agent.stoppingDistance)
+            {
+                agent.SetDestination(point);
+            }
         }
 
-        Something();
     }
 
     public void shoot()
