@@ -34,12 +34,15 @@ public class InteractionManager : MonoBehaviour
         {
             GameObject objectHitByRaycast = hit.transform.gameObject;
 
-            if (objectHitByRaycast.GetComponent<PickUp>())
+            // switch component to PickUp after playtest
+            if (objectHitByRaycast.GetComponent<Gun>())
             {
                 if (Input.GetKeyDown(KeyCode.F))
                 {
-                  
-                    PickUp(objectHitByRaycast.GetComponent<PickUp>());
+                    // and uncomment line below and rip that line out after playtest
+
+                    // PickUp(objectHitByRaycast.GetComponent<PickUp>());
+                    WeaponManager.Instance.PickupWeapon(objectHitByRaycast.gameObject);
                 }
             }
             
