@@ -682,7 +682,7 @@ MonoBehaviour:
   crouchingHeight: 1
   crouchTranstionSpeed: 10
   cameraOffset: 0.4
-  cameraTransform: {fileID: 0}
+  cameraTransform: {fileID: 7634700424259702197}
   moveAction: {fileID: -1680190386980627800, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   jumpAction: {fileID: -2099379676528639254, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   crouchAction: {fileID: 7040659881675835329, guid: 052faaac586de48259a63d0c4782560b, type: 3}
@@ -884,6 +884,10 @@ PrefabInstance:
       propertyPath: playerHealth
       value: 
       objectReference: {fileID: 4361688049000667016}
+    - target: {fileID: 8901593837155998286, guid: e364dd8ceb16e724bb2b2b8ecd4f38e4, type: 3}
+      propertyPath: playerMovement
+      value: 
+      objectReference: {fileID: 1658587504699360959}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1195,7 +1199,11 @@ PrefabInstance:
     - target: {fileID: 6914588485870906602, guid: 6da5e920dd22b8b4dbf1c2f719bdcc26, type: 3}
       propertyPath: playerMovement
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1658587504699360959}
+    - target: {fileID: 6914588485870906602, guid: 6da5e920dd22b8b4dbf1c2f719bdcc26, type: 3}
+      propertyPath: cameraController
+      value: 
+      objectReference: {fileID: 4815234480378356596}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
