@@ -97,6 +97,18 @@ public class WeaponManager : MonoBehaviour
         }
     }
 
+    public void UnequipCurrentWeapom()
+    {
+        if (activeWeaponSlot.transform.childCount > 0)
+        {
+            var weaponToDrop = activeWeaponSlot.transform.GetChild(0).gameObject;
+
+            weaponToDrop.GetComponent<Gun>().isActiveWeapon = false;
+            // weaponToDrop.GetComponent<Gun>().animator.enabled = false;
+
+            Destroy(weaponToDrop);
+        }
+    } 
 
     public void SwitchActiveSlot(int slotNumber)
     {

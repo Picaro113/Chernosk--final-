@@ -8,6 +8,7 @@ public class InventoryHand : MonoBehaviour
 {
     public static InventoryHand i;
     InventoryItem heldObject;
+    public Vector2 offset;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -32,11 +33,11 @@ public class InventoryHand : MonoBehaviour
         }
         if (heldObject != null)
         {
-            heldObject.transform.position = Input.mousePosition;
+            heldObject.transform.position = Input.mousePosition + (Vector3)offset;
             PointerEventData pointerEventData = new PointerEventData(EventSystem.current);
             pointerEventData.position = Input.mousePosition;
             if (Input.GetMouseButtonUp(0))
-            {               
+            {
                 ReleaseItem(pointerEventData);
             }
             else
@@ -44,16 +45,20 @@ public class InventoryHand : MonoBehaviour
                 ItemSquare hit = GetGridSquare(pointerEventData);
                 if (hit != null)
                 {
-                    if (hit.IsValidLocation(heldObject))
+                    ItemSquare targetSquare = hit.GetOriginSquare(heldObject);
+                    if (targetSquare != null)
                     {
-                        hit.ItemGridApplyState(heldObject.width, heldObject.height, GridSquareState.highlight);
+                        if (targetSquare.IsValidLocation(heldObject))
+                        {
+                            targetSquare.ItemGridApplyState(heldObject.width, heldObject.height, GridSquareState.highlight);
+                        }
+                        else
+                        {
+                            targetSquare.ItemGridApplyState(heldObject.width, heldObject.height, GridSquareState.invalid);
+                        }
                     }
-                    else
-                    {
-                        hit.ItemGridApplyState(heldObject.width, heldObject.height, GridSquareState.invalid);
-                    }
-                }                                                                    
-            }          
+                }
+            }
         }
     }
 
@@ -91,10 +96,19 @@ public class InventoryHand : MonoBehaviour
         ItemSquare hit = GetGridSquare(eventData);
         if (hit != null)
         {
-            if (hit.IsValidLocation(heldObject))
+            ItemSquare target = hit.GetOriginSquare(heldObject);
+            if (target != null)
             {
-                hit.DropItem();
-                heldObject.Drop();
+
+                if (target.IsValidLocation(heldObject))
+                {
+                    target.DropItem();
+                    heldObject.Drop();
+                }
+                else
+                {
+                    heldObject.CancelMove();
+                }
             }
             else
             {
@@ -107,13 +121,15 @@ public class InventoryHand : MonoBehaviour
             InventoryItemDropper.instance.Drop(heldObject);
             Destroy(heldObject.gameObject);
         }
-        InventoryGrid.instance.ClearHighlights();
+         InventoryGrid.instance.ClearHighlights();
+            
     }
     public void PickUpItem(InventoryItem item)
     {
         heldObject = item;
         item.SetGridSquareSize(InventoryGrid.instance.gridItemSize);
         InventoryGrid.instance.RemoveItem(heldObject);
+        offset = heldObject.transform.position - Input.mousePosition;
     }
     public void DropHeldItem()
     {

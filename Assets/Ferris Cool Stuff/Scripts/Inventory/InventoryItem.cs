@@ -2,6 +2,7 @@ using NUnit.Framework.Interfaces;
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
@@ -36,6 +37,8 @@ public class InventoryItem : MonoBehaviour, IPointerDownHandler
         }
     }
 
+    public UnityEvent OnPickedUp;
+
     public bool isRotated = false;
 
     int previousColumn;
@@ -68,6 +71,8 @@ public class InventoryItem : MonoBehaviour, IPointerDownHandler
             previousColumn = content.column;
             previousRow = content.row;            
         }
+
+        OnPickedUp.Invoke();
     }
 
     public void CancelMove()

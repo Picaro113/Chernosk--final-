@@ -14,6 +14,8 @@ public abstract class ItemSquare : MonoBehaviour
     public abstract void DropItem();
     public abstract bool IsValidLocation(InventoryItem item);
 
+    public abstract ItemSquare GetOriginSquare(InventoryItem item);
+
     public void SetState(GridSquareState state)
     {
         switch (state)

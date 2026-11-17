@@ -12,7 +12,8 @@ public class InventoryGrid : MonoBehaviour
     public GameObject itemPrefab;
     GridSquare[,] grid;
     List<InventoryContent> contents = new();
-    private void Start()
+
+    public void Initialize()
     {
         instance = this;
         grid = new GridSquare[totalColumns, totalRows];
@@ -28,8 +29,7 @@ public class InventoryGrid : MonoBehaviour
                 gridSquare.col = j;
                 grid[j, i] = gridSquare;
             }
-        }
-      
+        }     
     }
 
     float GetX(int column)
@@ -170,5 +170,15 @@ public class InventoryGrid : MonoBehaviour
         }
 
         return null;
+    }
+
+    public GridSquare GetInventoryGridSquare(int column, int row)
+    {
+        if (column < 0 || column >= totalColumns)
+            return null;
+        if (row < 0 || row >= totalRows)
+            return null;
+
+        return grid[column, row];
     }
 }

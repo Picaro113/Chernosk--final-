@@ -1,10 +1,12 @@
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.EventSystems;
 
 public class EquipmentSlot : ItemSquare, IPointerExitHandler
 {
     public EquipmentType equipmentType;
     InventoryItem equippedItem;
+    public UnityEvent<InventoryItem> onEquippedItemChange;
     public override void DropItem()
     {
         if (InventoryHand.i.GetHeldItem() != null)
@@ -22,7 +24,17 @@ public class EquipmentSlot : ItemSquare, IPointerExitHandler
             RectTransform rect = GetComponent<RectTransform>();
             equippedItem.SetSize(rect.sizeDelta.x *  rect.localScale.x, rect.sizeDelta.y * rect.localScale.y);
             equippedItem.transform.position = transform.position;
+
+            onEquippedItemChange.Invoke(equippedItem);
+            equippedItem.OnPickedUp.AddListener(OnEquippedItemRemoved);
         }
+    }
+
+    void OnEquippedItemRemoved()
+    {
+        equippedItem.OnPickedUp.RemoveListener(OnEquippedItemRemoved);
+        equippedItem = null;
+        onEquippedItemChange.Invoke(equippedItem);
     }
 
     public override bool IsValidLocation(InventoryItem item)
@@ -38,6 +50,11 @@ public class EquipmentSlot : ItemSquare, IPointerExitHandler
     public void OnPointerExit(PointerEventData eventData)
     {
         SetState(GridSquareState.normal);
+    }
+
+    public override ItemSquare GetOriginSquare(InventoryItem item)
+    {
+        return this;
     }
 }
 
