@@ -30,7 +30,6 @@ Material:
   - _SHADINGMETHOD_DEFAULT
   - _TEXTURESAMPLEMODE_POINT
   - _VERTEXJITTERMODE_DISABLED
-  - _VERTEXJITTERMODE_VIEW_SPACE
   m_InvalidKeywords: []
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
