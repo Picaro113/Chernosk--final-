@@ -20,6 +20,7 @@ public class EnemyScriptTest : MonoBehaviour
 
     void Update()
     {
+
         RandomPoint(transform.position, 100, out point);
         Vector3 direction = Player.transform.position - transform.position;
 

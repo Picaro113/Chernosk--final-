@@ -22,14 +22,14 @@ public class Stalker : MonoBehaviour
 
     void Update()
     {
+
         if (detector.infront == true)
         {
-            transform.LookAt(Player.transform.position);
             agent.SetDestination(Player.transform.position);
         }
-        else
+        if (detector.infront == false)
         {
-            return;
+            agent.SetDestination(transform.position);
         }
     }
 }
