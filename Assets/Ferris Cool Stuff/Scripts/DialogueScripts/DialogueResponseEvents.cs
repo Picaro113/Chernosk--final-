@@ -12,9 +12,7 @@ public class DialogueResponseEvents : MonoBehaviour
     public void OnValidate()
     {
         if (dialogueObject == null) return;
-        Debug.Log("Dialouge object null");
         if (dialogueObject.Responses == null) return;
-        Debug.Log("responses Null");
         if (events != null && events.Length == dialogueObject.Responses.Length) return;
 
         if(events == null)
@@ -28,7 +26,6 @@ public class DialogueResponseEvents : MonoBehaviour
 
         for (int i = 0; i < dialogueObject.Responses.Length; i++)
         {
-            Debug.Log("Event Happened");
             Response response = dialogueObject.Responses[i];
 
             if (events[i] != null)
