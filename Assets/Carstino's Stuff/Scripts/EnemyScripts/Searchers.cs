@@ -5,17 +5,15 @@ using UnityEngine.AI;
 
 public class Searchers : MonoBehaviour
 {
-    [Header("Scriptable Objects")]
-    public FactionNames factions;
-
-    [Header("StateMachine")]
-    public MainEnemyState stateMachine;
+    //[Header("Scriptable Objects")]
+    //public FactionNames factions;
 
     [Header("Ai")]
     public NavMeshAgent agent;
     public Transform planeVector;
     public float hunger = 50;
     public Vector3 point;
+    public MainEnemyState stateMachine;
 
     [Header("Lists")]
     public List<TestFood> foods = new List<TestFood>();
@@ -39,6 +37,7 @@ public class Searchers : MonoBehaviour
 
     [Header("Player references")]
     public GameObject Player;
+    public bool lostDuration;
 
     private void Start()
     {
@@ -53,23 +52,35 @@ public class Searchers : MonoBehaviour
         stateMachine = new MainEnemyState(this);
         stateMachine.Initialize(stateMachine.patrollState);
 
-        
-        if (factions != null)
-        {
-            Debug.Log("faction couroutine is starting");
-            StartCoroutine(FindTargetsWithDelay(.2f));
-        }
+        StartCoroutine(FindTargetsWithDelay(.2f));
 
         seenEnemy = false;
-
-
-        //Searching for faction
+        lostDuration = false;
     }
 
     private void Update()
     {
         hunger -= Time.deltaTime;
         stateMachine.Update();
+
+        if (lostDuration == true)
+        {
+            loseplayertime -= Time.deltaTime;
+
+            if (loseplayertime <= 0)
+            {
+                seenEnemy = false;
+                loseplayertime = 5;
+            }
+        }
+        else
+        {
+            loseplayertime = 5;
+        }
+
+        Debug.Log(lostDuration + " this is lost duration");
+        Debug.Log(seenEnemy + " this is the player seen");
+        Debug.Log(loseplayertime + " this is losing the player");
     }
 
     //this is finding a randompoint throughout the map
@@ -132,54 +143,28 @@ public class Searchers : MonoBehaviour
         for (int i = 0; i < targetsInViewRadius.Length; i++)
         {
             Transform target = targetsInViewRadius[i].transform;
-            Vector3 dirToTarget = (target.position - transform.position).normalized;
+            Player = target.gameObject;
+            Vector3 dirToTarget = (Player.transform.position - transform.position).normalized;
+            float dstToTarget = Vector3.Distance(transform.position, Player.transform.position);
+
             if (Vector3.Angle(transform.forward, dirToTarget) < viewAngle / 2)
             {
-                float dstToTarget = Vector3.Distance(transform.position, target.position);
-
-                if (!Physics.Raycast(transform.position, dirToTarget, dstToTarget, obstacleMask) && target.gameObject != gameObject)
+                if (!Physics.Raycast(transform.position, dirToTarget, dstToTarget, obstacleMask) && Player.gameObject != gameObject)
                 {
-
-                    //if (target.gameObject.CompareTag("Player"))
-                    //{
-                    //    Debug.Log("Hello this is the player");
-                    //}
-                    //else
-                    //{
-                    //    Debug.Log("This is not the player");
-                    //}
-
-
-                    //Searchers targetfaction = target.GetComponent<Searchers>();
-                    //if (targetfaction != null && targetfaction != this.gameObject)
-                    //{
-                    //    if (factions.GetFaction(targetfaction.factions.myfaction) == true || factions.neutral == true)
-                    //    {
-                    //        if (factions.neutral == true && factions.GetFaction(targetfaction.factions.myfaction) == false)
-                    //        {
-                    //            Debug.Log("you're not my faction but we chill");
-                    //        }
-                    //        if (factions.GetFaction(targetfaction.factions.myfaction) == true)
-                    //        {
-                    //            Debug.Log("you're my faction");
-                    //            Debug.Log(targetfaction.factions.myfaction);
-                    //        }
-                    //    }
-                    //    else if (factions.GetFaction(targetfaction.factions.myfaction) == false || factions.neutral == false)
-                    //    {   
-                    //        if (factions.neutral == false)
-                    //        {
-                    //            Debug.Log("another faction");
-                    //            Debug.Log(targetfaction.factions.myfaction);  
-                    //        }
-                    //    
-                    //    }
-                    //}
+                    if (target.gameObject.CompareTag("Player"))
+                    {
+                        Debug.Log("this is the player");
+                        //seenEnemy = true;
+                    }
+                    else
+                    {
+                        Debug.Log("this is not the player");
+                    }
                 }
-                else
-                {
-                    seenEnemy = false;
-                }
+            }
+            if (Vector3.Angle(transform.forward, dirToTarget) !< viewAngle / 2)
+            {
+                Debug.Log("out of view");
             }
         }
     }
@@ -194,6 +179,14 @@ public class Searchers : MonoBehaviour
         bullet.GetComponent<Rigidbody>().linearVelocity = Quaternion.AngleAxis(Random.Range(-2f, 2f), Vector3.up) * shootdir * 55;
         Debug.Log("shoot");
         shottimer = 0;
+    }
+
+    public void Chase() {
+        agent.SetDestination(Player.transform.position);
+        //if (Vector3.Distance(transform.position, Player.transform.position) < )
+        //{ 
+        //    // attack
+        //}
     }
 
     public void Something()

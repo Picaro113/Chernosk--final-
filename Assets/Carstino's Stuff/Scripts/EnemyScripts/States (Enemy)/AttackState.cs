@@ -14,12 +14,8 @@ public class AttackState : IState
     }
     public void Update()
     {
-        searchers.shoot();
-
-        if (searchers.loseplayertime > 0)
-        {
-            searchers.seenEnemy = false;
-        }
+        //searchers.shoot();
+        searchers.Chase();
 
         if (searchers.seenEnemy == false)
         {
