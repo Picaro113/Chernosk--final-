@@ -130,7 +130,7 @@ Material:
     - _DitherStrength: 1
     - _DstBlend: 0
     - _DstBlendAlpha: 0
-    - _EnableAffineTextureMapping: 1
+    - _EnableAffineTextureMapping: 0
     - _EnableDithering: 0
     - _EnableShadows: 0
     - _EnableTextureDownsampling: 1

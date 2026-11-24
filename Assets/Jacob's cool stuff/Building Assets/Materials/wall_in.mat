@@ -130,7 +130,7 @@ Material:
     - _DitherStrength: 1
     - _DstBlend: 0
     - _DstBlendAlpha: 0
-    - _EnableAffineTextureMapping: 1
+    - _EnableAffineTextureMapping: 0
     - _EnableDithering: 0
     - _EnableShadows: 0
     - _EnableTextureDownsampling: 1
@@ -161,7 +161,7 @@ Material:
     - _Surface: 0
     - _SurfaceType: 0
     - _TEXTURESAMPLEMODE: 0
-    - _TextureResolution: 172.2
+    - _TextureResolution: 143.4
     - _TextureResolutionScale: 1
     - _UVSec: 0
     - _UseColorQuantization: 1

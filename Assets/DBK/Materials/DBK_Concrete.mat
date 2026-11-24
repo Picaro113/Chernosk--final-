@@ -315,7 +315,7 @@ Material:
     - PixelSnap: 0
     - _AO: 3.07
     - _AddPrecomputedVelocity: 0
-    - _AffineWrapStrength: 1
+    - _AffineWrapStrength: 0
     - _Albedo: 0
     - _AlphaClip: 0
     - _AlphaClipThreshold: 0
@@ -335,7 +335,7 @@ Material:
     - _ClearCoatMask: 0
     - _ClearCoatSmoothness: 0
     - _Color: 2
-    - _ColorDepth: 32
+    - _ColorDepth: 19.17
     - _ColorTheme1: 1.1163812
     - _ColorTheme2: 0
     - _ColorThemeSel: 0
@@ -409,7 +409,7 @@ Material:
     - _EnableDithering: 0
     - _EnableExternalAlpha: 0
     - _EnableShadows: 0
-    - _EnableTextureDownsampling: 0
+    - _EnableTextureDownsampling: 1
     - _EnvironmentReflections: 1
     - _Exp: 33.8
     - _ExtraDamage: 0
@@ -491,7 +491,7 @@ Material:
     - _Surface: 0
     - _SurfaceType: 0
     - _TEXTURESAMPLEMODE: 0
-    - _TextureResolution: 256
+    - _TextureResolution: 348.4
     - _TextureResolutionScale: 1
     - _Tiling: 5
     - _TransitionAmount: 0.0020354865

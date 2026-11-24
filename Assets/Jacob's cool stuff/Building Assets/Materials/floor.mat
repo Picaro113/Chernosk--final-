@@ -110,7 +110,7 @@ Material:
     m_Ints: []
     m_Floats:
     - _AddPrecomputedVelocity: 0
-    - _AffineWrapStrength: 0.45
+    - _AffineWrapStrength: 0.11
     - _AlphaClip: 0
     - _AlphaClipThreshold: 0
     - _AlphaToMask: 0
@@ -130,7 +130,7 @@ Material:
     - _DitherStrength: 1
     - _DstBlend: 0
     - _DstBlendAlpha: 0
-    - _EnableAffineTextureMapping: 1
+    - _EnableAffineTextureMapping: 0
     - _EnableDithering: 0
     - _EnableShadows: 0
     - _EnableTextureDownsampling: 1
@@ -161,7 +161,7 @@ Material:
     - _Surface: 0
     - _SurfaceType: 0
     - _TEXTURESAMPLEMODE: 0
-    - _TextureResolution: 118.8
+    - _TextureResolution: 103.5
     - _TextureResolutionScale: 1
     - _UVSec: 0
     - _UseColorQuantization: 1
