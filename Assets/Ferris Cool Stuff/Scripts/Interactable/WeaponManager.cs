@@ -12,10 +12,6 @@ public class WeaponManager : MonoBehaviour
 
     public GameObject activeWeaponSlot;
 
-    [Header("Ammo")]
-    public int total762mmAmmo = 0;
-    public int total45acpAmmo = 0;
-
     private void Awake()
     {
         if (Instance != null && Instance != this)
@@ -126,44 +122,9 @@ public class WeaponManager : MonoBehaviour
         } 
     }
 
-    internal void PickupAmmo(AmmoBox ammoBox)
-    {
-        switch (ammoBox.ammoType)
-        {
-            case AmmoBox.AmmoType._762mm:
-                total762mmAmmo += ammoBox.ammoAmount;
-                break;
-            case AmmoBox.AmmoType._45acp:
-                total45acpAmmo += ammoBox.ammoAmount;
-                break;
-        }
-    }
-
-    internal void DecreaseTotalAmmo(int bulletsLeft, Gun.GunModel thisWeaponModel)
-    {
-        switch (thisWeaponModel)
-        {
-            case Gun.GunModel.Pistol1911:
-                total45acpAmmo -= bulletsLeft;
-                break;
-            case Gun.GunModel.AKM:
-                total762mmAmmo -= bulletsLeft;
-                break;
-        }
-    }
     public int CheckAmmoLeftFor(Gun.GunModel thisWeaponModel)
     {
-        switch (thisWeaponModel)
-        {
-            case GunModel.Pistol1911:
-                return total45acpAmmo;
-
-            case GunModel.AKM:
-                return total762mmAmmo;
-
-            default:
-                return 0;
-        }
+        return EquipmentManager.instance.GetCurrentAmmo();
     }
 
 

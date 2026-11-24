@@ -168,12 +168,12 @@ public class Gun : MonoBehaviour
     private void ReloadCompleted()
     {
         int bulletsNeeded = magazineSize - bulletsLeft;
-        int availableAmmo = WeaponManager.Instance.CheckAmmoLeftFor(thisWeaponModel);
+        int availableAmmo = EquipmentManager.instance.GetCurrentAmmo();
         int bulletsToReload = Math.Min(bulletsNeeded, availableAmmo);
 
         bulletsLeft += bulletsToReload;
 
-        WeaponManager.Instance.DecreaseTotalAmmo(bulletsToReload, thisWeaponModel);
+        EquipmentManager.instance.ConsumeAmmo(bulletsToReload);
 
         isReloading = false;
     }

@@ -43,6 +43,14 @@ public class InventoryItem : MonoBehaviour, IPointerDownHandler
 
     int previousColumn;
     int previousRow;
+    public UnityEvent OnRemovedFromInventory;
+    public UnityEvent OnAddedToInventory;
+
+    void Start()
+    {
+        OnAddedToInventory?.Invoke();
+    }
+
     public void SetGridSquareSize(float size)
     {
         RectTransform rect = GetComponent<RectTransform>();

@@ -54,33 +54,19 @@ public class InteractionManager : MonoBehaviour
                     gunHoveredOver.GetComponent<Outline>().enabled = false;
                 }
             }
-            // ammo box 
-            if (objectHitByRaycast.GetComponent<AmmoBox>())
-            {
-                hoveredAmmoBox = objectHitByRaycast.gameObject.GetComponent<AmmoBox>();
-                hoveredAmmoBox.GetComponent<Outline>().enabled = true;
-
-                if (Input.GetKeyDown(KeyCode.F))
-                {
-                    WeaponManager.Instance.PickupAmmo(hoveredAmmoBox);
-                    Destroy(objectHitByRaycast.gameObject);
-                }
-            }
-
-            else
-            {
-                if (hoveredAmmoBox)
-                {
-                    hoveredAmmoBox.GetComponent<Outline>().enabled = false;
-                }
-            }
         }
     }
     void PickUp(PickUp item)
     {
         GameObject spawned = Instantiate(item.itemData.inventoryPrefab);
-        if (InventoryGrid.instance.AddItem(spawned.GetComponent<InventoryItem>())) 
+        InventoryItem inventoryItem = spawned.GetComponent<InventoryItem>();
+        Ammo pickedUpAmmo = item.GetComponent<Ammo>();
+        if (InventoryGrid.instance.AddItem(inventoryItem)) 
         {
+            if (pickedUpAmmo != null)
+            {
+                spawned.GetComponent<Ammo>().amount = pickedUpAmmo.amount;
+            }
             Destroy(item.gameObject);
         }
     }

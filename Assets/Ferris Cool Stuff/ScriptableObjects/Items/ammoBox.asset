@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: feaae0517409ce04aa7aa498f03ec45d, type: 3}
+  m_Name: ammoBox
+  m_EditorClassIdentifier: Assembly-CSharp::ItemData
+  inventoryPrefab: {fileID: 3554397679634337268, guid: 60a4034a1fd45e54a96699219353d892, type: 3}
+  worldPrefab: {fileID: 7849997143216767248, guid: 26c71f57d09894740a00b728adde9ac7, type: 3}
+  equipmentType: 8
