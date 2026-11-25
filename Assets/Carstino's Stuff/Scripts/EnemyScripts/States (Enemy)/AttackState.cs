@@ -18,7 +18,7 @@ public class AttackState : IState
         searchers.Chase();
         if (searchers.seenEnemy == true)
         {
-            searchers.shoot();
+            searchers.Something();
         }
         if (searchers.seenEnemy == false)
         {

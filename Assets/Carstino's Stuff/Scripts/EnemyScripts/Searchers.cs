@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.Rendering;
 
 public class Searchers : MonoBehaviour
 {
@@ -53,7 +54,7 @@ public class Searchers : MonoBehaviour
     {
         hunger -= Time.deltaTime;
         stateMachine.Update();
-
+        Debug.Log("currentstate is" + stateMachine.CurrentState);
         if (lostDuration == true)
         {
             loseplayertime -= Time.deltaTime;
@@ -67,6 +68,11 @@ public class Searchers : MonoBehaviour
         else
         {
             loseplayertime = 5;
+        }
+
+        if (seenEnemy == true)
+        {
+            shottimer += Time.deltaTime;
         }
 
         Debug.Log(lostDuration + " this is lost duration");
@@ -129,31 +135,96 @@ public class Searchers : MonoBehaviour
 
     public void FindVisibleTargets()
     {
-        Collider[] targetsInViewRadius = Physics.OverlapSphere(transform.position, viewRadius, targetMask);
+        
 
-        for (int i = 0; i < targetsInViewRadius.Length; i++)
+
+        if (Vector3.Distance(transform.position, Player.transform.position) < viewRadius)
         {
-            Transform target = targetsInViewRadius[i].transform;
-            Player = target.gameObject;
-            Vector3 dirToTarget = (Player.transform.position - transform.position).normalized;
-            float dstToTarget = Vector3.Distance(transform.position, Player.transform.position);
-
-            if (Vector3.Angle(transform.forward, dirToTarget) < viewAngle / 2)
+            Vector3 targetdir = Player.transform.position - transform.position;
+            float angleto = Vector3.Angle(targetdir, transform.forward);
+            if (angleto >= -viewAngle && angleto <= viewAngle)
             {
-                if (!Physics.Raycast(transform.position, dirToTarget, dstToTarget, obstacleMask) && Player.gameObject != gameObject)
+                Ray ray = new Ray(transform.position, targetdir);
+                RaycastHit hitinfo = new RaycastHit();
+
+                if (Physics.Raycast(ray, out hitinfo, viewRadius))
                 {
-                    if (target.gameObject.CompareTag("Player"))
+                    if (hitinfo.transform.gameObject == Player)
                     {
-                        Debug.Log("this is the player");
+                        Debug.DrawRay(ray.origin, ray.direction * viewRadius);
                         seenEnemy = true;
+
                     }
-                    else
-                    {
-                        Debug.Log("this is not the player");
-                    }
+
+
+
                 }
             }
         }
+        else
+        {
+            seenEnemy = false;  
+        }
+
+
+        /// Collider[] targetsInViewRadius = Physics.OverlapSphere(transform.position, viewRadius, targetMask);
+        // for (int i = 0; i < targetsInViewRadius.Length; i++)
+        // {
+        //     Transform target = targetsInViewRadius[i].transform;
+        //     if (targetsInViewRadius[i].gameObject.CompareTag("Player"))
+        //     {
+        //         Debug.Log("Player is in the range view");
+        //     }
+        //     Player = target.gameObject;
+        //     Vector3 dirToTarget = (Player.transform.position - transform.position).normalized;
+        //     float dstToTarget = Vector3.Distance(transform.position, Player.transform.position);
+        //
+        //
+        //    
+        //
+        //
+        //
+        //     if (Vector3.Angle(transform.forward, dirToTarget) <= viewAngle / 2)
+        //     {
+        //         Ray ray = new Ray(transform.position, dirToTarget);
+        //         if (!Physics.Raycast(transform.position, dirToTarget, dstToTarget, obstacleMask) && Player.gameObject != gameObject)
+        //         {
+        //             if (target.gameObject.CompareTag("Player"))
+        //             {
+        //                 Debug.Log("this is the player in view angle");
+        //                 seenEnemy = true;
+        //                 Debug.DrawRay(ray.origin, ray.direction * viewRadius);
+        //             }
+        //         }
+        //     }
+        //     if (Vector3.Angle(transform.forward, dirToTarget) > viewAngle / 2)
+        //     {
+        //         Ray ray = new Ray(transform.position, dirToTarget);
+        //         if (!Physics.Raycast(transform.position, dirToTarget, dstToTarget, obstacleMask) && Player.gameObject != gameObject)
+        //         {
+        //             if (target.gameObject.CompareTag("Player"))
+        //             {
+        //                 Debug.Log("this is the player out of view angle");
+        //                 seenEnemy = false;
+        //                
+        //                 Debug.DrawRay(ray.origin, ray.direction * viewRadius);
+        //             }
+        //         }
+        //     }
+        //
+        //
+        //
+        //
+        // }
+        // if(targetsInViewRadius.Length == 0)
+        // {
+        //     seenEnemy = false;
+        //     Debug.Log("no enemies");
+        // }
+        //
+
+
+
     }
 
     public void shoot()
@@ -163,13 +234,15 @@ public class Searchers : MonoBehaviour
         //calc dir to palyer
         Vector3 shootdir = (Player.transform.position - gunbarrel.position).normalized;
         //add force to rb
-        bullet.GetComponent<Rigidbody>().linearVelocity = Quaternion.AngleAxis(Random.Range(-2f, 2f), Vector3.up) * shootdir * 55;
+        bullet.GetComponent<Rigidbody>().linearVelocity = Quaternion.AngleAxis(Random.Range(-2f, 2f), Vector3.up) * transform.forward * 55;
         Debug.Log("shoot");
         shottimer = 0;
     }
 
     public void Chase() 
     {
+        //float rand = Random.Range(1, 3);
+        //Vector3 pos = new Vector3(Player.transform.position.x + rand, Player.transform.position.y + rand, Player.transform.position.z);
         agent.SetDestination(Player.transform.position);
     }
 
@@ -179,21 +252,20 @@ public class Searchers : MonoBehaviour
         loseplayertime = 0;
         movetimer += Time.deltaTime;
         shottimer += Time.deltaTime;
-        transform.LookAt(Player.transform);
-        //if shot timer > firerate
         if (shottimer > firerate)
         {
             shoot();
+            shottimer = 0;
         }
 
-        if (movetimer > Random.Range(2, 5)) //move to random position after random time
-        {
-            agent.SetDestination(transform.position + (Random.insideUnitSphere * 5));
-            movetimer = 0;
-        }
-
-        transform.position = Player.transform.position;
-        shoot();
+        //if (movetimer > Random.Range(2, 5)) //move to random position after random time
+        //{
+        //    agent.SetDestination(transform.position + (Random.insideUnitSphere * 5));
+        //    movetimer = 0;
+        //}
+        //
+        //transform.position = Player.transform.position;
+        //shoot();
     }
 
     public IEnumerator FindTargetsWithDelay(float delay)
