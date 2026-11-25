@@ -14,13 +14,12 @@ public class AttackState : IState
     }
     public void Update()
     {
-        searchers.shoot();
-
-        if (searchers.loseplayertime > 0)
+        //searchers.shoot();
+        searchers.Chase();
+        if (searchers.seenEnemy == true)
         {
-            searchers.seenEnemy = false;
+            searchers.shoot();
         }
-
         if (searchers.seenEnemy == false)
         {
             searchers.stateMachine.TransitionTo(searchers.stateMachine.patrollState);

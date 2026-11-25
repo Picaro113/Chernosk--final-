@@ -18,13 +18,13 @@ public class FoodState : IState
     }
     public void Update()
     {
-        if (searchers.hunger > 50)
-        {
-            searchers.stateMachine.TransitionTo(searchers.stateMachine.searchState);
-            return;
-        }
-        Debug.Log("he's always hungry");
-        searchers.closestObject();
+        //if (searchers.hunger > 50)
+        //{
+        //    searchers.stateMachine.TransitionTo(searchers.stateMachine.searchState);
+        //    return;
+        //}
+        //Debug.Log("he's always hungry");
+        //searchers.closestObject();
     }
 
     public void Exit()

@@ -129,7 +129,7 @@ Material:
     - _EnableAffineTextureMapping: 1
     - _EnableDithering: 0
     - _EnableShadows: 0
-    - _EnableTextureDownsampling: 0
+    - _EnableTextureDownsampling: 1
     - _EnvironmentReflections: 1
     - _GlossMapScale: 0
     - _Glossiness: 0
@@ -157,7 +157,7 @@ Material:
     - _Surface: 0
     - _SurfaceType: 0
     - _TEXTURESAMPLEMODE: 0
-    - _TextureResolution: 719.2
+    - _TextureResolution: 64.3
     - _TextureResolutionScale: 1
     - _UVSec: 0
     - _UseColorQuantization: 1
