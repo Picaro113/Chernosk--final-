@@ -16,7 +16,10 @@ public class AttackState : IState
     {
         //searchers.shoot();
         searchers.Chase();
-
+        if (searchers.seenEnemy == true)
+        {
+            searchers.shoot();
+        }
         if (searchers.seenEnemy == false)
         {
             searchers.stateMachine.TransitionTo(searchers.stateMachine.patrollState);

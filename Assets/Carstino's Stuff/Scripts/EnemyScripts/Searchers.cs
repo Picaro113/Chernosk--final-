@@ -5,18 +5,12 @@ using UnityEngine.AI;
 
 public class Searchers : MonoBehaviour
 {
-    //[Header("Scriptable Objects")]
-    //public FactionNames factions;
-
     [Header("Ai")]
     public NavMeshAgent agent;
     public Transform planeVector;
     public float hunger = 50;
     public Vector3 point;
     public MainEnemyState stateMachine;
-
-    [Header("Lists")]
-    public List<TestFood> foods = new List<TestFood>();
 
     [Header("Detection for enemies")]
     public float viewRadius;
@@ -43,10 +37,7 @@ public class Searchers : MonoBehaviour
     {
         //OtherComponents
         agent = GetComponent<NavMeshAgent>();
-        TestFood[] food = GameObject.FindObjectsByType<TestFood>(FindObjectsSortMode.None);
         Searchers[] search = GameObject.FindObjectsByType<Searchers>(FindObjectsSortMode.None);
-        foods.AddRange(food);
-
 
         //StateMachine Initialization
         stateMachine = new MainEnemyState(this);
@@ -102,30 +93,30 @@ public class Searchers : MonoBehaviour
     }
 
     //finds the closest object (food) from the current gameObject this script is on
-    public TestFood closestObject()
-    {
-        TestFood closestTarget = null;
-        float closestDistanceSqr = float.MaxValue;
-
-        foreach (TestFood food in foods)
-        {
-            if (food == null) continue;
-
-            Vector3 directionToTarget = food.transform.position - transform.position;
-            float dSqrToTarget = directionToTarget.sqrMagnitude;
-
-            if (dSqrToTarget < closestDistanceSqr)
-            {
-                closestDistanceSqr = dSqrToTarget;
-                closestTarget = food;
-            }
-        }
-        if (closestTarget != null)
-        {
-            agent.SetDestination(closestTarget.transform.position);
-        }
-        return closestTarget;
-    }
+    //public TestFood closestObject()
+    //{
+    //    TestFood closestTarget = null;
+    //    float closestDistanceSqr = float.MaxValue;
+    //
+    //    foreach (TestFood food in foods)
+    //    {
+    //        if (food == null) continue;
+    //
+    //        Vector3 directionToTarget = food.transform.position - transform.position;
+    //        float dSqrToTarget = directionToTarget.sqrMagnitude;
+    //
+    //        if (dSqrToTarget < closestDistanceSqr)
+    //        {
+    //            closestDistanceSqr = dSqrToTarget;
+    //            closestTarget = food;
+    //        }
+    //    }
+    //    if (closestTarget != null)
+    //    {
+    //        agent.SetDestination(closestTarget.transform.position);
+    //    }
+    //    return closestTarget;
+    //}
     //makes a cone to calculate if something is infront of it
     public Vector3 DirFromAngle(float angleInDegrees, bool angleIsGlobal)
     {
@@ -154,17 +145,13 @@ public class Searchers : MonoBehaviour
                     if (target.gameObject.CompareTag("Player"))
                     {
                         Debug.Log("this is the player");
-                        //seenEnemy = true;
+                        seenEnemy = true;
                     }
                     else
                     {
                         Debug.Log("this is not the player");
                     }
                 }
-            }
-            if (Vector3.Angle(transform.forward, dirToTarget) !< viewAngle / 2)
-            {
-                Debug.Log("out of view");
             }
         }
     }
@@ -181,12 +168,9 @@ public class Searchers : MonoBehaviour
         shottimer = 0;
     }
 
-    public void Chase() {
+    public void Chase() 
+    {
         agent.SetDestination(Player.transform.position);
-        //if (Vector3.Distance(transform.position, Player.transform.position) < )
-        //{ 
-        //    // attack
-        //}
     }
 
     public void Something()
