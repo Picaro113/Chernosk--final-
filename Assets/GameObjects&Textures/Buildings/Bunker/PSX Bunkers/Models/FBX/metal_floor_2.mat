@@ -128,7 +128,7 @@ Material:
     - _DstBlendAlpha: 0
     - _EnableAffineTextureMapping: 0
     - _EnableDithering: 0
-    - _EnableShadows: 1
+    - _EnableShadows: 0
     - _EnableTextureDownsampling: 0
     - _EnvironmentReflections: 1
     - _GlossMapScale: 1
@@ -136,7 +136,7 @@ Material:
     - _GlossyReflections: 1
     - _HueShift: 0
     - _LIGHTINGMETHOD: 1
-    - _LightnessMultiplier: 1
+    - _LightnessMultiplier: 1.01
     - _Metallic: 0
     - _Metalness: 0
     - _Mode: 0
@@ -162,7 +162,7 @@ Material:
     - _UVSec: 0
     - _UseColorQuantization: 1
     - _UsePalette: 0
-    - _UseSpecular: 1
+    - _UseSpecular: 0
     - _UseVertexColor: 0
     - _VERTEXJITTERMODE: 1
     - _VertexPrecision: 143

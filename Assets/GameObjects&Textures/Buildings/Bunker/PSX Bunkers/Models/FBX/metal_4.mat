@@ -13,7 +13,7 @@ Material:
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords:
   - _DITHERINGMETHOD_TEXTURERELATIVE
-  - _LIGHTINGMETHOD_LIT
+  - _LIGHTINGMETHOD_VERTEX_LIT
   - _SHADINGMETHOD_DEFAULT
   - _TEXTURESAMPLEMODE_POINT
   - _VERTEXJITTERMODE_VIEW_SPACE
@@ -115,14 +115,14 @@ Material:
     - _DstBlendAlpha: 0
     - _EnableAffineTextureMapping: 0
     - _EnableDithering: 0
-    - _EnableShadows: 1
+    - _EnableShadows: 0
     - _EnableTextureDownsampling: 0
     - _EnvironmentReflections: 1
     - _GlossMapScale: 1
     - _Glossiness: 0
     - _GlossyReflections: 1
     - _HueShift: 0
-    - _LIGHTINGMETHOD: 1
+    - _LIGHTINGMETHOD: 3
     - _LightnessMultiplier: 1
     - _Metallic: 0
     - _Metalness: 0
@@ -149,7 +149,7 @@ Material:
     - _UVSec: 0
     - _UseColorQuantization: 1
     - _UsePalette: 0
-    - _UseSpecular: 1
+    - _UseSpecular: 0
     - _UseVertexColor: 0
     - _VERTEXJITTERMODE: 1
     - _VertexPrecision: 143
