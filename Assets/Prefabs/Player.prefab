@@ -307,7 +307,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3361618647429304588}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.050512165, y: 0.8776271, z: 0.46713302, w: 0.09489983}
+  m_LocalRotation: {x: -0.009599164, y: -0.0000000042384936, z: 5.8188947e-11, w: 0.9999539}
   m_LocalPosition: {x: 0, y: 0.43799996, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -316,7 +316,7 @@ Transform:
   - {fileID: 3643055650314039194}
   - {fileID: 2127504293884765454}
   m_Father: {fileID: 5695499891359873042}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -21.573, y: 167.657, z: 0}
 --- !u!114 &8847976408852246478
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -341,7 +341,7 @@ MonoBehaviour:
     LookAtTarget: {fileID: 0}
     CustomLookAtTarget: 0
   Lens:
-    FieldOfView: 60.000004
+    FieldOfView: 90.6
     OrthographicSize: 5
     NearClipPlane: 0.3
     FarClipPlane: 1000
@@ -375,7 +375,7 @@ MonoBehaviour:
   ReferenceFrame: 0
   RecenterTarget: 0
   PanAxis:
-    Value: 167.6569
+    Value: 0
     Center: 0
     Range: {x: -180, y: 180}
     Wrap: 1
@@ -385,7 +385,7 @@ MonoBehaviour:
       Time: 2
     Restrictions: 0
   TiltAxis:
-    Value: -56.049908
+    Value: -1.1
     Center: 0
     Range: {x: -70, y: 70}
     Wrap: 0
@@ -732,8 +732,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8116208325415563197}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.050512165, y: -0.8776271, z: -0.46713302, w: 0.09489983}
-  m_LocalPosition: {x: -0.12096594, y: 0.2760407, z: -0.7138555}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.039, y: -0.156, z: 0.716}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

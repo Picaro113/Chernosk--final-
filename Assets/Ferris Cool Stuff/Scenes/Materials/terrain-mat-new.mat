@@ -25,7 +25,7 @@ Material:
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords:
-  - _LIGHTINGMETHOD_UNLIT
+  - _LIGHTINGMETHOD_LIT
   - _SHADINGMETHOD_DEFAULT
   - _TEXTURESAMPLEMODE_BILINEAR
   - _VERTEXJITTERMODE_DISABLED
@@ -198,7 +198,7 @@ Material:
     - _GlossyReflections: 0
     - _HeightTransition: 0
     - _HueShift: 0
-    - _LIGHTINGMETHOD: 0
+    - _LIGHTINGMETHOD: 1
     - _LightnessMultiplier: 1
     - _Metallic: 0
     - _Metallic0: 0
@@ -213,7 +213,7 @@ Material:
     - _ReceiveShadows: 1
     - _SHADINGMETHOD: 0
     - _SaturationMultiplier: 1
-    - _ShadowDistCutoff: 100
+    - _ShadowDistCutoff: 120.39
     - _ShadowOffset: 0.01
     - _Smoothness: 0
     - _Smoothness0: 0.5
@@ -228,7 +228,7 @@ Material:
     - _TEXTURESAMPLEMODE: 1
     - _TextureResolution: 10.8
     - _TextureResolutionScale: 512
-    - _UseColorQuantization: 1
+    - _UseColorQuantization: 0
     - _UsePalette: 0
     - _UseSpecular: 0
     - _UseVertexColor: 0
@@ -241,7 +241,7 @@ Material:
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _ShadowTint: {r: 0, g: 0, b: 0, a: 1}
+    - _ShadowTint: {r: 1, g: 1, b: 1, a: 1}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
     - _SpecularColor: {r: 1, g: 1, b: 1, a: 0}
     - _TintColor: {r: 1, g: 1, b: 1, a: 0}

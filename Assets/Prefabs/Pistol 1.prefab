@@ -44,6 +44,7 @@ GameObject:
   - component: {fileID: 2064867799775505435}
   - component: {fileID: 6219168926650691094}
   - component: {fileID: 4024084816084425003}
+  - component: {fileID: 7309322647331889976}
   m_Layer: 0
   m_Name: Pistol 1
   m_TagString: Untagged
@@ -142,6 +143,19 @@ MonoBehaviour:
   precomputeOutline: 0
   bakeKeys: []
   bakeValues: []
+--- !u!114 &7309322647331889976
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 179495945047823688}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 806906dafdb81f24493a925c196ff33a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PickUp
+  itemData: {fileID: 11400000, guid: 680efbdb6192ba74dac119e9d4f4d127, type: 2}
 --- !u!1 &539189186888426215
 GameObject:
   m_ObjectHideFlags: 0

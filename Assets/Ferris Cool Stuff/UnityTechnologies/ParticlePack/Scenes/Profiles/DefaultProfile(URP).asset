@@ -453,10 +453,10 @@ MonoBehaviour:
     m_Value: 1
   ShowInSceneView:
     m_OverrideState: 1
-    m_Value: 0
+    m_Value: 1
   AmbientColor:
     m_OverrideState: 1
-    m_Value: {r: 0, g: 0, b: 0, a: 1}
+    m_Value: {r: 0.8962264, g: 0.8962264, b: 0.8962264, a: 1}
   EnablePixelation:
     m_OverrideState: 1
     m_Value: 1
@@ -468,10 +468,10 @@ MonoBehaviour:
     m_Value: {x: 256, y: 256}
   EnableColorPrecision:
     m_OverrideState: 1
-    m_Value: 1
+    m_Value: 0
   ColorPrecision:
     m_OverrideState: 1
-    m_Value: 32
+    m_Value: 256
   EnableDither:
     m_OverrideState: 1
     m_Value: 1
