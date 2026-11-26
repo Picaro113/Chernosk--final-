@@ -67,5 +67,6 @@ public enum EquipmentType
     Eyes,
     Weapon1,
     Weapon2,
-    Melee
+    Melee,
+    Ammo
 }

@@ -11,7 +11,12 @@ public class InventoryItemDropper : MonoBehaviour
 
     public void Drop(InventoryItem item)
     {
-        Instantiate(item.itemData.worldPrefab, transform.position, transform.rotation);
+        item.OnRemovedFromInventory.Invoke();
+        GameObject spawned = Instantiate(item.itemData.worldPrefab, transform.position, transform.rotation);
+        Ammo ammo = item.GetComponent<Ammo>();
+        if (ammo != null)
+        {
+            spawned.GetComponent<Ammo>().amount = ammo.amount;
+        }
     }
-  
 }
