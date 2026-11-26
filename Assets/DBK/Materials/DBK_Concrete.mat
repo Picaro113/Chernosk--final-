@@ -335,7 +335,7 @@ Material:
     - _ClearCoatMask: 0
     - _ClearCoatSmoothness: 0
     - _Color: 2
-    - _ColorDepth: 19.17
+    - _ColorDepth: 25
     - _ColorTheme1: 1.1163812
     - _ColorTheme2: 0
     - _ColorThemeSel: 0
