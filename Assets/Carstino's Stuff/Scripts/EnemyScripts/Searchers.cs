@@ -135,9 +135,6 @@ public class Searchers : MonoBehaviour
 
     public void FindVisibleTargets()
     {
-        
-
-
         if (Vector3.Distance(transform.position, Player.transform.position) < viewRadius)
         {
             Vector3 targetdir = Player.transform.position - transform.position;
@@ -153,17 +150,13 @@ public class Searchers : MonoBehaviour
                     {
                         Debug.DrawRay(ray.origin, ray.direction * viewRadius);
                         seenEnemy = true;
-
                     }
-
-
-
                 }
             }
         }
         else
         {
-            seenEnemy = false;  
+            seenEnemy = false;
         }
 
 
